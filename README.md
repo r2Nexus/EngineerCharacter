@@ -32,7 +32,7 @@ https://github.com/r2Nexus/EngineerCharacter/releases
 ---
 
 ## Building
-- Place required libraries in the `lib/` folder
+- Place required dependencies in the `lib/` folder
 - Run **package** in the Maven tool window
 - Output: target/EngineerChar.jar
 

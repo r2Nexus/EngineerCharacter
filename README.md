@@ -1,36 +1,42 @@
-# Basic Mod
+# The Engineer – Slay the Spire Mod
 
-This is an empty Slay the Spire mod + a modding tutorial.
+A Factorio-inspired character mod for **Slay the Spire**.  
+⚠️ **Early in development** — expect bugs, balance changes, and unfinished features.
 
-This tutorial will help with setup and the basics of Slay the Spire modding, but it will not teach you Java. If you know nothing of Java or programming in general, you are strongly recommended to look up a free online course and do at least some of it. It is possible to do modding with almost no proper knowledge, but it will make things much more difficult.
-
----
-
-## Check the wiki to get started:
-
-https://github.com/Alchyr/BasicMod/wiki
+👉 **Download the latest version:**  
+https://github.com/r2Nexus/EngineerCharacter/releases
 
 ---
 
-## Know what you're doing?
+## Dependencies
+- **Slay the Spire**
+- **ModTheSpire**
+- **BaseMod**
+- **StSLib**
 
-You can still use this mod as a base, or you could use another template like https://github.com/DarkVexon/ProTemplate
+---
 
-You can find more options in the pins of the #modding-technical channel in the Slay the Spire discord server.
+## Features
+- New playable character: **The Engineer**
+- Custom cards, relics, and orbs
+- A new card-based resource system
 
 ---
 
-### Some HD Slay the Spire art assets (courtesy of Gremious, creator of DefaultMod):
-
-Includes:
-- Empty Relic Template feat. empty bottle
-- Empty Card Template
-- Color-Changable cardback
-- A couple of HD Monster vectors (Louse, Nob, Sentry, Sneaky Gremlin)
-- A coupe of HD items (J.A.X., A Coin)
-- 2 people silhouettes
-- A curse Background
-
-https://github.com/Gremious/StS-DefaultModBase#some-hd-slay-the-spire-art-assets
+## Installation
+1. Install all dependencies
+2. Download the latest release
+3. Copy `EngineerChar.jar` to: SlayTheSpire/mods
+4. Launch the game via **ModTheSpire**
 
 ---
+
+## Building
+- Place required libraries in the `lib/` folder
+- Run **package** in the Maven tool window
+- Output: target/EngineerChar.jar
+
+---
+
+Fan-made mod. Slay the Spire © Mega Crit Games.  
+Inspired by **Factorio**.

@@ -1,0 +1,44 @@
+[
+  {
+    "PROPER_NAME": "Material",
+    "NAMES": ["material", "materials"],
+    "DESCRIPTION": "A resource used by cards and buildings.",
+    "COLOR": "FFD54F"
+  },
+  {
+    "PROPER_NAME": "Consume",
+    "NAMES": ["consume", "consumes", "consuming", "consumed"],
+    "DESCRIPTION": "Spend the shown amount of Material from your hand NL (unless specified otherwise). NL If you don't have enough, the effect does not happen.",
+    "COLOR": "FFD54F"
+  },
+  {
+    "PROPER_NAME": "Turret",
+    "NAMES": ["turret", "turrets"],
+    "DESCRIPTION": "An orb that consumes 1 Material from your hand to fire at the end of your turn.",
+    "COLOR": "FFD54F"
+  },
+  {
+    "PROPER_NAME": "Miner",
+    "NAMES": ["miner", "miners"],
+    "DESCRIPTION": "A building orb that produces Material.",
+    "COLOR": "FFD54F"
+  },
+  {
+    "PROPER_NAME": "Land Mine",
+    "NAMES": ["landmine", "landmines","LandMine", "LandMines","Landmine"],
+    "DESCRIPTION": "A trap orb that explodes when evoked.",
+    "COLOR": "FFD54F"
+  },
+  {
+    "PROPER_NAME": "Fire",
+    "NAMES": ["fire", "Fire"],
+    "DESCRIPTION": "Makes turrets deal their end of round damage without spending Material.",
+    "COLOR": "FFD54F"
+  },
+  {
+    "PROPER_NAME": "Stock",
+    "NAMES": ["stock", "Stock"],
+    "DESCRIPTION": "Refers to cards in Hand, Draw Pile and Discard Pile. NL In this order.",
+    "COLOR": "FFD54F"
+  }
+]

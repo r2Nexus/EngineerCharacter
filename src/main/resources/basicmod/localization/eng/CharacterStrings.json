@@ -1,0 +1,10 @@
+{
+  "EngineerChar:Engineer": {
+    "NAMES": ["Engineer"],
+    "TEXT": [
+      "A servant of the Factory, the Factory must grow!",
+      "Your Spire Heart text line here.",
+      "Your Vampire event text here."
+    ]
+  }
+}

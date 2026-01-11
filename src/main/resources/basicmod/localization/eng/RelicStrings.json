@@ -1,0 +1,16 @@
+{
+  "${modID}:BuiltMiner": {
+    "NAME": "Built Miner",
+    "FLAVOR": "Not enough minerals...",
+    "DESCRIPTIONS": [
+      "At the start of combat, channel 1 Miner and gain 1 Material."
+    ]
+  },
+  "${modID}:BuiltTurret": {
+    "NAME": "Built Turret",
+    "FLAVOR": "Automation begins.",
+    "DESCRIPTIONS": [
+      "At the start of combat, channel 1 Turret and gain 1 Material."
+    ]
+  }
+}

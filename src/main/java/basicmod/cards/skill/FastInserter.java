@@ -17,7 +17,7 @@ public class FastInserter extends BaseCard {
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
-            1
+            0
     );
 
     private static final int DRAW = 2;

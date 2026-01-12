@@ -114,7 +114,7 @@
   "${modID}:YellowBelt": {
     "NAME": "Yellow Belt",
     "DESCRIPTION": "Draw !M! cards. NL If you ${modID}:Consumed 2+ this turn, NL gain !${modID}:BONUS! ${modID}:Material.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL If you ${modID}:Consumed 2+ this turn, NL gain !BONUS! Material."
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL If you ${modID}:Consumed 2+ this turn, NL gain !{modID}:BONUS! Material."
   },
 
   "${modID}:RedBelt": {
@@ -269,8 +269,8 @@
 
   "${modID}:BudgetDefenses": {
     "NAME": "Budget Defenses",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !{modID}:DRAW! Material.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !{modID}:DRAW! Material."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !${modID}:DRAW! Material.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !${modID}:DRAW! Material."
   },
 
   "${modID}:ExpansionPolicy": {

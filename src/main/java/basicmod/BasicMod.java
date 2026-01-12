@@ -48,7 +48,8 @@ public class BasicMod implements
         EditCardsSubscriber,
         EditCharactersSubscriber,
         OnStartBattleSubscriber,
-        EditRelicsSubscriber{
+        EditRelicsSubscriber,
+        PostDrawSubscriber{
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
@@ -421,6 +422,11 @@ public class BasicMod implements
     public static int materialConsumedThisTurn = 0;
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        materialConsumedThisTurn = 0;
+    }
+
+    @Override
+    public void receivePostDraw(AbstractCard abstractCard) {
         materialConsumedThisTurn = 0;
     }
 }

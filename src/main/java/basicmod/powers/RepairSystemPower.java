@@ -32,8 +32,6 @@ public class RepairSystemPower extends BasePower {
             flash();
             addToBot(new GainBlockAction(owner, owner, this.amount));
         }
-
-        BasicMod.materialConsumedThisTurn = 0;
     }
 
     @Override

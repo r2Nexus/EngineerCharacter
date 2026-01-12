@@ -113,14 +113,14 @@
 
   "${modID}:YellowBelt": {
     "NAME": "Yellow Belt",
-    "DESCRIPTION": "Evoke 1 Orb. NL Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Evoke 1 Orb. NL Draw !M! cards."
+    "DESCRIPTION": "Draw !M! cards. NL If you ${modID}:Consumed 2+ this turn, NL gain !${modID}:BONUS! ${modID}:Material.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL If you ${modID}:Consumed 2+ this turn, NL gain !BONUS! Material."
   },
 
   "${modID}:RedBelt": {
     "NAME": "Red Belt",
-    "DESCRIPTION": "Evoke all Orbs. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Evoke all Orbs."
+    "DESCRIPTION": "Evoke all Orbs. NL Gain 1 ${modID}:Material for each evoked orb. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Evoke all Orbs. NL Gain 1 ${modID}:Material for each evoked orb."
   },
 
   "${modID}:YellowInserter": {
@@ -259,5 +259,23 @@
     "NAME": "Fluid Wagon",
     "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block for each ${modID}:Material in ${modID}:Stock.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !B! Block for each ${modID}:Material in ${modID}:Stock."
+  },
+
+  "${modID}:LightArmour": {
+    "NAME": "Light Armour",
+    "DESCRIPTION": "Gain !B! Block. NL If you ${modID}:Consumed 1+ this turn, gain !${modID}:BONUS! Block.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL If you ${modID}:Consumed 1+ this turn, gain !${modID}:BONUS! Block."
+  },
+
+  "${modID}:BudgetDefenses": {
+    "NAME": "Budget Defenses",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !{modID}:DRAW! Material.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !{modID}:DRAW! Material."
+  },
+
+  "${modID}:ExpansionPolicy": {
+    "NAME": "Expansion Policy",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, gain 1 ${modID}:Material.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, gain 1 ${modID}:Material."
   }
 }

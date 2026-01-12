@@ -24,7 +24,7 @@ public class Landfill extends BaseCard {
     public Landfill() {
         super(ID, info, BasicMod.imagePath("cards/power/landfill.png"));
         setMagic(SLOTS);
-        setCostUpgrade(-1);
+        setCostUpgrade(baseCost - 1);
     }
 
     @Override

@@ -114,7 +114,7 @@
   "${modID}:YellowBelt": {
     "NAME": "Yellow Belt",
     "DESCRIPTION": "Draw !M! cards. NL If you ${modID}:Consumed 2+ this turn, NL gain !${modID}:BONUS! ${modID}:Material.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL If you ${modID}:Consumed 2+ this turn, NL gain !{modID}:BONUS! Material."
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL If you ${modID}:Consumed 2+ this turn, NL gain !${modID}:BONUS! ${modID}:Material."
   },
 
   "${modID}:RedBelt": {

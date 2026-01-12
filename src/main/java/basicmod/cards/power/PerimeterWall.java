@@ -25,7 +25,7 @@ public class PerimeterWall extends BaseCard {
     public PerimeterWall() {
         super(ID, info, BasicMod.imagePath("cards/power/perimeter_wall.png"));
         setMagic(BLOCK, UPG_BLOCK);
-        setCostUpgrade(-1);
+        setCostUpgrade(baseCost - 1);
     }
 
     @Override

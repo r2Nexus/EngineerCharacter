@@ -14,7 +14,6 @@ public class MinerOrb extends BaseOrb {
 
     public MinerOrb() {
         super(ORB_ID, BasicMod.imagePath("orbs/miner.png"), BASE_PASSIVE, BASE_EVOKE);
-
         setFocusAffectsPassive(false);
         setFocusAffectsEvoke(true);
 

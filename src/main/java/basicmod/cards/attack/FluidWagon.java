@@ -35,7 +35,7 @@ public class FluidWagon extends BaseCard {
         tags.add(CardTagEnum.WAGON);
 
         setDamage(DAMAGE, UPG_DAMAGE);
-        setMagic(BLOCK_PER, UPG_BLOCK_PER);
+        setBlock(BLOCK_PER, UPG_BLOCK_PER);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class FluidWagon extends BaseCard {
 
         addToBot(new CountMaterialAction(materials -> {
             if (materials > 0) {
-                addToBot(new GainBlockAction(p, p, materials * magicNumber));
+                addToBot(new GainBlockAction(p, p, materials * block));
             }
         }));
     }

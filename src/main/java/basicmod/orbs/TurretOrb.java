@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
 
 public class TurretOrb extends BaseOrb {
     public static final String ORB_ID = makeID("Turret");

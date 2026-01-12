@@ -182,6 +182,7 @@ public class BasicMod implements
         BaseMod.addCard(new CargoWagon());
         BaseMod.addCard(new ArtilleryWagon());
         BaseMod.addCard(new FluidWagon());
+        BaseMod.addCard(new ExpansionPolicy());
 
         // --- Skills ---
         BaseMod.addCard(new Wall());
@@ -203,6 +204,8 @@ public class BasicMod implements
         BaseMod.addCard(new ChainSignal());
         BaseMod.addCard(new ScienceWagon());
         BaseMod.addCard(new Derailment());
+        BaseMod.addCard(new BudgetDefenses());
+        BaseMod.addCard(new LightArmour());
 
         // --- Powers ---
         BaseMod.addCard(new Landfill());

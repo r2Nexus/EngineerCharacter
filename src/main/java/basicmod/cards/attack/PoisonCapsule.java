@@ -29,9 +29,9 @@ public class PoisonCapsule extends BaseCard {
     private static final int DAMAGE = 6;
 
     private static final int POISON = 4;
-    private static final int UPG_POISON = 0;
+    private static final int UPG_POISON = 2;
 
-    private static final int DEBUFF = 1;      // weak and vulnerable
+    private static final int DEBUFF = 2;      // weak and vulnerable
     private static final int UPG_DEBUFF = 1;
 
     public PoisonCapsule() {
@@ -63,13 +63,13 @@ public class PoisonCapsule extends BaseCard {
             addToBot(new ApplyPowerAction(
                     m,
                     p,
-                    new WeakPower(m, debuffAmt, false),
+                    new VulnerablePower(m, debuffAmt, false),
                     debuffAmt
             ));
             addToBot(new ApplyPowerAction(
                     m,
                     p,
-                    new VulnerablePower(m, debuffAmt, false),
+                    new WeakPower(m, debuffAmt, false),
                     debuffAmt
             ));
         }));

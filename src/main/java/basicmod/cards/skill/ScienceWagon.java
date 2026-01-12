@@ -36,13 +36,13 @@ public class ScienceWagon extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < magicNumber; i++) {
-            AbstractCard science = ScienceCardPool.getRandom();
-            if (science == null) return;
+            AbstractCard proto = ScienceCardPool.getRandom();
+            if (proto == null) return;
 
-            // costs 0 this turn
+            AbstractCard science = proto.makeStatEquivalentCopy(); // or makeCopy()
+
             science.freeToPlayOnce = true;
-            science.costForTurn = 0;
-            science.isCostModifiedForTurn = true;
+            science.setCostForTurn(0); // cleaner than manually setting 3 fields
 
             addToBot(new MakeTempCardInHandAction(science, 1));
         }

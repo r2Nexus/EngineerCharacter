@@ -1,12 +1,12 @@
 {
   "${modID}:Wall": {
-    "NAME": "Wall",
+    "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block."
   },
 
   "${modID}:Pistol": {
-    "NAME": "Pistol",
+    "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
   },
 
@@ -53,7 +53,7 @@
 
   "${modID}:Landfill": {
     "NAME": "Landfill",
-    "DESCRIPTION": "Gain !M! Orb Slot. NL Exhaust.",
+    "DESCRIPTION": "Gain !M! Orb Slots. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! Orb Slots. NL Exhaust."
   },
 
@@ -233,8 +233,8 @@
 
   "${modID}:ChainSignal": {
     "NAME": "Chain Signal",
-    "DESCRIPTION": "The next Wagon you play is played twice.",
-    "UPGRADE_DESCRIPTION": "The next 2 Wagons you play are played twice."
+    "DESCRIPTION": "The next Wagon you play is played twice. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "The next 2 Wagons you play are played twice. NL Exhaust."
   },
 
   "${modID}:RailSignal": {

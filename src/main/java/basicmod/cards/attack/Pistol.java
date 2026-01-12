@@ -29,6 +29,7 @@ public class Pistol extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/attack/gun.png"));
         tags.add(CardTagEnum.GUN);
         tags.add(CardTags.STARTER_STRIKE);
+        tags.add(CardTags.STRIKE);
 
         setDamage(DAMAGE, UPG_DAMAGE);
     }

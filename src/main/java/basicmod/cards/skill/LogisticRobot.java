@@ -24,7 +24,7 @@ public class LogisticRobot extends BaseCard {
     private static final int BLOCK = 7;
     private static final int UPG_BLOCK = 0;
     private static final int MAT = 2;
-    private static final int UPG_MAT = 1;
+    private static final int UPG_MAT = -1;
 
     public LogisticRobot() {
         super(ID, info, BasicMod.imagePath("cards/skill/logistic_robot.png"));

@@ -1,18 +1,14 @@
 package basicmod.characters;
 
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.AbstractAnimation;
 import basemod.animations.SpriterAnimation;
 import basicmod.BasicMod;
 import basicmod.cards.attack.ManualLabor;
 import basicmod.cards.attack.Pistol;
-import basicmod.cards.attack.SubmachineGun;
 import basicmod.cards.attack.TurretPush;
-import basicmod.cards.skill.Turret;
 import basicmod.cards.skill.Wall;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.PlayerClassEnum;
-import basicmod.relics.BuiltMiner;
 
 import basicmod.relics.BuiltTurret;
 import com.badlogic.gdx.graphics.Color;

@@ -186,7 +186,7 @@
   "${modID}:RedScience": {
     "NAME": "Red Science",
     "DESCRIPTION": "At the start of your turn, NL add to your hand 1 ${modID}:Material.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, NL add to your hand 1 ${modID}:Material."
+    "UPGRADE_DESCRIPTION": "At the start of your turn, NL add to your hand 2 ${modID}:Material."
   },
 
   "${modID}:PerimeterWall": {
@@ -209,8 +209,8 @@
 
   "${modID}:HeavyArtillery": {
     "NAME": "Heavy Artillery",
-    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 5 from ${modID}:Stock: NL Deal !M! damage to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 5 from ${modID}:Stock: NL Deal !M! damage to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 5 from ${modID}:Stock: NL Deal !${modID}:SPLASH! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 5 from ${modID}:Stock: NL Deal !${modID}:SPLASH! damage to ALL enemies."
   },
 
   "${modID}:Locomotive": {

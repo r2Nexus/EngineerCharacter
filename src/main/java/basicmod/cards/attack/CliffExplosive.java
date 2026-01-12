@@ -16,8 +16,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class CliffExplosive extends BaseCard {
     public static final String ID = makeID("CliffExplosive");
 
-    private static final int DAMAGE = 12;
-    private static final int UPG_DAMAGE = 4;
+    private static final int DAMAGE = 9;
+    private static final int UPG_DAMAGE = 3;
 
     private static final int DISCARD = 2;
 

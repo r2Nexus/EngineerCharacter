@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class Landfill extends BaseCard {
     public static final String ID = makeID("Landfill");
 
-    private static final int SLOTS = 1;
-    private static final int UPG_SLOTS = 1;
+    private static final int SLOTS = 2;
 
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
@@ -24,7 +23,8 @@ public class Landfill extends BaseCard {
 
     public Landfill() {
         super(ID, info, BasicMod.imagePath("cards/power/landfill.png"));
-        setMagic(SLOTS, UPG_SLOTS);
+        setMagic(SLOTS);
+        setCostUpgrade(baseCost - 1);
     }
 
     @Override

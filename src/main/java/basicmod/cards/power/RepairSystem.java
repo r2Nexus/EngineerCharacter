@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class RepairSystem extends BaseCard {
     public static final String ID = makeID("RepairSystem");
 
-    private static final int BLOCK = 5;
+    private static final int BLOCK = 6;
     private static final int UPG_BLOCK = 3;
 
     private static final CardStats info = new CardStats(

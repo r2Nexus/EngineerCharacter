@@ -24,7 +24,7 @@ public class YellowInserter extends BaseCard {
     private static final int DRAW = 1;
     private static final int UPG_DRAW = 0;
 
-    private static final int MAT = 1;
+    private static final int MAT = 2;
     private static final int UPG_MAT = 1;
 
     public YellowInserter() {

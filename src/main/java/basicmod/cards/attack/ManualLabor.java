@@ -18,7 +18,7 @@ public class ManualLabor extends BaseCard {
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
             CardType.ATTACK,
-            CardRarity.COMMON,
+            CardRarity.BASIC,
             CardTarget.ENEMY,
             1
     );

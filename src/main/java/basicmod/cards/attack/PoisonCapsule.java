@@ -28,8 +28,8 @@ public class PoisonCapsule extends BaseCard {
 
     private static final int DAMAGE = 6;
 
-    private static final int POISON = 6;
-    private static final int UPG_POISON = 1;
+    private static final int POISON = 4;
+    private static final int UPG_POISON = 0;
 
     private static final int DEBUFF = 1;      // weak and vulnerable
     private static final int UPG_DEBUFF = 1;

@@ -2,13 +2,16 @@ package basicmod.cards.attack;
 
 import basicmod.BasicMod;
 import basicmod.actions.ConsumeMaterialAction;
+import basicmod.actions.ConsumeMaterialFromPilesAction;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -21,14 +24,16 @@ public class Flamethrower extends BaseCard {
             AbstractCardEnum.ENGINEER,
             CardType.ATTACK,
             CardRarity.UNCOMMON,
-            CardTarget.ALL_ENEMY,
+            CardTarget.ENEMY,
             1
     );
 
-    private static final int DAMAGE = 6;
-    private static final int MAGIC = 4;
+    private static final int DAMAGE = 8;
     private static final int UPG_DAMAGE = 0;
-    private static final int UPG_MAGIC = 2;
+
+    private static final int MAGIC = 4;
+    private static final int UPG_MAGIC = 0;
+
     private static final int TIMES = 2;
 
     public Flamethrower() {
@@ -42,15 +47,14 @@ public class Flamethrower extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAllEnemiesAction(
-                p,
-                multiDamage,
-                damageTypeForTurn,
+        addToBot(new DamageAction(
+                m,
+                new DamageInfo(p, damage, damageTypeForTurn),
                 AbstractGameAction.AttackEffect.FIRE
         ));
 
         for (int i = 0; i < TIMES; i++) {
-            addToBot(new ConsumeMaterialAction(1, () -> {
+            addToBot(new ConsumeMaterialFromPilesAction(1, () -> {
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (!mo.isDeadOrEscaped()) {
                         addToBot(new ApplyPowerAction(
@@ -61,7 +65,11 @@ public class Flamethrower extends BaseCard {
                         ));
                     }
                 }
-            }));
+            },
+            true,
+            upgraded,
+            upgraded
+            ));
         }
     }
 }

@@ -8,31 +8,31 @@
   {
     "PROPER_NAME": "Consume",
     "NAMES": ["consume", "consumes", "consuming", "consumed"],
-    "DESCRIPTION": "Spend the shown amount of Material from your hand NL (unless specified otherwise). NL If you don't have enough, the effect does not happen.",
+    "DESCRIPTION": "Spend the shown amount of #yMaterial from your hand NL (unless specified otherwise). NL If you don't have enough, the effect does not happen.",
     "COLOR": "FFD54F"
   },
   {
     "PROPER_NAME": "Turret",
     "NAMES": ["turret", "turrets"],
-    "DESCRIPTION": "An orb that consumes 1 Material from your hand to fire at the end of your turn.",
+    "DESCRIPTION": "An orb that consumes 1 #yMaterial from your hand to #yFire at the end of your turn.",
     "COLOR": "FFD54F"
   },
   {
     "PROPER_NAME": "Miner",
     "NAMES": ["miner", "miners"],
-    "DESCRIPTION": "A building orb that produces Material.",
+    "DESCRIPTION": "A building orb that produces #yMaterial.",
     "COLOR": "FFD54F"
   },
   {
     "PROPER_NAME": "Land Mine",
     "NAMES": ["landmine", "landmines","LandMine", "LandMines","Landmine"],
-    "DESCRIPTION": "A trap orb that explodes when evoked.",
+    "DESCRIPTION": "A trap orb that self evokes at the end of your turn if enemy intends to attack",
     "COLOR": "FFD54F"
   },
   {
     "PROPER_NAME": "Fire",
     "NAMES": ["fire", "Fire"],
-    "DESCRIPTION": "Makes turrets deal their end of round damage without spending Material.",
+    "DESCRIPTION": "Makes #yTurrets deal their end of round damage without spending #yMaterial.",
     "COLOR": "FFD54F"
   },
   {

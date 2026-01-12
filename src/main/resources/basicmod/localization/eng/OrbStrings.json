@@ -2,21 +2,19 @@
   "${modID}:Turret": {
     "NAME": "Turret",
     "DESCRIPTION": [
-      "End of turn: If you have Material, Consume 1 Material and deal !P! damage to a random enemy. NL Evoke: Deal !E! damage to a random enemy."
+      "#yPassive: At the end of turn #yConsume 1: deal #b!P! damage to a random enemy. NL #yEvoke: Deal #b!E! damage to a random enemy."
     ]
   },
-
   "${modID}:Miner": {
     "NAME": "Miner",
     "DESCRIPTION": [
-      "Start of turn: Add !P! Material to your hand. NL Evoke: Add !E! Material to your hand."
+      "#yPassive: At the start of turn Add #b!P! #yMaterial to your hand. NL #yEvoke: Add #b!E! #yMaterial to your hand."
     ]
   },
-
   "${modID}:LandMine": {
-    "NAME": "Build Land Mine",
+    "NAME": "Land Mine",
     "DESCRIPTION": [
-      "End of turn: If any enemy intends to attack, Evoke this. NL Evoke: Deal !E! damage to ALL enemies. NL Gain !B! Block."
+      "#yPassive: At the end of turn ff any enemy intends to attack, #yEvoke this. NL Evoke: Deal !E! damage to ALL enemies. NL Gain #b!B! Block."
     ]
   }
 }

@@ -18,7 +18,7 @@
   "${modID}:SubmachineGun": {
     "NAME": "Submachine Gun",
     "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1: Deal !${modID}:BONUS! damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1: Deal !${modID}:BONUS! damage."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1 from ${modID}:Stock: Deal !${modID}:BONUS! damage."
   },
 
   "${modID}:Miner": {
@@ -29,8 +29,8 @@
 
   "${modID}:Turret": {
     "NAME": "Build Turret",
-    "DESCRIPTION": "Channel ${modID}:Turret. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret."
+    "DESCRIPTION": "Channel ${modID}:Turret. NL Gain !B! Block. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret.  NL Gain !B! Block."
   },
 
   "${modID}:RainingBullets": {
@@ -59,8 +59,8 @@
 
   "${modID}:LandMine": {
     "NAME": "Build Land Mine",
-    "DESCRIPTION": "Channel ${modID}:Landmine. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Landmine."
+    "DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Consume 1: Channel ${modID}:Landmine. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Consume 1: Channel ${modID}:Landmine."
   },
 
   "${modID}:MineField": {
@@ -71,8 +71,8 @@
 
   "${modID}:Flamethrower": {
     "NAME": "Flamethrower",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Up to 2 times: ${modID}:Consume 1: NL Apply !M! Poison to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Up to 2 times: ${modID}:Consume 1: NL Apply !M! Poison to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage. NL Up to 2x: ${modID}:Consume 1: NL Apply !M! Poison to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Up to 2x: ${modID}:Consume 1 from ${modID}:Stock: NL Apply !M! Poison to ALL enemies."
   },
 
   "${modID}:PiercingRounds": {
@@ -113,14 +113,14 @@
 
   "${modID}:YellowBelt": {
     "NAME": "Yellow Belt",
-    "DESCRIPTION": "Evoke 1 Orb. NL Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Evoke 1 Orb. NL Draw !M! cards."
+    "DESCRIPTION": "Draw !M! cards. NL If you ${modID}:Consumed 2+ this turn, NL gain !${modID}:BONUS! ${modID}:Material.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL If you ${modID}:Consumed 2+ this turn, NL gain !${modID}:BONUS! ${modID}:Material."
   },
 
   "${modID}:RedBelt": {
     "NAME": "Red Belt",
-    "DESCRIPTION": "Evoke all Orbs. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Evoke all Orbs."
+    "DESCRIPTION": "Evoke all Orbs. NL Gain 1 ${modID}:Material for each evoked orb. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Evoke all Orbs. NL Gain 1 ${modID}:Material for each evoked orb."
   },
 
   "${modID}:YellowInserter": {
@@ -162,7 +162,7 @@
   "${modID}:TargetPractice": {
     "NAME": "Target Practice",
     "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1: NL ${modID}:Fire all ${modID}:Turrets.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1: NL ${modID}:Fire all ${modID}:Turrets."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1 from ${modID}:Stock: NL ${modID}:Fire all ${modID}:Turrets."
   },
 
   "${modID}:Blueprint": {
@@ -186,7 +186,7 @@
   "${modID}:RedScience": {
     "NAME": "Red Science",
     "DESCRIPTION": "At the start of your turn, NL add to your hand 1 ${modID}:Material.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, NL add to your hand 1 ${modID}:Material."
+    "UPGRADE_DESCRIPTION": "At the start of your turn, NL add to your hand 2 ${modID}:Material."
   },
 
   "${modID}:PerimeterWall": {
@@ -209,8 +209,8 @@
 
   "${modID}:HeavyArtillery": {
     "NAME": "Heavy Artillery",
-    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 5 from ${modID}:Stock: NL Deal !M! damage to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 5 from ${modID}:Stock: NL Deal !M! damage to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 3 from ${modID}:Stock: NL Deal !${modID}:SPLASH! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 3 from ${modID}:Stock: NL Deal !${modID}:SPLASH! damage to ALL enemies."
   },
 
   "${modID}:Locomotive": {
@@ -257,7 +257,25 @@
 
   "${modID}:FluidWagon": {
     "NAME": "Fluid Wagon",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 Block for each ${modID}:Material in ${modID}:Stock.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain 2 Block for each ${modID}:Material in ${modID}:Stock."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block for each ${modID}:Material in ${modID}:Stock.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !B! Block for each ${modID}:Material in ${modID}:Stock."
+  },
+
+  "${modID}:LightArmour": {
+    "NAME": "Light Armour",
+    "DESCRIPTION": "Gain !B! Block. NL If you ${modID}:Consumed 1+ this turn, gain !${modID}:BONUS! Block.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL If you ${modID}:Consumed 1+ this turn, gain !${modID}:BONUS! Block."
+  },
+
+  "${modID}:BudgetDefenses": {
+    "NAME": "Budget Defenses",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !${modID}:DRAW! Material.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !${modID}:DRAW! Material."
+  },
+
+  "${modID}:ExpansionPolicy": {
+    "NAME": "Expansion Policy",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, gain 1 ${modID}:Material.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, gain 1 ${modID}:Material."
   }
 }

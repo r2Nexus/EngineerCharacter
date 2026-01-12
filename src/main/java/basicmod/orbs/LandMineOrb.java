@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 
 public class LandMineOrb extends BaseOrb {
@@ -72,7 +73,7 @@ public class LandMineOrb extends BaseOrb {
     }
 
     @Override
-    protected void renderText(SpriteBatch sb) {
+    public void renderText(SpriteBatch sb) {
         float yOffset = 16.0f * Settings.scale;
 
         // Top: damage

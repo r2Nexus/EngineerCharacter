@@ -21,12 +21,13 @@ public class Derailment extends BaseCard {
     );
 
     // per exhausted
-    private static final int BLOCK_PER = 7;
-    private static final int UPG_BLOCK_PER = 2;
+    private static final int BLOCK_PER = 15;
+    private static final int UPG_BLOCK_PER = 0;
 
     public Derailment() {
         super(ID, info, BasicMod.imagePath("cards/skill/derailment.png"));
         setBlock(BLOCK_PER, UPG_BLOCK_PER);
+        setCostUpgrade(baseCost - 1);
         setExhaust(true);
     }
 

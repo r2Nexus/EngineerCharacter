@@ -25,8 +25,8 @@ public class CargoWagon extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 12;
-    private static final int UPG_DAMAGE = 3;
+    private static final int DAMAGE = 8;
+    private static final int UPG_DAMAGE = 0;
 
     private static final int HAND_MAT = 2;
     private static final int DISC_MAT = 1;

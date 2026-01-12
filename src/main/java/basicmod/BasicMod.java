@@ -48,7 +48,8 @@ public class BasicMod implements
         EditCardsSubscriber,
         EditCharactersSubscriber,
         OnStartBattleSubscriber,
-        EditRelicsSubscriber{
+        EditRelicsSubscriber,
+        PostDrawSubscriber{
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
@@ -71,8 +72,24 @@ public class BasicMod implements
     }
 
     public BasicMod() {
-        BaseMod.subscribe(this); //This will make BaseMod trigger all the subscribers at their appropriate times.
+        BaseMod.subscribe(this);
         logger.info(modID + " subscribed to BaseMod.");
+
+        BaseMod.addColor(
+                AbstractCardEnum.ENGINEER,
+                ENGINEER_COLOR, ENGINEER_COLOR, ENGINEER_COLOR, ENGINEER_COLOR,
+                ENGINEER_COLOR, ENGINEER_COLOR, ENGINEER_COLOR,
+
+                imagePath("512/bg_attack_engineer.png"),
+                imagePath("512/bg_skill_engineer.png"),
+                imagePath("512/bg_power_engineer.png"),
+                imagePath("512/card_orb_engineer.png"),
+
+                imagePath("1024/bg_attack_engineer.png"),
+                imagePath("1024/bg_skill_engineer.png"),
+                imagePath("1024/bg_power_engineer.png"),
+                imagePath("1024/card_orb_engineer.png")
+        );
     }
 
     @Override
@@ -139,29 +156,6 @@ public class BasicMod implements
         debugExists("512/card_orb_engineer.png");
         debugExists("1024/card_orb_engineer.png");
 
-        BaseMod.addColor(
-                AbstractCardEnum.ENGINEER,
-                ENGINEER_COLOR,   // bgColor
-                ENGINEER_COLOR,   // backColor
-                ENGINEER_COLOR,   // frameColor
-                ENGINEER_COLOR,   // frameOutlineColor
-                ENGINEER_COLOR,   // descBoxColor
-                ENGINEER_COLOR,   // trailVfxColor
-                ENGINEER_COLOR,   // glowColor
-
-                // 512 (normal cards)
-                imagePath("512/bg_attack_engineer.png"),
-                imagePath("512/bg_skill_engineer.png"),
-                imagePath("512/bg_power_engineer.png"),
-                imagePath("512/card_orb_engineer.png"),
-
-                // 1024 (portrait/zoomed view)
-                imagePath("1024/bg_attack_engineer.png"),
-                imagePath("1024/bg_skill_engineer.png"),
-                imagePath("1024/bg_power_engineer.png"),
-                imagePath("1024/card_orb_engineer.png")
-        );
-
         // --- Attacks ---
         BaseMod.addCard(new Pistol());
         BaseMod.addCard(new SubmachineGun());
@@ -181,6 +175,7 @@ public class BasicMod implements
         BaseMod.addCard(new CargoWagon());
         BaseMod.addCard(new ArtilleryWagon());
         BaseMod.addCard(new FluidWagon());
+        BaseMod.addCard(new ExpansionPolicy());
 
         // --- Skills ---
         BaseMod.addCard(new Wall());
@@ -202,6 +197,8 @@ public class BasicMod implements
         BaseMod.addCard(new ChainSignal());
         BaseMod.addCard(new ScienceWagon());
         BaseMod.addCard(new Derailment());
+        BaseMod.addCard(new BudgetDefenses());
+        BaseMod.addCard(new LightArmour());
 
         // --- Powers ---
         BaseMod.addCard(new Landfill());
@@ -225,7 +222,6 @@ public class BasicMod implements
     public static final Color ENGINEER_COLOR = CardHelper.getColor(140f, 140f, 140f);
     @Override
     public void receiveEditCharacters() {
-
         BaseMod.addCharacter(
                 new Engineer("Engineer"),
                 imagePath("charSelect/EngineerButton.png"),
@@ -421,6 +417,11 @@ public class BasicMod implements
     public static int materialConsumedThisTurn = 0;
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        materialConsumedThisTurn = 0;
+    }
+
+    @Override
+    public void receivePostDraw(AbstractCard abstractCard) {
         materialConsumedThisTurn = 0;
     }
 }

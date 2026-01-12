@@ -1,6 +1,7 @@
 package basicmod.actions;
 
 import basicmod.cards.Material;
+import basicmod.util.MaterialUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -33,15 +34,9 @@ public class CountMaterialAction extends AbstractGameAction {
         AbstractPlayer p = AbstractDungeon.player;
         int count = 0;
 
-        if (includeHand) {
-            count += countPile(p.hand.group);
-        }
-        if (includeDraw) {
-            count += countPile(p.drawPile.group);
-        }
-        if (includeDiscard) {
-            count += countPile(p.discardPile.group);
-        }
+        if (includeHand)    count += MaterialUtils.countHand(p);
+        if (includeDraw)    count += MaterialUtils.countDraw(p);
+        if (includeDiscard) count += MaterialUtils.countDiscard(p);
 
         if (onCounted != null) {
             onCounted.accept(count);

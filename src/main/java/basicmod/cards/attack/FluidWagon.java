@@ -21,7 +21,7 @@ public class FluidWagon extends BaseCard {
             CardType.ATTACK,
             CardRarity.UNCOMMON,
             CardTarget.ENEMY,
-            1
+            2
     );
 
     private static final int DAMAGE = 8;

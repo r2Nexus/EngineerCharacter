@@ -37,9 +37,6 @@ public class YellowBelt extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DrawCardAction(p, magicNumber));
-        if(BasicMod.materialConsumedThisTurn >= 2)
-        {
-            addToBot(new MakeTempCardInHandAction(new Material(), customVar("BONUS")));
-        }
+        addToBot(new MakeTempCardInHandAction(new Material(), customVar("BONUS")));
     }
 }

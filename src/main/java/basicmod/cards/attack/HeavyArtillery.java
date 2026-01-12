@@ -31,13 +31,17 @@ public class HeavyArtillery extends BaseCard {
     private static final int DAMAGE = 10;
     private static final int UPG_DAMAGE = 0;
 
+    private static final int MAGIC = 2;
+    private static final int UPG_MAGIC = 2;
+
     private static final int SPLASH = 15;
-    private static final int UPG_SPLASH = 5;
+    private static final int UPG_SPLASH = 0;
 
     public HeavyArtillery() {
         super(ID, info, BasicMod.imagePath("cards/attack/heavy_artillery.png"));
         setDamage(DAMAGE, UPG_DAMAGE);
         setCustomVar("SPLASH", VariableType.DAMAGE, SPLASH, UPG_SPLASH);
+        setMagic(MAGIC, UPG_MAGIC);
         this.isMultiDamage = true;
     }
 
@@ -50,17 +54,20 @@ public class HeavyArtillery extends BaseCard {
                 AbstractGameAction.AttackEffect.SMASH
         ));
 
-        addToBot(new ConsumeMaterialFromPilesAction(3, () -> {
-            addToBot(new DamageAllEnemiesAction(
-                    p,
-                    customVarMulti("SPLASH"),
-                    damageTypeForTurn,
-                    AbstractGameAction.AttackEffect.SMASH
+        for(int i = 0; i < magicNumber; i++) {
+
+            addToBot(new ConsumeMaterialFromPilesAction(3, () -> {
+                addToBot(new DamageAllEnemiesAction(
+                        p,
+                        customVarMulti("SPLASH"),
+                        damageTypeForTurn,
+                        AbstractGameAction.AttackEffect.SMASH
+                ));
+            },
+                    true,
+                    true,
+                    true
             ));
-        },
-                true,
-                true,
-                true
-        ));
+        }
     }
 }

@@ -18,8 +18,8 @@ public class LandMineOrb extends BaseOrb {
 
     public static final String ORB_ID = makeID("LandMine");
 
-    private static final int BASE_EVOKE_DAMAGE = 6;
-    private static final int BASE_BLOCK = 5;
+    private static final int BASE_EVOKE_DAMAGE = 3;
+    private static final int BASE_BLOCK = 4;
 
     private boolean triggeredThisTurn = false;
 

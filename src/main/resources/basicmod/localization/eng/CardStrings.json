@@ -12,7 +12,7 @@
 
   "${modID}:Material": {
     "NAME": "Material",
-    "DESCRIPTION": "A resource used by other cards and buildings."
+    "DESCRIPTION": "A resource used by other cards and buildings. NL Unplayable"
   },
 
   "${modID}:SubmachineGun": {
@@ -65,8 +65,8 @@
 
   "${modID}:MineField": {
     "NAME": "Mine Field",
-    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume ALL: NL Channel ${modID}:Landmine per consumed. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume ALL: NL Channel ${modID}:Landmine per consumed. NL Exhaust."
+    "DESCRIPTION": "Channel X+!M! ${modID}:Landmines. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel X+!M! ${modID}:Landmines. NL Exhaust."
   },
 
   "${modID}:Flamethrower": {
@@ -113,8 +113,8 @@
 
   "${modID}:YellowBelt": {
     "NAME": "Yellow Belt",
-    "DESCRIPTION": "Draw !M! cards. NL If you ${modID}:Consumed 2+ this turn, NL gain !${modID}:BONUS! ${modID}:Material.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL If you ${modID}:Consumed 2+ this turn, NL gain !${modID}:BONUS! ${modID}:Material."
+    "DESCRIPTION": "Draw !M! cards. NL Gain !${modID}:BONUS! ${modID}:Material.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain !${modID}:BONUS! ${modID}:Material."
   },
 
   "${modID}:RedBelt": {
@@ -209,8 +209,8 @@
 
   "${modID}:HeavyArtillery": {
     "NAME": "Heavy Artillery",
-    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 3 from ${modID}:Stock: NL Deal !${modID}:SPLASH! damage to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 3 from ${modID}:Stock: NL Deal !${modID}:SPLASH! damage to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage. NL Up to !M! times: ${modID}:Consume 3 from ${modID}:Stock: NL Deal !${modID}:SPLASH! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Up to !M! times: ${modID}:Consume 3 from ${modID}:Stock: NL Deal !${modID}:SPLASH! damage to ALL enemies."
   },
 
   "${modID}:Locomotive": {

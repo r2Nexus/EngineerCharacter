@@ -18,7 +18,7 @@
   "${modID}:SubmachineGun": {
     "NAME": "Submachine Gun",
     "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1: Deal !${modID}:BONUS! damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1: Deal !${modID}:BONUS! damage."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1 from ${modID}:Stock: Deal !${modID}:BONUS! damage."
   },
 
   "${modID}:Miner": {
@@ -29,8 +29,8 @@
 
   "${modID}:Turret": {
     "NAME": "Build Turret",
-    "DESCRIPTION": "Channel ${modID}:Turret. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret."
+    "DESCRIPTION": "Channel ${modID}:Turret. NL Gain !B! Block. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret.  NL Gain !B! Block."
   },
 
   "${modID}:RainingBullets": {
@@ -59,8 +59,8 @@
 
   "${modID}:LandMine": {
     "NAME": "Build Land Mine",
-    "DESCRIPTION": "Channel ${modID}:Landmine. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Landmine."
+    "DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Consume 1: Channel ${modID}:Landmine. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Consume 1: Channel ${modID}:Landmine."
   },
 
   "${modID}:MineField": {
@@ -71,8 +71,8 @@
 
   "${modID}:Flamethrower": {
     "NAME": "Flamethrower",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Up to 2 times: ${modID}:Consume 1: NL Apply !M! Poison to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Up to 2 times: ${modID}:Consume 1: NL Apply !M! Poison to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage. NL Up to 2x: ${modID}:Consume 1: NL Apply !M! Poison to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Up to 2x: ${modID}:Consume 1 from ${modID}:Stock: NL Apply !M! Poison to ALL enemies."
   },
 
   "${modID}:PiercingRounds": {
@@ -162,7 +162,7 @@
   "${modID}:TargetPractice": {
     "NAME": "Target Practice",
     "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1: NL ${modID}:Fire all ${modID}:Turrets.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1: NL ${modID}:Fire all ${modID}:Turrets."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1 from ${modID}:Stock: NL ${modID}:Fire all ${modID}:Turrets."
   },
 
   "${modID}:Blueprint": {
@@ -209,8 +209,8 @@
 
   "${modID}:HeavyArtillery": {
     "NAME": "Heavy Artillery",
-    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 5 from ${modID}:Stock: NL Deal !${modID}:SPLASH! damage to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 5 from ${modID}:Stock: NL Deal !${modID}:SPLASH! damage to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 3 from ${modID}:Stock: NL Deal !${modID}:SPLASH! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 3 from ${modID}:Stock: NL Deal !${modID}:SPLASH! damage to ALL enemies."
   },
 
   "${modID}:Locomotive": {

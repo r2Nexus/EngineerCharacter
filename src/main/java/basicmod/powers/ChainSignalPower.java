@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import static basicmod.BasicMod.makeID;
 
 public class ChainSignalPower extends BasePower {
-    public static final String POWER_ID = makeID("ChainSignal");
+    public static final String POWER_ID = makeID("ChainSignalPower");
 
     public ChainSignalPower(AbstractCreature owner, int amount) {
         super(

@@ -50,7 +50,7 @@ public class HeavyArtillery extends BaseCard {
                 AbstractGameAction.AttackEffect.SMASH
         ));
 
-        addToBot(new ConsumeMaterialFromPilesAction(5, () -> {
+        addToBot(new ConsumeMaterialFromPilesAction(3, () -> {
             addToBot(new DamageAllEnemiesAction(
                     p,
                     customVarMulti("SPLASH"),

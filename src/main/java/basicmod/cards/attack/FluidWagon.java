@@ -25,9 +25,9 @@ public class FluidWagon extends BaseCard {
     );
 
     private static final int DAMAGE = 8;
-    private static final int UPG_DAMAGE = 3;
+    private static final int UPG_DAMAGE = 0;
 
-    private static final int BLOCK_PER = 1;
+    private static final int BLOCK_PER = 3;
     private static final int UPG_BLOCK_PER = 1;
 
     public FluidWagon() {

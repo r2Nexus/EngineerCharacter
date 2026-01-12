@@ -1,6 +1,7 @@
 package basicmod.cards.skill;
 
 import basicmod.BasicMod;
+import basicmod.actions.ConsumeMaterialAction;
 import basicmod.cards.BaseCard;
 import basicmod.orbs.LandMineOrb;
 import basicmod.patches.AbstractCardEnum;
@@ -27,6 +28,10 @@ public class LandMine extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
         addToBot(new ChannelAction(new LandMineOrb()));
+        addToBot(new ConsumeMaterialAction(1, () -> {
+            addToBot(new ChannelAction(new LandMineOrb()));
+        }));
     }
 }

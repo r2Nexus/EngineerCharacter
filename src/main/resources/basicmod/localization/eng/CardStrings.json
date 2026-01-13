@@ -53,8 +53,8 @@
 
   "${modID}:Landfill": {
     "NAME": "Landfill",
-    "DESCRIPTION": "Gain !M! Orb Slots. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Orb Slots. NL Exhaust."
+    "DESCRIPTION": "Gain !M! Orb Slots.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Orb Slots."
   },
 
   "${modID}:LandMine": {

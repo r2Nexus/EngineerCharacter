@@ -19,7 +19,7 @@ public class ConsumeMaterialFromPilesAction extends AbstractGameAction {
     private final boolean useDiscard;
 
     public ConsumeMaterialFromPilesAction(int amount, Runnable onSuccess) {
-        this(amount, onSuccess, true, true, true);
+        this(amount, onSuccess, true, false, false);
     }
 
     public ConsumeMaterialFromPilesAction(int amount, Runnable onSuccess,

@@ -30,7 +30,7 @@ public class BudgetDefenses extends BaseCard {
     public BudgetDefenses() {
         super(ID, info, BasicMod.imagePath("cards/skill/budget_defenses.png"));
         setBlock(BLOCK, UPG_BLOCK);
-        setCustomVar("DRAW", VariableType.BLOCK, DRAW, UPG_DRAW);
+        setCustomVar("DRAW", VariableType.MAGIC, DRAW, UPG_DRAW);
         exhaust = true;
     }
 

@@ -70,7 +70,6 @@ public class LandMineOrb extends BaseOrb {
                         secondaryAmount
                 )
         );
-        triggerPurpleScience();
     }
 
     @Override

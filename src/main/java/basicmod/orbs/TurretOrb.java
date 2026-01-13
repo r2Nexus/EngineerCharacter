@@ -42,7 +42,6 @@ public class TurretOrb extends BaseOrb {
                 new DamageInfo(AbstractDungeon.player, evokeAmount, DamageInfo.DamageType.THORNS),
                 AbstractGameAction.AttackEffect.FIRE
         ));
-        triggerPurpleScience();
     }
 
     @Override

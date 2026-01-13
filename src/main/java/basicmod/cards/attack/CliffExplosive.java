@@ -8,6 +8,7 @@ import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -16,10 +17,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class CliffExplosive extends BaseCard {
     public static final String ID = makeID("CliffExplosive");
 
-    private static final int DAMAGE = 9;
-    private static final int UPG_DAMAGE = 3;
+    private static final int DAMAGE = 12;
+    private static final int UPG_DAMAGE = 4;
 
-    private static final int DISCARD = 2;
+    private static final int EXHAUST = 1;
 
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
@@ -33,7 +34,7 @@ public class CliffExplosive extends BaseCard {
     public CliffExplosive() {
         super(ID, info, BasicMod.imagePath("cards/attack/cliff_explosive.png"));
         setDamage(DAMAGE, UPG_DAMAGE);
-        setMagic(DISCARD);
+        setMagic(EXHAUST);
     }
 
     @Override
@@ -44,6 +45,6 @@ public class CliffExplosive extends BaseCard {
                 new DamageInfo(p, damage, damageTypeForTurn),
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT
         ));
-        addToBot(new DiscardAction(p, p, magicNumber, false));
+        addToBot(new ExhaustAction(magicNumber, false, false, false));
     }
 }

@@ -27,7 +27,6 @@ public class RainingBullets extends BaseCard {
     public RainingBullets() {
         super(ID, info, BasicMod.imagePath("cards/attack/raining_bullets.png"));
         setDamage(DAMAGE);
-        setCostUpgrade(baseCost - 1);
         isMultiDamage = true;
     }
 

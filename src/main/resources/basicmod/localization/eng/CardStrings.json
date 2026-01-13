@@ -29,7 +29,7 @@
 
   "${modID}:Turret": {
     "NAME": "Build Turret",
-    "DESCRIPTION": "Channel ${modID}:Turret. NL Gain !B! Block. NL Exhaust.",
+    "DESCRIPTION": "Channel ${modID}:Turret. NL Gain !B! Block.",
     "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret.  NL Gain !B! Block."
   },
 
@@ -197,8 +197,8 @@
 
   "${modID}:CliffExplosive": {
     "NAME": "Cliff Explosive",
-    "DESCRIPTION": "Deal !D! damage. NL Discard !M! cards.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Discard !M! cards."
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust !M! card."
   },
 
   "${modID}:LogisticRobot": {

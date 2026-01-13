@@ -26,7 +26,7 @@ public class MineField extends BaseCard {
     public static final int UPG_MAGIC = 1;
 
     public MineField() {
-        super(ID, info, BasicMod.imagePath("cards/attack/mine_field.png"));
+        super(ID, info, BasicMod.imagePath("cards/skill/mine_field.png"));
         setMagic(MAGIC, UPG_MAGIC);          // base: X + 1 mines, upgrade: X + 2 mines
         setExhaust(true, true);
     }

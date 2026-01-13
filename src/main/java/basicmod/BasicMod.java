@@ -207,6 +207,8 @@ public class BasicMod implements
         BaseMod.addCard(new BlackScience());    ScienceCardPool.add(BlackScience.ID);
         BaseMod.addCard(new BlueScience());     ScienceCardPool.add(BlueScience.ID);
         BaseMod.addCard(new RedScience());      ScienceCardPool.add(RedScience.ID);
+        BaseMod.addCard(new GreenScience());    ScienceCardPool.add(GreenScience.ID);
+        BaseMod.addCard(new PurpleScience());   ScienceCardPool.add(PurpleScience.ID);
         BaseMod.addCard(new PerimeterWall());
 
         // --- Other ---

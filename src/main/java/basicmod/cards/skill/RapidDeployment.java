@@ -26,7 +26,7 @@ public class RapidDeployment extends BaseCard {
     public static final int UPG_MAGIC = 1;
 
     public RapidDeployment() {
-        super(ID, info, BasicMod.imagePath("cards/attack/rapid_deployment.png"));
+        super(ID, info, BasicMod.imagePath("cards/skill/rapid_deployment.png"));
         setMagic(MAGIC, UPG_MAGIC);          // base: X + 1 mines, upgrade: X + 2 mines
         setExhaust(true, true);
     }

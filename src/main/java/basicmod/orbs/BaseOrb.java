@@ -1,10 +1,13 @@
 package basicmod.orbs;
 
 import basicmod.BasicMod;
+import basicmod.cards.Material;
+import basicmod.powers.PurpleSciencePower;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -281,6 +284,19 @@ public abstract class BaseOrb extends AbstractOrb {
     protected void evokeVfx(OrbFlareEffect.OrbFlareColor color) {
         AbstractDungeon.actionManager.addToBottom(
                 new VFXAction(new OrbFlareEffect(this, color), 0.1f)
+        );
+    }
+
+    protected void triggerPurpleScience() {
+        if (AbstractDungeon.player == null) return;
+
+        PurpleSciencePower p =
+                (PurpleSciencePower) AbstractDungeon.player.getPower(PurpleSciencePower.POWER_ID);
+        if (p == null) return;
+
+        p.flash();
+        AbstractDungeon.actionManager.addToBottom(
+                new MakeTempCardInDiscardAction(new Material(), p.amount)
         );
     }
 }

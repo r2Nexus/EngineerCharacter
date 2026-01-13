@@ -287,8 +287,8 @@
 
   "${modID}:GreenScience": {
     "NAME": "Green Science",
-    "DESCRIPTION": "At the start of your turn, NL draw !M! non-${modID}:Material card.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, NL draw !M! non-${modID}:Material cards."
+    "DESCRIPTION": "At the start of your turn, NL draw !M! card that isn't ${modID}:Material.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, NL draw !M! cards that aren't ${modID}:Material."
   },
 
   "${modID}:PurpleScience": {

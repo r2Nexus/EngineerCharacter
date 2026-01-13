@@ -14,7 +14,7 @@ public class PurpleScience extends BaseCard {
     public static final String ID = makeID("PurpleScience");
 
     private static final int MAGIC = 1;
-    private static final int UPG_MAGIC = 1;
+    private static final int UPG_MAGIC = 0;
 
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
@@ -27,7 +27,7 @@ public class PurpleScience extends BaseCard {
     public PurpleScience() {
         super(ID, info, BasicMod.imagePath("cards/power/purple_science.png"));
         tags.add(CardTagEnum.SCIENCE);
-
+        setCostUpgrade(-1);
         setMagic(MAGIC, UPG_MAGIC);
     }
 

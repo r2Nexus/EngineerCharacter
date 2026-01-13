@@ -160,7 +160,6 @@ public class BasicMod implements
         BaseMod.addCard(new Pistol());
         BaseMod.addCard(new SubmachineGun());
         BaseMod.addCard(new RainingBullets());
-        BaseMod.addCard(new MineField());
         BaseMod.addCard(new Flamethrower());
         BaseMod.addCard(new Shotgun());
         BaseMod.addCard(new PiercingRounds());
@@ -199,6 +198,8 @@ public class BasicMod implements
         BaseMod.addCard(new Derailment());
         BaseMod.addCard(new BudgetDefenses());
         BaseMod.addCard(new LightArmour());
+        BaseMod.addCard(new MineField());
+        BaseMod.addCard(new RapidDeployment());
 
         // --- Powers ---
         BaseMod.addCard(new Landfill());

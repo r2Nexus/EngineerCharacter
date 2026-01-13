@@ -1,8 +1,8 @@
-package basicmod.cards.attack;
+package basicmod.cards.skill;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.orbs.LandMineOrb;
+import basicmod.orbs.TurretOrb;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
@@ -11,8 +11,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
-public class MineField extends BaseCard {
-    public static final String ID = makeID("MineField");
+public class RapidDeployment extends BaseCard {
+    public static final String ID = makeID("RapidDeployment");
 
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
@@ -22,11 +22,11 @@ public class MineField extends BaseCard {
             -1 // X-cost
     );
 
-    public static final int MAGIC = 1;
+    public static final int MAGIC = 0;
     public static final int UPG_MAGIC = 1;
 
-    public MineField() {
-        super(ID, info, BasicMod.imagePath("cards/attack/mine_field.png"));
+    public RapidDeployment() {
+        super(ID, info, BasicMod.imagePath("cards/attack/rapid_deployment.png"));
         setMagic(MAGIC, UPG_MAGIC);          // base: X + 1 mines, upgrade: X + 2 mines
         setExhaust(true, true);
     }
@@ -50,7 +50,7 @@ public class MineField extends BaseCard {
         }
 
         for (int i = 0; i < minesToChannel; i++) {
-            addToBot(new ChannelAction(new LandMineOrb()));
+            addToBot(new ChannelAction(new TurretOrb()));
         }
     }
 }

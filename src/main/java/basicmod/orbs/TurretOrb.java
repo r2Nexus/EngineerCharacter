@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 public class TurretOrb extends BaseOrb {
     public static final String ORB_ID = makeID("Turret");
 
-    private static final int BASE_PASSIVE = 8;
+    private static final int BASE_PASSIVE = 6;
     private static final int BASE_EVOKE = 8;
 
     public TurretOrb() {

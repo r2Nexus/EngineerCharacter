@@ -32,5 +32,19 @@
     "DESCRIPTIONS": [
       "The next Wagon card you play is played twice"
     ]
+  },
+
+  "${modID}:GreenSciencePower": {
+    "NAME": "Green Science",
+    "DESCRIPTIONS": [
+      "At the start of your turn, draw !M! non-${modID}:Material card."
+    ]
+  },
+
+  "${modID}:PurpleSciencePower": {
+    "NAME": "Purple Science",
+    "DESCRIPTIONS": [
+      "Whenever you Evoke an Orb, add !M! ${modID}:Material to your discard pile."
+    ]
   }
 }

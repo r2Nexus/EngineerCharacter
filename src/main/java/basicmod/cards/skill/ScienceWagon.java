@@ -1,13 +1,11 @@
 package basicmod.cards.skill;
 
-import basemod.helpers.CardModifierManager;
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;
 import basicmod.util.CardStats;
 import basicmod.util.ScienceCardPool;
-import basicmod.util.TempCostZeroThisTurn;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -42,7 +40,7 @@ public class ScienceWagon extends BaseCard {
             if (proto == null) return;
 
             AbstractCard science = proto.makeStatEquivalentCopy();
-            CardModifierManager.addModifier(science, new TempCostZeroThisTurn());
+            science.setCostForTurn(0);
 
             addToBot(new MakeTempCardInHandAction(science, 1));
         }

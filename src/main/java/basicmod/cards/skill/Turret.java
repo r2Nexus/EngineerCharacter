@@ -26,7 +26,6 @@ public class Turret extends BaseCard {
 
     public Turret() {
         super(ID, info, BasicMod.imagePath("cards/skill/turret.png"));
-        setExhaust(true,false);
         setBlock(BLOCK, UPG_BLOCK);
     }
 

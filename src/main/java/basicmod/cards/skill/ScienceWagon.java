@@ -39,10 +39,8 @@ public class ScienceWagon extends BaseCard {
             AbstractCard proto = ScienceCardPool.getRandom();
             if (proto == null) return;
 
-            AbstractCard science = proto.makeStatEquivalentCopy(); // or makeCopy()
-
-            science.freeToPlayOnce = true;
-            science.setCostForTurn(0); // cleaner than manually setting 3 fields
+            AbstractCard science = proto.makeStatEquivalentCopy();
+            science.setCostForTurn(0);
 
             addToBot(new MakeTempCardInHandAction(science, 1));
         }

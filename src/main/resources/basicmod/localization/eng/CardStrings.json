@@ -29,7 +29,7 @@
 
   "${modID}:Turret": {
     "NAME": "Build Turret",
-    "DESCRIPTION": "Channel ${modID}:Turret. NL Gain !B! Block. NL Exhaust.",
+    "DESCRIPTION": "Channel ${modID}:Turret. NL Gain !B! Block.",
     "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret.  NL Gain !B! Block."
   },
 
@@ -53,8 +53,8 @@
 
   "${modID}:Landfill": {
     "NAME": "Landfill",
-    "DESCRIPTION": "Gain !M! Orb Slots. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Orb Slots. NL Exhaust."
+    "DESCRIPTION": "Gain !M! Orb Slots.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Orb Slots."
   },
 
   "${modID}:LandMine": {
@@ -197,8 +197,8 @@
 
   "${modID}:CliffExplosive": {
     "NAME": "Cliff Explosive",
-    "DESCRIPTION": "Deal !D! damage. NL Discard !M! cards.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Discard !M! cards."
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust !M! card."
   },
 
   "${modID}:LogisticRobot": {
@@ -277,5 +277,23 @@
     "NAME": "Expansion Policy",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, gain 1 ${modID}:Material.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, gain 1 ${modID}:Material."
+  },
+
+  "${modID}:RapidDeployment": {
+    "NAME": "Rapid Deployment",
+    "DESCRIPTION": "Channel X ${modID}:Turrets. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel X+!M! ${modID}:Turrets. NL Exhaust."
+  },
+
+  "${modID}:GreenScience": {
+    "NAME": "Green Science",
+    "DESCRIPTION": "At the start of your turn, NL draw !M! card that isn't ${modID}:Material.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, NL draw !M! cards that aren't ${modID}:Material."
+  },
+
+  "${modID}:PurpleScience": {
+    "NAME": "Purple Science",
+    "DESCRIPTION": "Whenever you Evoke an Orb, NL add !M! ${modID}:Material to your discard pile.",
+    "UPGRADE_DESCRIPTION": "Whenever you Evoke an Orb, NL add !M! ${modID}:Material to your discard pile."
   }
 }

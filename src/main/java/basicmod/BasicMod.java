@@ -160,7 +160,6 @@ public class BasicMod implements
         BaseMod.addCard(new Pistol());
         BaseMod.addCard(new SubmachineGun());
         BaseMod.addCard(new RainingBullets());
-        BaseMod.addCard(new MineField());
         BaseMod.addCard(new Flamethrower());
         BaseMod.addCard(new Shotgun());
         BaseMod.addCard(new PiercingRounds());
@@ -199,6 +198,8 @@ public class BasicMod implements
         BaseMod.addCard(new Derailment());
         BaseMod.addCard(new BudgetDefenses());
         BaseMod.addCard(new LightArmour());
+        BaseMod.addCard(new MineField());
+        BaseMod.addCard(new RapidDeployment());
 
         // --- Powers ---
         BaseMod.addCard(new Landfill());
@@ -206,6 +207,8 @@ public class BasicMod implements
         BaseMod.addCard(new BlackScience());    ScienceCardPool.add(BlackScience.ID);
         BaseMod.addCard(new BlueScience());     ScienceCardPool.add(BlueScience.ID);
         BaseMod.addCard(new RedScience());      ScienceCardPool.add(RedScience.ID);
+        BaseMod.addCard(new GreenScience());    ScienceCardPool.add(GreenScience.ID);
+        BaseMod.addCard(new PurpleScience());   ScienceCardPool.add(PurpleScience.ID);
         BaseMod.addCard(new PerimeterWall());
 
         // --- Other ---

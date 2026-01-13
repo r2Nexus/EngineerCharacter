@@ -2,7 +2,6 @@ package basicmod.cards.attack;
 
 import basicmod.BasicMod;
 import basicmod.actions.ConsumeMaterialAction;
-import basicmod.actions.ConsumeMaterialFromPilesAction;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;
@@ -10,7 +9,6 @@ import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -54,7 +52,7 @@ public class Flamethrower extends BaseCard {
         ));
 
         for (int i = 0; i < TIMES; i++) {
-            addToBot(new ConsumeMaterialFromPilesAction(1, () -> {
+            addToBot(new ConsumeMaterialAction(1, () -> {
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (!mo.isDeadOrEscaped()) {
                         addToBot(new ApplyPowerAction(

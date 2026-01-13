@@ -33,7 +33,6 @@ public class LightArmour extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/skill/light_armour.png"));
         setBlock(BLOCK, UPG_BLOCK);
         setCustomVar("BONUS", VariableType.BLOCK, BONUS, UPG_BONUS);
-        exhaust = true;
     }
 
     @Override

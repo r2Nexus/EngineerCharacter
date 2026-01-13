@@ -2,6 +2,7 @@ package basicmod.actions;
 
 import basicmod.BasicMod;
 import basicmod.cards.Material;
+import basicmod.util.ConsumeCardEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -45,7 +46,7 @@ public class ConsumeAllMaterialAction extends AbstractGameAction {
             consumed += consumeFromGroup(AbstractDungeon.player.discardPile);
         }
 
-        if(consumed>0) BasicMod.materialConsumedThisTurn += consumed;
+        if (consumed > 0) BasicMod.materialConsumedThisTurn += consumed;
 
         if (onConsumed != null) {
             onConsumed.accept(consumed);
@@ -54,7 +55,7 @@ public class ConsumeAllMaterialAction extends AbstractGameAction {
     }
 
     private int consumeFromGroup(CardGroup group) {
-        // 1) collect first
+        // 1) collect first (avoid concurrent modification)
         List<AbstractCard> mats = new ArrayList<>();
         for (AbstractCard c : group.group) {
             if (c instanceof Material) {
@@ -62,10 +63,38 @@ public class ConsumeAllMaterialAction extends AbstractGameAction {
             }
         }
 
-        // 2) then move
+        // 2) remove with VFX (no exhaust)
         for (AbstractCard c : mats) {
-            group.moveToExhaustPile(c);
+            removeWithConsumeEffect(group, c);
         }
+
         return mats.size();
+    }
+
+    private void removeWithConsumeEffect(CardGroup from, AbstractCard card) {
+        // prevent hover jank
+        card.unhover();
+        card.stopGlowing();
+        card.isGlowing = false;
+
+        // spawn VFX using a copy (safer)
+        AbstractCard vfxCard = card.makeStatEquivalentCopy();
+        vfxCard.current_x = card.current_x;
+        vfxCard.current_y = card.current_y;
+        vfxCard.target_x  = card.current_x;
+        vfxCard.target_y  = card.current_y;
+        vfxCard.drawScale = card.drawScale;
+        vfxCard.angle     = card.angle;
+        vfxCard.transparency = card.transparency;
+
+        AbstractDungeon.effectList.add(new ConsumeCardEffect(vfxCard));
+
+        // remove mechanically (no exhaust triggers/counters)
+        from.group.remove(card);
+
+        if (from == AbstractDungeon.player.hand) {
+            AbstractDungeon.player.hand.refreshHandLayout();
+            AbstractDungeon.player.hand.applyPowers();
+        }
     }
 }

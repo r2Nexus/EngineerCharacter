@@ -2,20 +2,15 @@ package basicmod.cards.attack;
 
 import basicmod.BasicMod;
 import basicmod.actions.ConsumeMaterialAction;
-import basicmod.actions.ConsumeMaterialFromPilesAction;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class HeavyArtillery extends BaseCard {
     public static final String ID = makeID("HeavyArtillery");
@@ -56,7 +51,7 @@ public class HeavyArtillery extends BaseCard {
 
         for(int i = 0; i < magicNumber; i++) {
 
-            addToBot(new ConsumeMaterialFromPilesAction(3, () -> {
+            addToBot(new ConsumeMaterialAction(3, () -> {
                 addToBot(new DamageAllEnemiesAction(
                         p,
                         customVarMulti("SPLASH"),

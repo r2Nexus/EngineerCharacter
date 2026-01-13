@@ -1,7 +1,7 @@
 package basicmod.cards.attack;
 
 import basicmod.BasicMod;
-import basicmod.actions.ConsumeMaterialFromPilesAction;
+import basicmod.actions.ConsumeMaterialAction;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;
@@ -50,7 +50,7 @@ public class ArtilleryWagon extends BaseCard {
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY
         ));
 
-        addToBot(new ConsumeMaterialFromPilesAction(customVar("COST"), () -> {
+        addToBot(new ConsumeMaterialAction(customVar("COST"), () -> {
             addToBot(new DamageAllEnemiesAction(
                     p,
                     customVarMulti("AOE"),

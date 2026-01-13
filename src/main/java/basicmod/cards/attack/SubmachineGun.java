@@ -2,7 +2,6 @@ package basicmod.cards.attack;
 
 import basicmod.BasicMod;
 import basicmod.actions.ConsumeMaterialAction;
-import basicmod.actions.ConsumeMaterialFromPilesAction;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;
@@ -46,7 +45,7 @@ public class SubmachineGun extends BaseCard {
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT
         ));
 
-        addToBot(new ConsumeMaterialFromPilesAction(1, () -> {
+        addToBot(new ConsumeMaterialAction(1, () -> {
             addToBot(new DamageAction(
                     m,
                     new DamageInfo(p, customVar("BONUS"), damageTypeForTurn),

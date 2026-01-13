@@ -2,7 +2,6 @@ package basicmod.cards.attack;
 
 import basicmod.BasicMod;
 import basicmod.actions.ConsumeMaterialAction;
-import basicmod.actions.ConsumeMaterialFromPilesAction;
 import basicmod.actions.TriggerTurretsAction;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
@@ -41,7 +40,7 @@ public class TargetPractice extends BaseCard {
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT
         ));
 
-        addToBot(new ConsumeMaterialFromPilesAction(
+        addToBot(new ConsumeMaterialAction(
                 1,
                 () -> addToBot(new TriggerTurretsAction()),
                 true,

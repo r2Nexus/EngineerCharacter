@@ -19,9 +19,9 @@ public class GreenScience extends BaseCard {
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
             CardType.POWER,
-            CardRarity.COMMON,
+            CardRarity.RARE,
             CardTarget.SELF,
-            1
+            2
     );
 
     public GreenScience() {

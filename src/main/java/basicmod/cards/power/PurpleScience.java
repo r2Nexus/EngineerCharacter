@@ -27,7 +27,7 @@ public class PurpleScience extends BaseCard {
     public PurpleScience() {
         super(ID, info, BasicMod.imagePath("cards/power/purple_science.png"));
         tags.add(CardTagEnum.SCIENCE);
-        setCostUpgrade(-1);
+        setCostUpgrade(1);
         setMagic(MAGIC, UPG_MAGIC);
     }
 

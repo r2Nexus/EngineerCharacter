@@ -21,7 +21,7 @@ public class ReactiveArmourPower extends BasePower {
                 owner,
                 -1, // hide number (and we don't use amount)
                 BasicMod.imagePath("powers/example.png"),
-                BasicMod.imagePath("powers/large/example.png")
+                BasicMod.imagePath("powers/large/reactive_armour_power.png")
         );
         updateDescription();
     }

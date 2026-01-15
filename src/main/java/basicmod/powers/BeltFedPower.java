@@ -17,7 +17,7 @@ public class BeltFedPower extends BasePower {
                 owner,
                 amount,
                 BasicMod.imagePath("powers/example.png"),
-                BasicMod.imagePath("powers/large/example.png")
+                BasicMod.imagePath("powers/large/belt_fed_power.png")
         );
         updateDescription();
     }

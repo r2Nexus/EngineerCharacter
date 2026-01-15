@@ -46,52 +46,78 @@ public class Locomotive extends BaseCard {
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY
         ));
 
-        // Snapshot and replay wagons played earlier this combat
-        replayEarlierWagons(m, this.uuid);
+        // IMPORTANT: do the replay AFTER the damage actually resolves,
+        // so we can retarget if the original target died.
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                replayEarlierWagons(m, Locomotive.this.uuid);
+                isDone = true;
+            }
+        });
     }
 
-    private void replayEarlierWagons(AbstractMonster initialTarget, UUID thisUUID) {
+    private void replayEarlierWagons(AbstractMonster preferredTarget, UUID thisUUID) {
         ArrayList<AbstractCard> played = new ArrayList<>(AbstractDungeon.actionManager.cardsPlayedThisCombat);
 
         for (AbstractCard c : played) {
+            if (c == null) continue;
+
+            // Your original logic: stop once we reach this Locomotive in the played list.
+            // (Locomotive is played "now", so it should appear at/near the end.)
             if (c.uuid.equals(thisUUID)) break;
+
             if (!c.hasTag(CardTagEnum.WAGON)) continue;
 
-            queueReplay(c, pickTargetForReplay(c, initialTarget));
+            AbstractMonster t = pickTargetForReplay(c, preferredTarget);
+
+            // If the replay NEEDS a monster but none exist, skip to avoid "card stuck on screen"
+            if (needsMonsterTarget(c) && t == null) continue;
+
+            queueReplay(c, t);
         }
+    }
+
+    private boolean needsMonsterTarget(AbstractCard card) {
+        return !(card.target == AbstractCard.CardTarget.SELF
+                || card.target == AbstractCard.CardTarget.ALL
+                || card.target == AbstractCard.CardTarget.ALL_ENEMY
+                || card.target == AbstractCard.CardTarget.NONE);
     }
 
     private AbstractMonster pickTargetForReplay(AbstractCard card, AbstractMonster preferred) {
         // Cards that don't need a monster target
-        if (card.target == AbstractCard.CardTarget.SELF
-                || card.target == AbstractCard.CardTarget.ALL
-                || card.target == AbstractCard.CardTarget.ALL_ENEMY
-                || card.target == AbstractCard.CardTarget.NONE) {
-            return null;
-        }
+        if (!needsMonsterTarget(card)) return null;
 
-        // For ENEMY / SELF_AND_ENEMY etc.
-        if (preferred != null && !preferred.isDeadOrEscaped()) {
-            return preferred;
-        }
+        // If preferred is alive, use it
+        if (preferred != null && !preferred.isDeadOrEscaped()) return preferred;
 
-        // Pick a living monster if the preferred is dead
-        return AbstractDungeon.getRandomMonster();
+        // Otherwise pick a living monster (null if none alive)
+        return AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
     }
 
     private void queueReplay(AbstractCard original, AbstractMonster target) {
+        if (original == null) return;
+
         AbstractCard copy = original.makeSameInstanceOf();
         copy.purgeOnUse = true;          // don't go to discard/exhaust
         copy.freeToPlayOnce = true;      // don't spend energy
         copy.exhaustOnUseOnce = true;    // safety
+
         copy.current_x = this.current_x;
         copy.current_y = this.current_y;
         copy.target_x = Settings.WIDTH / 2f;
         copy.target_y = Settings.HEIGHT / 2f;
 
+        // Apply powers and (if needed) recalc damage vs chosen target
         copy.applyPowers();
+        if (target != null) {
+            copy.calculateCardDamage(target);
+        }
 
         AbstractDungeon.player.limbo.addToBottom(copy);
+
+        // NOTE: Only pass a non-null target for cards that need one (we ensured that above)
         AbstractDungeon.actionManager.addCardQueueItem(
                 new CardQueueItem(copy, target, copy.energyOnUse, true, true),
                 true

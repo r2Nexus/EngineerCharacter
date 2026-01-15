@@ -16,7 +16,7 @@ public class SuppressiveFirePower extends BasePower {
                 owner,
                 owner,
                 amount,
-                BasicMod.imagePath("powers/example.png"),
+                BasicMod.imagePath("powers/suppressive_fire_power.png"),
                 BasicMod.imagePath("powers/large/suppressive_fire_power.png")
         );
         updateDescription();

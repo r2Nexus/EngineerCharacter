@@ -14,7 +14,7 @@
   "${modID}:LandMine": {
     "NAME": "Land Mine",
     "DESCRIPTION": [
-      "#yPassive: At the end of turn ff any enemy intends to attack, #yEvoke this. NL Evoke: Deal !E! damage to ALL enemies. NL Gain #b!B! Block."
+      "#yPassive: At the end of turn ff any enemy intends to attack, #yEvoke this. NL Evoke: Deal #b!E! damage to ALL enemies. NL Gain #b!B! Block."
     ]
   }
 }

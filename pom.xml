@@ -31,7 +31,7 @@
 
     <!-- This information will be displayed in ModTheSpire, the modded launcher. -->
     <name>The Engineer</name>
-    <version>0.3.2</version>
+    <version>0.4.2</version>
     <!-- Avoid using \ in this description, as they can cause the description to fail to load. -->
     <!-- If you really want to use them, you'll need to "escape" them by putting another one in front, like \\ -->
     <description>This mod adds a vaguely Factorio inspired character.
@@ -42,6 +42,7 @@
     <!--You'll get a warning regarding these when you package your mod, but don't worry, it's just set up like this for convenience.-->
     <!--Technically these should be changed individually, but this allows you to just set it in one place.-->
     <!--Absolutely a no-go for larger projects, but for a personal mod it's fine.-->
+
     <groupId>com.lmc.sts</groupId>
     <artifactId>EngineerChar</artifactId>
 

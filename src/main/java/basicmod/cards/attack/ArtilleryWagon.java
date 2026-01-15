@@ -57,6 +57,10 @@ public class ArtilleryWagon extends BaseCard {
                     damageTypeForTurn,
                     AbstractGameAction.AttackEffect.FIRE
             ));
-        }));
+        },
+                true,
+                true,
+                true
+        ));
     }
 }

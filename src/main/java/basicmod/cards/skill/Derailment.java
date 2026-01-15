@@ -15,19 +15,18 @@ public class Derailment extends BaseCard {
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
             CardType.SKILL,
-            CardRarity.RARE,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
-            2
+            1
     );
 
     // per exhausted
     private static final int BLOCK_PER = 15;
-    private static final int UPG_BLOCK_PER = 0;
+    private static final int UPG_BLOCK_PER = 7;
 
     public Derailment() {
         super(ID, info, BasicMod.imagePath("cards/skill/derailment.png"));
         setBlock(BLOCK_PER, UPG_BLOCK_PER);
-        setCostUpgrade(baseCost - 1);
         setExhaust(true);
     }
 

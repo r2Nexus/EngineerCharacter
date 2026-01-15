@@ -175,6 +175,7 @@ public class BasicMod implements
         BaseMod.addCard(new ArtilleryWagon());
         BaseMod.addCard(new FluidWagon());
         BaseMod.addCard(new ExpansionPolicy());
+        BaseMod.addCard(new Railgun());
 
         // --- Skills ---
         BaseMod.addCard(new Wall());
@@ -200,6 +201,8 @@ public class BasicMod implements
         BaseMod.addCard(new LightArmour());
         BaseMod.addCard(new MineField());
         BaseMod.addCard(new RapidDeployment());
+        BaseMod.addCard(new SteamEngine());
+        BaseMod.addCard(new Recycler());
 
         // --- Powers ---
         BaseMod.addCard(new Landfill());
@@ -210,6 +213,9 @@ public class BasicMod implements
         BaseMod.addCard(new GreenScience());    ScienceCardPool.add(GreenScience.ID);
         BaseMod.addCard(new PurpleScience());   ScienceCardPool.add(PurpleScience.ID);
         BaseMod.addCard(new PerimeterWall());
+        BaseMod.addCard(new SuppressiveFire());
+        BaseMod.addCard(new BeltFed());
+        BaseMod.addCard(new ReactiveArmour());
 
         // --- Other ---
         BaseMod.addCard(new basicmod.cards.Material());
@@ -417,10 +423,13 @@ public class BasicMod implements
         }
     }
 
+    // in BasicMod.java
+    public static int sciencePlayedThisCombat = 0;
     public static int materialConsumedThisTurn = 0;
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         materialConsumedThisTurn = 0;
+        sciencePlayedThisCombat = 0;
     }
 
     @Override

@@ -286,17 +286,4 @@ public abstract class BaseOrb extends AbstractOrb {
                 new VFXAction(new OrbFlareEffect(this, color), 0.1f)
         );
     }
-
-    protected void triggerPurpleScience() {
-        if (AbstractDungeon.player == null) return;
-
-        PurpleSciencePower p =
-                (PurpleSciencePower) AbstractDungeon.player.getPower(PurpleSciencePower.POWER_ID);
-        if (p == null) return;
-
-        p.flash();
-        AbstractDungeon.actionManager.addToBottom(
-                new MakeTempCardInDiscardAction(new Material(), p.amount)
-        );
-    }
 }

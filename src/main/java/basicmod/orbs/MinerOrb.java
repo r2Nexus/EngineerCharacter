@@ -35,7 +35,6 @@ public class MinerOrb extends BaseOrb {
         AbstractDungeon.actionManager.addToTop(
                 new MakeTempCardInHandAction(new Material(), evokeAmount)
         );
-        triggerPurpleScience();
     }
 
     @Override

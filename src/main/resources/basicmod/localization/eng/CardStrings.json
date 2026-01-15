@@ -23,8 +23,8 @@
 
   "${modID}:Miner": {
     "NAME": "Build Miner",
-    "DESCRIPTION": "Channel ${modID}:Miner. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Miner."
+    "DESCRIPTION": "Channel ${modID}:Miner. NL Add !M! ${modID}:Material to your hand.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Miner. NL Add !M! ${modID}:Material to your hand."
   },
 
   "${modID}:Turret": {
@@ -295,5 +295,41 @@
     "NAME": "Purple Science",
     "DESCRIPTION": "Whenever you Evoke an Orb, NL add !M! ${modID}:Material to your discard pile.",
     "UPGRADE_DESCRIPTION": "Whenever you Evoke an Orb, NL add !M! ${modID}:Material to your discard pile."
+  },
+
+  "${modID}:SteamEngine": {
+    "NAME": "Steam Engine",
+    "DESCRIPTION": "Add to your hand 1 ${modID}:Material. NL ${modID}:Consume !${modID}:CONS!: NL Gain !M! Energy. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add to your hand 1 ${modID}:Material. NL ${modID}:Consume !${modID}:CONS! from ${modID}:Stock: NL Gain !M! Energy. Exhaust."
+  },
+
+  "${modID}:BeltFed": {
+    "NAME": "Belt Fed",
+    "DESCRIPTION": "Turrets can now consume from ${modID}:Stock",
+    "UPGRADE_DESCRIPTION": "Turrets can now consume from ${modID}:Stock"
+  },
+
+  "${modID}:SuppressiveFire": {
+    "NAME": "Suppressive Fire",
+    "DESCRIPTION": "Whenever a Turret fires, NL gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "Whenever a Turret fires, NL gain !M! Block."
+  },
+
+  "${modID}:Railgun": {
+    "NAME": "Railgun",
+    "DESCRIPTION": "Deal damage equal to !M! x Science Powers played this combat.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to !M! x Science Powers played this combat."
+  },
+
+  "${modID}:ReactiveArmour": {
+    "NAME": "Reactive Armour",
+    "DESCRIPTION": "Once per turn, whenever you take unblocked damage, NL Channel ${modID}:Landmine.",
+    "UPGRADE_DESCRIPTION": "Once per turn, whenever you take unblocked damage, NL Channel ${modID}:Landmine."
+  },
+
+  "${modID}:Recycler": {
+    "NAME": "Recycler",
+    "DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand.",
+    "UPGRADE_DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand."
   }
 }

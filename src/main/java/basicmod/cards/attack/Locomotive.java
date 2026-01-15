@@ -50,15 +50,33 @@ public class Locomotive extends BaseCard {
         replayEarlierWagons(m, this.uuid);
     }
 
-    private void replayEarlierWagons(AbstractMonster target, UUID thisUUID) {
+    private void replayEarlierWagons(AbstractMonster initialTarget, UUID thisUUID) {
         ArrayList<AbstractCard> played = new ArrayList<>(AbstractDungeon.actionManager.cardsPlayedThisCombat);
 
         for (AbstractCard c : played) {
             if (c.uuid.equals(thisUUID)) break;
             if (!c.hasTag(CardTagEnum.WAGON)) continue;
 
-            queueReplay(c, target);
+            queueReplay(c, pickTargetForReplay(c, initialTarget));
         }
+    }
+
+    private AbstractMonster pickTargetForReplay(AbstractCard card, AbstractMonster preferred) {
+        // Cards that don't need a monster target
+        if (card.target == AbstractCard.CardTarget.SELF
+                || card.target == AbstractCard.CardTarget.ALL
+                || card.target == AbstractCard.CardTarget.ALL_ENEMY
+                || card.target == AbstractCard.CardTarget.NONE) {
+            return null;
+        }
+
+        // For ENEMY / SELF_AND_ENEMY etc.
+        if (preferred != null && !preferred.isDeadOrEscaped()) {
+            return preferred;
+        }
+
+        // Pick a living monster if the preferred is dead
+        return AbstractDungeon.getRandomMonster();
     }
 
     private void queueReplay(AbstractCard original, AbstractMonster target) {

@@ -46,5 +46,27 @@
     "DESCRIPTIONS": [
       "Whenever you Evoke an Orb, add !M! ${modID}:Material to your discard pile."
     ]
+  },
+
+  "${modID}:ReactiveArmourPower": {
+    "NAME": "Reactive Armour",
+    "DESCRIPTIONS": [
+      "Once per turn, whenever you take unblocked damage, Channel a ${modID}:Landmine."
+    ]
+  },
+
+  "${modID}:BeltFedPower": {
+    "NAME": "Belt Fed",
+    "DESCRIPTIONS": [
+      "Your ${modID}:Turrets can consume ${modID}:Material from ${modID}:Stock."
+    ]
+  },
+
+  "${modID}:SuppressiveFirePower": {
+    "NAME": "Suppressive Fire",
+    "DESCRIPTIONS": [
+      "Whenever a ${modID}:Turret fires, gain !M! Block"
+    ]
   }
+
 }

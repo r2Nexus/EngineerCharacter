@@ -2,8 +2,11 @@ package basicmod.orbs;
 
 import basicmod.BasicMod;
 import basicmod.actions.ConsumeMaterialAction;
+import basicmod.powers.BeltFedPower;
+import basicmod.powers.SuppressiveFirePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
@@ -22,12 +25,28 @@ public class TurretOrb extends BaseOrb {
     public void onEndOfTurn() {
         refresh();
 
+        boolean hasBeltFed = AbstractDungeon.player.hasPower(BeltFedPower.POWER_ID);
+
         AbstractDungeon.actionManager.addToTop(
-                new ConsumeMaterialAction(1, this::fireAtRandomEnemy)
-        );
+                new ConsumeMaterialAction(1, this::fireAtRandomEnemy,
+                        true,
+                        hasBeltFed,
+                        hasBeltFed
+                ));
+
     }
 
     public void fireAtRandomEnemy() {
+
+        com.megacrit.cardcrawl.powers.AbstractPower supp = AbstractDungeon.player.getPower(SuppressiveFirePower.POWER_ID);
+        int suppAmountNow = (supp != null) ? supp.amount : 0;
+
+        if (suppAmountNow > 0) {
+            AbstractDungeon.actionManager.addToTop(
+                    new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, suppAmountNow)
+            );
+        }
+
         AbstractDungeon.actionManager.addToTop(new DamageRandomEnemyAction(
                 new DamageInfo(AbstractDungeon.player, passiveAmount, DamageInfo.DamageType.THORNS),
                 AbstractGameAction.AttackEffect.SLASH_HORIZONTAL

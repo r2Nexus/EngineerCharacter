@@ -23,8 +23,8 @@
 
   "${modID}:Miner": {
     "NAME": "Build Miner",
-    "DESCRIPTION": "Channel ${modID}:Miner. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Miner."
+    "DESCRIPTION": "Channel ${modID}:Miner. NL Add !M! ${modID}:Material to your hand.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Miner. NL Add !M! ${modID}:Material to your hand."
   },
 
   "${modID}:Turret": {
@@ -329,7 +329,7 @@
 
   "${modID}:Recycler": {
     "NAME": "Recycler",
-    "DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that many ${modID}:Materials to your hand.",
-    "UPGRADE_DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that many ${modID}:Materials to your hand."
+    "DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand.",
+    "UPGRADE_DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand."
   }
 }

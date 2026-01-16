@@ -22,7 +22,7 @@ public class BudgetDefenses extends BaseCard {
     );
 
     private static final int BLOCK = 8;
-    private static final int UPG_BLOCK = 0;
+    private static final int UPG_BLOCK = 2;
 
     private static final int DRAW = 1;
     private static final int UPG_DRAW = 1;

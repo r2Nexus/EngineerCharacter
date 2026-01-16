@@ -20,11 +20,11 @@ public class RailSignal extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 7;
-    private static final int UPG_BLOCK = 3;
+    private static final int BLOCK = 8;
+    private static final int UPG_BLOCK = 4;
 
-    private static final int BONUS = 5;
-    private static final int UPG_BONUS = 2;
+    private static final int BONUS = 7;
+    private static final int UPG_BONUS = 3;
 
     public RailSignal() {
         super(ID, info, BasicMod.imagePath("cards/skill/rail_signal.png"));

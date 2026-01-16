@@ -12,7 +12,6 @@ public class ChargeMod extends AbstractCardModifier {
 
     public int charge;
     public int maxCharge;
-    private String baseDesc;
 
     public ChargeMod(int maxCharge, int startingCharge) {
         this.maxCharge = Math.max(1, maxCharge);
@@ -31,34 +30,23 @@ public class ChargeMod extends AbstractCardModifier {
         if (amount <= 0 || isFullyCharged()) return;
         charge = Math.min(maxCharge, charge + amount);
         card.superFlash();
-        updateDesc(card);
+        card.initializeDescription(); // triggers modifyDescription()
     }
 
     private static final String PROGRESS_TOKEN = "<CHARGE>";
     private static final Pattern PROGRESS_LINE =
             Pattern.compile("^\\d+\\s*/\\s*\\d+(\\s*\\(Ready\\))?\\s*$");
 
-    private void updateDesc(AbstractCard card) {
-        // Build a stable base that always contains the token
-        String raw = card.rawDescription;
-
-        if (baseDesc == null) {
-            baseDesc = ensureTokenized(raw);
-        } else {
-            // Keep baseDesc tokenized even if something mutated it earlier
-            baseDesc = ensureTokenized(baseDesc);
-        }
-
-        // Replace token with *plain* progress text for best centering
+    @Override
+    public String modifyDescription(String rawDescription, AbstractCard card) {
+        String base = ensureTokenized(rawDescription);
         String progress = charge + "/" + maxCharge + (isFullyCharged() ? " (Ready)" : "");
-        card.rawDescription = baseDesc.replace(PROGRESS_TOKEN, progress);
-        card.initializeDescription();
+        return base.replace(PROGRESS_TOKEN, progress);
     }
 
     private String ensureTokenized(String raw) {
         if (raw.contains(PROGRESS_TOKEN)) return raw;
 
-        // If an old progress line is already there at the end, replace it with the token
         int lastNl = raw.lastIndexOf(" NL ");
         if (lastNl != -1) {
             String tail = raw.substring(lastNl + 4);
@@ -66,21 +54,18 @@ public class ChargeMod extends AbstractCardModifier {
                 return raw.substring(0, lastNl + 4) + PROGRESS_TOKEN;
             }
         }
-
-        // Fallback: append token on a new line
         return raw + " NL " + PROGRESS_TOKEN;
     }
 
-
     @Override
     public void onInitialApplication(AbstractCard card) {
-        updateDesc(card);
+        card.initializeDescription();
     }
 
     @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        charge = 0; // reset when fired (your rule)
-        updateDesc(card);
+        charge = 0;
+        card.initializeDescription();
     }
 
     @Override

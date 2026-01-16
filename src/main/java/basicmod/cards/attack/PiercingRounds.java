@@ -25,9 +25,9 @@ public class PiercingRounds extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 7;
+    private static final int DAMAGE = 9;
     private static final int MAGIC = 2;
-    private static final int UPG_DAMAGE = 0;
+    private static final int UPG_DAMAGE = 3;
     private static final int UPG_MAGIC = 1;
 
     public PiercingRounds() {

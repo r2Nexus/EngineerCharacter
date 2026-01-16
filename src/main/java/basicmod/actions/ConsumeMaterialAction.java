@@ -2,6 +2,7 @@ package basicmod.actions;
 
 import basicmod.BasicMod;
 import basicmod.cards.Material;
+import basicmod.util.ChargeSystem;
 import basicmod.util.ConsumeCardEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -73,6 +74,9 @@ public class ConsumeMaterialAction extends AbstractGameAction {
             removeWithConsumeEffect(ref.from, ref.card);
             BasicMod.materialConsumedThisTurn++;
         }
+
+        // Charge system
+        ChargeSystem.onMaterialConsumed(amount);
 
         if (onSuccess != null) {
             onSuccess.run();

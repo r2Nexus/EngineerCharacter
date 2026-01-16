@@ -22,8 +22,8 @@ public class HeavyArmour extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 8;
-    private static final int UPG_BLOCK = 2;
+    private static final int BLOCK = 9;
+    private static final int UPG_BLOCK = 3;
 
     public HeavyArmour() {
         super(ID, info, BasicMod.imagePath("cards/skill/heavy_armour.png"));

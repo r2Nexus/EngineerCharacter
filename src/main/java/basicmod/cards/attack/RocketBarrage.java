@@ -23,7 +23,7 @@ public class RocketBarrage extends BaseCard {
     );
 
     private static final int DAMAGE = 4;
-    private static final int UPG_DAMAGE = 1;
+    private static final int UPG_DAMAGE = 2;
 
     public RocketBarrage() {
         super(ID, info, BasicMod.imagePath("cards/attack/rocket_barrage.png"));

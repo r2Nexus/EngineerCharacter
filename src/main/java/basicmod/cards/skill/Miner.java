@@ -22,7 +22,7 @@ public class Miner extends BaseCard {
             1
     );
 
-    public static final int MATERIALS = 2;
+    public static final int MATERIALS = 1;
     public static final int UPG_MATERIALS = 1;
 
     public Miner() {

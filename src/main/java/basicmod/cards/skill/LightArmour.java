@@ -27,7 +27,7 @@ public class LightArmour extends BaseCard {
     private static final int UPG_BLOCK = 3;
 
     private static final int BONUS = 5;
-    private static final int UPG_BONUS = 0;
+    private static final int UPG_BONUS = 2;
 
     public LightArmour() {
         super(ID, info, BasicMod.imagePath("cards/skill/light_armour.png"));

@@ -176,6 +176,8 @@ public class BasicMod implements
         BaseMod.addCard(new FluidWagon());
         BaseMod.addCard(new ExpansionPolicy());
         BaseMod.addCard(new Railgun());
+        BaseMod.addCard(new PersonalLaser());
+        BaseMod.addCard(new DischargeDefense());
 
         // --- Skills ---
         BaseMod.addCard(new Wall());
@@ -203,6 +205,8 @@ public class BasicMod implements
         BaseMod.addCard(new RapidDeployment());
         BaseMod.addCard(new SteamEngine());
         BaseMod.addCard(new Recycler());
+        BaseMod.addCard(new EnergyShield());
+        BaseMod.addCard(new PersonalBattery());
 
         // --- Powers ---
         BaseMod.addCard(new Landfill());

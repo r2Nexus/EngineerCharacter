@@ -203,8 +203,8 @@
 
   "${modID}:LogisticRobot": {
     "NAME": "Logistic Robot",
-    "DESCRIPTION": "Gain !B! Block. NL ${modID}:Consume !M!: Put 1 card from your draw pile into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL ${modID}:Consume !M!: Put 1 card from your draw pile into your hand. NL Exhaust."
+    "DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Put 2 cards from your draw pile into your hand. NL <CHARGE>",
+    "UPGRADE_DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Put 2 cards from your draw pile into your hand. NL <CHARGE>"
   },
 
   "${modID}:HeavyArtillery": {
@@ -331,5 +331,29 @@
     "NAME": "Recycler",
     "DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand.",
     "UPGRADE_DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand."
+  },
+
+  "${modID}:EnergyShield": {
+    "NAME": "Energy Shield",
+    "DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Gain !B! Block. NL <CHARGE>",
+    "UPGRADE_DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Gain !B! Block. NL <CHARGE>"
+  },
+
+  "${modID}:PersonalBattery": {
+    "NAME": "Personal Battery",
+    "DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Gain !M! Energy. NL <CHARGE>",
+    "UPGRADE_DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Gain !M! Energy. NL <CHARGE>"
+  },
+
+  "${modID}:DischargeDefense": {
+    "NAME": "Discharge Defense",
+    "DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Deal damage equal to your current Block. NL <CHARGE>",
+    "UPGRADE_DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Deal damage equal to your current Block. NL <CHARGE>"
+  },
+
+  "${modID}:PersonalLaser": {
+    "NAME": "Personal Laser",
+    "DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Deal !D! damage 4 times. NL <CHARGE>",
+    "UPGRADE_DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Deal !D! damage 4 times. NL <CHARGE>"
   }
 }

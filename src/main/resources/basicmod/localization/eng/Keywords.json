@@ -40,5 +40,12 @@
     "NAMES": ["stock", "Stock"],
     "DESCRIPTION": "Refers to cards in Hand, Draw Pile and Discard Pile. NL In this order.",
     "COLOR": "FFD54F"
+  },
+
+  {
+    "PROPER_NAME": "Charge",
+    "NAMES": ["charge", "Charge"],
+    "DESCRIPTION": "Unplayable unless the #yCharge is full. NL Each #yConsumed Material increases the #yCharge by 1. NL Playing the card spends the Charge. NL Charge stays between Combat",
+    "COLOR": "FFD54F"
   }
 ]

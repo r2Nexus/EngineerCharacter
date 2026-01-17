@@ -25,7 +25,7 @@ public class SteamEngine extends BaseCard {
     );
 
     private static final int MAT = 2;
-    private static final int CONS = 3;
+    private static final int CONS = 4;
 
     public SteamEngine() {
         super(ID, info, BasicMod.imagePath("cards/skill/steam_engine.png"));

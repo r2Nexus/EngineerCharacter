@@ -299,7 +299,7 @@
 
   "${modID}:SteamEngine": {
     "NAME": "Steam Engine",
-    "DESCRIPTION": "Add to your hand 1 ${modID}:Material. NL ${modID}:Consume !${modID}:CONS!: NL Gain !M! Energy. Exhaust.",
+    "DESCRIPTION": "Add to your hand !M! ${modID}:Material. NL ${modID}:Consume !${modID}:CONS!: NL Gain !M! Energy. Exhaust.",
     "UPGRADE_DESCRIPTION": "Add to your hand 1 ${modID}:Material. NL ${modID}:Consume !${modID}:CONS! from ${modID}:Stock: NL Gain !M! Energy. Exhaust."
   },
 

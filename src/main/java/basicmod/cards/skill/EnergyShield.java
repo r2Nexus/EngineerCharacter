@@ -8,7 +8,6 @@ import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 

@@ -142,4 +142,14 @@ public abstract class BasePower extends AbstractPower {
             );
         }
     }
+
+    @Override
+    public void updateDescription() {
+        if (DESCRIPTIONS != null && DESCRIPTIONS.length > 0 && DESCRIPTIONS[0] != null) {
+            this.description = DESCRIPTIONS[0];
+        } else {
+            this.description = "";
+        }
+    }
+
 }

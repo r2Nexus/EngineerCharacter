@@ -21,4 +21,9 @@ public class SuppressiveFirePower extends BasePower {
         );
         updateDescription();
     }
+
+    @Override
+    public void updateDescription() {
+        this.description = DESCRIPTIONS[0].replace("!M!", Integer.toString(this.amount));
+    }
 }

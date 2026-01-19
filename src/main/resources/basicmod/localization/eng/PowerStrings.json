@@ -37,36 +37,35 @@
   "${modID}:GreenSciencePower": {
     "NAME": "Green Science",
     "DESCRIPTIONS": [
-      "At the start of your turn, draw !M! non-${modID}:Material card."
+      "At the start of your turn, draw !M! non-Material card."
     ]
   },
 
   "${modID}:PurpleSciencePower": {
     "NAME": "Purple Science",
     "DESCRIPTIONS": [
-      "Whenever you Evoke an Orb, add !M! ${modID}:Material to your discard pile."
+      "Whenever you Evoke an Orb, add !M! Material to your discard pile."
     ]
   },
 
   "${modID}:ReactiveArmourPower": {
     "NAME": "Reactive Armour",
     "DESCRIPTIONS": [
-      "Once per turn, whenever you take unblocked damage, Channel a ${modID}:Landmine."
+      "Once per turn, whenever you take unblocked damage, Channel a Landmine."
     ]
   },
 
   "${modID}:BeltFedPower": {
     "NAME": "Belt Fed",
     "DESCRIPTIONS": [
-      "Your ${modID}:Turrets can consume ${modID}:Material from ${modID}:Stock."
+      "Your Turrets can consume Material from Stock."
     ]
   },
 
   "${modID}:SuppressiveFirePower": {
     "NAME": "Suppressive Fire",
     "DESCRIPTIONS": [
-      "Whenever a ${modID}:Turret fires, gain !M! Block"
+      "Whenever a Turret fires, gain !M! Block"
     ]
   }
-
 }

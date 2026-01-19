@@ -6,7 +6,6 @@ import basicmod.cards.BaseCard;
 import basicmod.cards.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -25,7 +24,7 @@ public class SteamEngine extends BaseCard {
     );
 
     private static final int MAT = 2;
-    private static final int CONS = 3;
+    private static final int CONS = 4;
 
     public SteamEngine() {
         super(ID, info, BasicMod.imagePath("cards/skill/steam_engine.png"));
@@ -39,7 +38,7 @@ public class SteamEngine extends BaseCard {
 
         addToBot(new MakeTempCardInHandAction(new Material(),magicNumber));
         addToBot(new ConsumeMaterialAction(customVar("CONS"), () -> {
-            addToBot(new GainEnergyAction(2));
+            addToTop(new GainEnergyAction(2));
         },
                 true,
                 upgraded,

@@ -60,13 +60,13 @@ public class PoisonCapsule extends BaseCard {
         addToBot(new ConsumeMaterialAction(2, () -> {
             int debuffAmt = customVar("DEBUFF");
 
-            addToBot(new ApplyPowerAction(
+            addToTop(new ApplyPowerAction(
                     m,
                     p,
                     new VulnerablePower(m, debuffAmt, false),
                     debuffAmt
             ));
-            addToBot(new ApplyPowerAction(
+            addToTop(new ApplyPowerAction(
                     m,
                     p,
                     new WeakPower(m, debuffAmt, false),

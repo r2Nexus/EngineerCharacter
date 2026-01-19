@@ -52,7 +52,7 @@ public class Shotgun extends BaseCard {
         addToBot(new ConsumeMaterialAction(1, () -> {
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (!mo.isDeadOrEscaped()) {
-                    addToBot(new ApplyPowerAction(
+                    addToTop(new ApplyPowerAction(
                             mo,
                             p,
                             new WeakPower(mo, this.magicNumber, false),

@@ -4,6 +4,7 @@ import basicmod.BasicMod;
 import basicmod.cards.Material;
 import basicmod.util.ChargeSystem;
 import basicmod.util.ConsumeCardEffect;
+import basicmod.util.ConsumeEvents;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -100,5 +101,7 @@ public class ConsumeAllMaterialAction extends AbstractGameAction {
             AbstractDungeon.player.hand.refreshHandLayout();
             AbstractDungeon.player.hand.applyPowers();
         }
+
+        ConsumeEvents.fireMaterialConsumed(AbstractDungeon.player, card);
     }
 }

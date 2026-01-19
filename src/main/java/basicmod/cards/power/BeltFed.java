@@ -6,7 +6,6 @@ import basicmod.patches.AbstractCardEnum;
 import basicmod.powers.BeltFedPower;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -20,7 +19,7 @@ public class BeltFed extends BaseCard {
             CardType.POWER,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
-            2
+            1
     );
 
     public BeltFed() {

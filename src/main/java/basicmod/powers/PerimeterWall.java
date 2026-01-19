@@ -2,14 +2,14 @@ package basicmod.powers;
 
 import basicmod.BasicMod;
 import basicmod.cards.Material;
+import basicmod.util.OnMaterialConsumedListener;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
 import static basicmod.BasicMod.makeID;
 
-public class PerimeterWall extends BasePower {
+public class PerimeterWall extends BasePower implements OnMaterialConsumedListener {
     public static final String POWER_ID = makeID("PerimeterWall");
 
     public PerimeterWall(AbstractCreature owner, int amount) {
@@ -27,8 +27,8 @@ public class PerimeterWall extends BasePower {
     }
 
     @Override
-    public void onExhaust(AbstractCard card) {
-        if (card instanceof Material) {
+    public void onMaterialConsumed(AbstractCard materialCard) {
+        if (materialCard instanceof Material) {
             flash();
             addToBot(new GainBlockAction(owner, owner, this.amount));
         }

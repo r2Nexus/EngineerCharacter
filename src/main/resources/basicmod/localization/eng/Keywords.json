@@ -45,7 +45,7 @@
   {
     "PROPER_NAME": "Charge",
     "NAMES": ["charge", "Charge"],
-    "DESCRIPTION": "Unplayable unless the #yCharge is full. NL Each #yConsumed Material increases the #yCharge by 1. NL Playing the card spends the Charge. NL Charge stays between Combat",
+    "DESCRIPTION": "Charge builds up to a maximum. NL Each #yConsumed Material increases #yCharge by 1. NL When fully charged, the card's #yCharge effect triggers and all Charge is spent. NL The card can be played even if Charge is not full. NL Charge persists between combats.",
     "COLOR": "FFD54F"
   }
 ]

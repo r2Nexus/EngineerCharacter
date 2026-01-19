@@ -26,7 +26,8 @@ public class Recycler extends BaseCard {
 
     public Recycler() {
         super(ID, info, BasicMod.imagePath("cards/skill/recycler.png"));
-        setMagic(MAX_EXHAUST, UPG_MAX_EXHAUST); // up to 2, up to 6 when upgraded with your numbers
+        setMagic(MAX_EXHAUST, UPG_MAX_EXHAUST);
+        setExhaust(true);
     }
 
     @Override

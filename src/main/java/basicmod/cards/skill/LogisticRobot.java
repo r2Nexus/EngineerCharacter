@@ -2,12 +2,13 @@ package basicmod.cards.skill;
 
 import basemod.helpers.CardModifierManager;
 import basicmod.BasicMod;
+import basicmod.actions.SpendChargeAction;
 import basicmod.cardmods.ChargeMod;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.defect.SeekAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -19,26 +20,31 @@ public class LogisticRobot extends BaseCard {
             CardType.SKILL,
             CardRarity.RARE,
             CardTarget.SELF,
-            0
+            1
     );
 
-    private static final int BLOCK = 7;
-    private static final int UPG_BLOCK = 4;
+    private static final int SCRY = 4;
+    private static final int UPG_SCRY = 2;   // optional
+
+    private static final int DRAW = 2;
 
     private static final int CHARGE = 10;
     private static final int UPG_CHARGE = -2;
 
     public LogisticRobot() {
         super(ID, info, BasicMod.imagePath("cards/skill/logistic_robot.png"));
-        setExhaust(true);
-        setBlock(BLOCK, UPG_BLOCK);
+
+        setMagic(SCRY, UPG_SCRY);
+        setCustomVar("DRAW", VariableType.MAGIC, DRAW, 0);
+
         setCustomVar("CHARGE", VariableType.MAGIC, CHARGE, UPG_CHARGE);
-        CardModifierManager.addModifier(this, new ChargeMod(customVar("CHARGE")));
+        int max = customVar("CHARGE");
+        CardModifierManager.addModifier(this, new ChargeMod("CHARGE", max));
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, p, block));
-        addToBot(new SeekAction(2));
+        addToBot(new ScryAction(magicNumber));
+        addToBot(new SpendChargeAction(this, () -> addToTop(new SeekAction(customVar("DRAW")))));
     }
 }

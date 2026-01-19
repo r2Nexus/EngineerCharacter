@@ -2,6 +2,7 @@ package basicmod.cards.attack;
 
 import basemod.helpers.CardModifierManager;
 import basicmod.BasicMod;
+import basicmod.actions.SpendChargeAction;
 import basicmod.cardmods.ChargeMod;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
@@ -26,14 +27,15 @@ public class PersonalLaser extends BaseCard {
     private static final int CHARGE = 5;
     private static final int UPG_CHARGE = 0;
 
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 5;
     private static final int UPG_DAMAGE = 2;
 
     public PersonalLaser() {
         super(ID, info, BasicMod.imagePath("cards/attack/personal_laser.png"));
 
         setCustomVar("CHARGE", VariableType.MAGIC, CHARGE, UPG_CHARGE);
-        CardModifierManager.addModifier(this, new ChargeMod(customVar("CHARGE")));
+        int max = customVar("CHARGE");
+        CardModifierManager.addModifier(this, new ChargeMod("CHARGE", max));
 
         setDamage(DAMAGE, UPG_DAMAGE);
     }
@@ -41,12 +43,23 @@ public class PersonalLaser extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 2; i++) {
             addToBot(new DamageAction(
                     m,
                     new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
                     AbstractGameAction.AttackEffect.SLASH_HORIZONTAL
             ));
         }
+
+        addToBot(new SpendChargeAction(this, () -> {
+            for (int i = 0; i < 2; i++) {
+                addToTop(new DamageAction(
+                        m,
+                        new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
+                        AbstractGameAction.AttackEffect.SLASH_HORIZONTAL
+                ));
+            }
+        }));
+
     }
 }

@@ -31,7 +31,7 @@ public class LandMine extends BaseCard {
 
         addToBot(new ChannelAction(new LandMineOrb()));
         addToBot(new ConsumeMaterialAction(1, () -> {
-            addToBot(new ChannelAction(new LandMineOrb()));
+            addToTop(new ChannelAction(new LandMineOrb()));
         }));
     }
 }

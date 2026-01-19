@@ -36,7 +36,7 @@ public class HeavyArmour extends BaseCard {
         addToBot(new GainBlockAction(p, p, this.block));
 
         addToBot(new ConsumeMaterialAction(1, () -> {
-            addToBot(new ApplyPowerAction(
+            addToTop(new ApplyPowerAction(
                     p, p,
                     new PlatedArmorPower(p, 3),
                     3

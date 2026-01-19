@@ -46,7 +46,7 @@ public class SubmachineGun extends BaseCard {
         ));
 
         addToBot(new ConsumeMaterialAction(1, () -> {
-            addToBot(new DamageAction(
+            addToTop(new DamageAction(
                     m,
                     new DamageInfo(p, customVar("BONUS"), damageTypeForTurn),
                     AbstractGameAction.AttackEffect.BLUNT_HEAVY

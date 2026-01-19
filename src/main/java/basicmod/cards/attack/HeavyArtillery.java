@@ -52,7 +52,7 @@ public class HeavyArtillery extends BaseCard {
         for(int i = 0; i < magicNumber; i++) {
 
             addToBot(new ConsumeMaterialAction(3, () -> {
-                addToBot(new DamageAllEnemiesAction(
+                addToTop(new DamageAllEnemiesAction(
                         p,
                         customVarMulti("SPLASH"),
                         damageTypeForTurn,

@@ -34,7 +34,7 @@ public class Derailment extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ExhaustWagonCardsInHandAction(exhausted -> {
             if (exhausted <= 0) return;
-            addToBot(new GainBlockAction(p, p, block * exhausted));
+            addToTop(new GainBlockAction(p, p, block * exhausted));
         }));
     }
 }

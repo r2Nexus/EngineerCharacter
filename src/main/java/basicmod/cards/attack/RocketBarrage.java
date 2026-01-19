@@ -35,7 +35,7 @@ public class RocketBarrage extends BaseCard {
         addToBot(new ConsumeAllMaterialAction(consumed -> {
             if (consumed <= 0) return;
             for (int i = 0; i < consumed; i++) {
-                addToBot(new DamageAllEnemiesAction(p, DamageInfo.createDamageMatrix(damage, true),
+                addToTop(new DamageAllEnemiesAction(p, DamageInfo.createDamageMatrix(damage, true),
                         DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }));

@@ -51,7 +51,7 @@ public class ArtilleryWagon extends BaseCard {
         ));
 
         addToBot(new ConsumeMaterialAction(customVar("COST"), () -> {
-            addToBot(new DamageAllEnemiesAction(
+            addToTop(new DamageAllEnemiesAction(
                     p,
                     customVarMulti("AOE"),
                     damageTypeForTurn,

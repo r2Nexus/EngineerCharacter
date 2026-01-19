@@ -46,7 +46,7 @@ public class PiercingRounds extends BaseCard {
         ));
 
         addToBot(new ConsumeMaterialAction(1, () -> {
-            addToBot(new ApplyPowerAction(
+            addToTop(new ApplyPowerAction(
                     m,
                     p,
                     new VulnerablePower(m, magicNumber, false),

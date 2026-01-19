@@ -48,7 +48,7 @@ public class FluidWagon extends BaseCard {
 
         addToBot(new CountMaterialAction(materials -> {
             if (materials > 0) {
-                addToBot(new GainBlockAction(p, p, materials * block));
+                addToTop(new GainBlockAction(p, p, materials * block));
             }
         }));
     }

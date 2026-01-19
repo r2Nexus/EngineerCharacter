@@ -113,14 +113,14 @@
 
   "${modID}:YellowBelt": {
     "NAME": "Yellow Belt",
-    "DESCRIPTION": "Draw !M! cards. NL Gain !${modID}:BONUS! ${modID}:Material.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain !${modID}:BONUS! ${modID}:Material."
+    "DESCRIPTION": "Draw !M! cards. NL Add !${modID}:BONUS! ${modID}:Material to your hand.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Add !${modID}:BONUS! ${modID}:Material to your hand."
   },
 
   "${modID}:RedBelt": {
     "NAME": "Red Belt",
-    "DESCRIPTION": "Evoke all Orbs. NL Gain 1 ${modID}:Material for each evoked orb. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Evoke all Orbs. NL Gain 1 ${modID}:Material for each evoked orb."
+    "DESCRIPTION": "Evoke all Orbs. NL Add 1 ${modID}:Material for each evoked orb to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Evoke all Orbs. NL NL Add 1 ${modID}:Material for each evoked orb to your hand."
   },
 
   "${modID}:YellowInserter": {
@@ -185,8 +185,8 @@
 
   "${modID}:RedScience": {
     "NAME": "Red Science",
-    "DESCRIPTION": "At the start of your turn, NL add to your hand 1 ${modID}:Material.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, NL add to your hand 2 ${modID}:Material."
+    "DESCRIPTION": "At the start of your turn, NL add 1 ${modID}:Material to your hand.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, NL add 1 ${modID}:Material to your hand."
   },
 
   "${modID}:PerimeterWall": {
@@ -269,14 +269,14 @@
 
   "${modID}:BudgetDefenses": {
     "NAME": "Budget Defenses",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !${modID}:DRAW! Material.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !${modID}:DRAW! Material."
+    "DESCRIPTION": "Gain !B! Block. NL Add !${modID}:DRAW! ${modID}:Material to your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add !${modID}:DRAW! ${modID}:Material to your hand."
   },
 
   "${modID}:ExpansionPolicy": {
     "NAME": "Expansion Policy",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, gain 1 ${modID}:Material.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, gain 1 ${modID}:Material."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, add !${modID}:DRAW! ${modID}:Material to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, add !${modID}:DRAW! ${modID}:Material to your hand."
   },
 
   "${modID}:RapidDeployment": {
@@ -299,8 +299,8 @@
 
   "${modID}:SteamEngine": {
     "NAME": "Steam Engine",
-    "DESCRIPTION": "Add to your hand !M! ${modID}:Material. NL ${modID}:Consume !${modID}:CONS!: NL Gain !M! Energy. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add to your hand 1 ${modID}:Material. NL ${modID}:Consume !${modID}:CONS! from ${modID}:Stock: NL Gain !M! Energy. Exhaust."
+    "DESCRIPTION": "Add !M! ${modID}:Material to your hand. NL ${modID}:Consume !${modID}:CONS!: NL Gain !M! Energy. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !M! ${modID}:Material to your hand. NL ${modID}:Consume !${modID}:CONS! from ${modID}:Stock: NL Gain !M! Energy. Exhaust."
   },
 
   "${modID}:BeltFed": {
@@ -329,8 +329,8 @@
 
   "${modID}:Recycler": {
     "NAME": "Recycler",
-    "DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand.",
-    "UPGRADE_DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand."
+    "DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand. NL Exhaust."
   },
 
   "${modID}:EnergyShield": {

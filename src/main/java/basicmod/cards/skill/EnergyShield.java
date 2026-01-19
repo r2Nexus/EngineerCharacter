@@ -24,8 +24,8 @@ public class EnergyShield extends BaseCard {
     private static final int BLOCK = 15;
     private static final int UPG_BLOCK = 0;
 
-    private static final int CHARGE = 6;
-    private static final int UPG_CHARGE = -1;
+    private static final int CHARGE = 8;
+    private static final int UPG_CHARGE = -2;
 
     public EnergyShield() {
         super(ID, info, BasicMod.imagePath("cards/skill/energy_shield.png"));

@@ -42,7 +42,7 @@ public class TargetPractice extends BaseCard {
 
         addToBot(new ConsumeMaterialAction(
                 1,
-                () -> addToBot(new TriggerTurretsAction()),
+                () -> addToTop(new TriggerTurretsAction()),
                 true,
                 upgraded,
                 upgraded));

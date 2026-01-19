@@ -55,7 +55,7 @@ public class Flamethrower extends BaseCard {
             addToBot(new ConsumeMaterialAction(1, () -> {
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (!mo.isDeadOrEscaped()) {
-                        addToBot(new ApplyPowerAction(
+                        addToTop(new ApplyPowerAction(
                                 mo,
                                 p,
                                 new PoisonPower(mo, p, this.magicNumber),

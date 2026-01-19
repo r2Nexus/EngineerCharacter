@@ -40,11 +40,11 @@ public class RainingBullets extends BaseCard {
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT
         ));
 
-        addToBot(new ConsumeMaterialAction(1, () -> addToBot(new TriggerTurretsAction())));
-        addToBot(new ConsumeMaterialAction(1, () -> addToBot(new TriggerTurretsAction())));
+        addToBot(new ConsumeMaterialAction(1, () -> addToTop(new TriggerTurretsAction())));
+        addToBot(new ConsumeMaterialAction(1, () -> addToTop(new TriggerTurretsAction())));
 
         if (upgraded) {
-            addToBot(new ConsumeMaterialAction(1, () -> addToBot(new TriggerTurretsAction())));
+            addToBot(new ConsumeMaterialAction(1, () -> addToTop(new TriggerTurretsAction())));
         }
     }
 }

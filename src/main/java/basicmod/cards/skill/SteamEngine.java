@@ -39,7 +39,7 @@ public class SteamEngine extends BaseCard {
 
         addToBot(new MakeTempCardInHandAction(new Material(),magicNumber));
         addToBot(new ConsumeMaterialAction(customVar("CONS"), () -> {
-            addToBot(new GainEnergyAction(2));
+            addToTop(new GainEnergyAction(2));
         },
                 true,
                 upgraded,

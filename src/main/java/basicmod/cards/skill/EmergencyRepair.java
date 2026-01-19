@@ -31,7 +31,7 @@ public class EmergencyRepair extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ConsumeMaterialAction(1, () -> {
-            addToBot(new GainBlockAction(p, p, this.block));
+            addToTop(new GainBlockAction(p, p, this.block));
         }));
     }
 }

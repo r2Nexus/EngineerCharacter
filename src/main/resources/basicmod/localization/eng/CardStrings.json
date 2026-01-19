@@ -203,8 +203,8 @@
 
   "${modID}:LogisticRobot": {
     "NAME": "Logistic Robot",
-    "DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Put 2 cards from your draw pile into your hand. NL <CHARGE>",
-    "UPGRADE_DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Put 2 cards from your draw pile into your hand. NL <CHARGE>"
+    "DESCRIPTION": "Scry !M!. NL ${modID}:Charge <CHARGE>: NL Put !${modID}:DRAW! cards from your draw pile into your hand.",
+    "UPGRADE_DESCRIPTION": "Scry !M!. NL ${modID}:Charge <CHARGE>: NL Put !${modID}:DRAW! cards from your draw pile into your hand.>"
   },
 
   "${modID}:HeavyArtillery": {
@@ -335,25 +335,25 @@
 
   "${modID}:EnergyShield": {
     "NAME": "Energy Shield",
-    "DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Gain !B! Block. NL <CHARGE>",
-    "UPGRADE_DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Gain !B! Block. NL <CHARGE>"
+    "DESCRIPTION": "Gain !B! Block. NL ${modID}:Charge <CHARGE>: NL Gain !${modID}:BONUS! Block.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL ${modID}:Charge <CHARGE>: NL Gain !${modID}:BONUS! Block."
   },
 
   "${modID}:PersonalBattery": {
     "NAME": "Personal Battery",
-    "DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Gain !M! Energy. NL <CHARGE>",
-    "UPGRADE_DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Gain !M! Energy. NL <CHARGE>"
+    "DESCRIPTION": "Gain !M! Energy next turn. NL ${modID}:Charge <CHARGE>: NL Gain !M! Energy.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Energy next turn. NL ${modID}:Charge <CHARGE>: NL Gain !M! Energy."
   },
 
   "${modID}:DischargeDefense": {
     "NAME": "Discharge Defense",
-    "DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Deal damage equal to your current Block. NL <CHARGE>",
-    "UPGRADE_DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Deal damage equal to your current Block. NL <CHARGE>"
+    "DESCRIPTION": "Gain !B! Block. NL ${modID}:Charge <CHARGE>: NL Deal damage equal to your current Block.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL ${modID}:Charge <CHARGE>: NL Deal damage equal to your current Block."
   },
 
   "${modID}:PersonalLaser": {
     "NAME": "Personal Laser",
-    "DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Deal !D! damage 4 times. NL <CHARGE>",
-    "UPGRADE_DESCRIPTION": "${modID}:Charge !${modID}:CHARGE!: NL Deal !D! damage 4 times. NL <CHARGE>"
+    "DESCRIPTION": "Deal !D! damage 2 times. NL ${modID}:Charge <CHARGE>: NL Deal !D! damage 2 times.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 2 times. NL ${modID}:Charge <CHARGE>: NL Deal !D! damage 2 times."
   }
 }

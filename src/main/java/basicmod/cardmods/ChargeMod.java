@@ -1,10 +1,12 @@
 package basicmod.cardmods;
 
 import basemod.abstracts.AbstractCardModifier;
+import basemod.helpers.CardModifierManager;
 import basicmod.cards.BaseCard;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.regex.Pattern;
 
@@ -27,12 +29,20 @@ public class ChargeMod extends AbstractCardModifier {
         this(varKey, 0);
     }
 
+    /** Convenience: find the first ChargeMod on a card, or null. */
+    public static ChargeMod get(AbstractCard card) {
+        for (basemod.abstracts.AbstractCardModifier mod : CardModifierManager.modifiers(card)) {
+            if (mod instanceof ChargeMod) return (ChargeMod) mod;
+        }
+        return null;
+    }
+
     public int getMaxCharge(AbstractCard card) {
         if (card instanceof BaseCard) {
-            int max = ((BaseCard) card).customVar(varKey); // <-- always current (base/upgrade/etc.)
+            int max = ((BaseCard) card).customVar(varKey);
             return Math.max(1, max);
         }
-        return 1; // fallback so nothing crashes if applied to non-BaseCard
+        return 1;
     }
 
     private void clamp(AbstractCard card) {
@@ -42,7 +52,17 @@ public class ChargeMod extends AbstractCardModifier {
     }
 
     public boolean isFullyCharged(AbstractCard card) {
+        clamp(card);
         return charge >= getMaxCharge(card);
+    }
+
+    /** Spend the "full charge" requirement (i.e., only succeeds if fully charged). */
+    public boolean trySpendFull(AbstractCard card) {
+        if (!isFullyCharged(card)) return false;
+        charge = 0;
+        card.initializeDescription();
+        syncToMasterDeck(card);
+        return true;
     }
 
     public void addCharge(AbstractCard card, int amount) {
@@ -54,7 +74,8 @@ public class ChargeMod extends AbstractCardModifier {
 
         charge = Math.min(max, charge + amount);
         card.superFlash();
-        card.initializeDescription(); // triggers modifyDescription()
+        card.initializeDescription();
+        syncToMasterDeck(card);
     }
 
     @Override
@@ -84,12 +105,14 @@ public class ChargeMod extends AbstractCardModifier {
     public void onInitialApplication(AbstractCard card) {
         clamp(card);
         card.initializeDescription();
+        syncToMasterDeck(card);
     }
 
+    // IMPORTANT: do NOT auto-reset onUse anymore.
+    // Cards are playable anytime, and we only spend when the bonus actually triggers.
     @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        charge = 0; // your rule
-        card.initializeDescription();
+        // intentionally empty
     }
 
     @Override
@@ -100,5 +123,20 @@ public class ChargeMod extends AbstractCardModifier {
     @Override
     public String identifier(AbstractCard card) {
         return ID;
+    }
+
+    private void syncToMasterDeck(AbstractCard combatCard) {
+        if (AbstractDungeon.player == null) return;
+
+        for (AbstractCard master : AbstractDungeon.player.masterDeck.group) {
+            if (master.uuid.equals(combatCard.uuid)) {
+                ChargeMod masterMod = ChargeMod.get(master);
+                if (masterMod != null) {
+                    masterMod.charge = this.charge;
+                    master.initializeDescription();
+                }
+                return;
+            }
+        }
     }
 }

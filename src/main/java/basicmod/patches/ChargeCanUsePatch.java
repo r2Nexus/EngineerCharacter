@@ -17,8 +17,10 @@ public class ChargeCanUsePatch {
         for (basemod.abstracts.AbstractCardModifier mod : CardModifierManager.modifiers(__instance)) {
             if (mod instanceof ChargeMod) {
                 ChargeMod cm = (ChargeMod) mod;
-                if (!cm.isFullyCharged()) {
-                    __instance.cantUseMessage = "Needs Charge (" + cm.charge + "/" + cm.maxCharge + ").";
+
+                if (!cm.isFullyCharged(__instance)) {
+                    int max = cm.getMaxCharge(__instance);
+                    __instance.cantUseMessage = "Needs Charge (" + cm.charge + "/" + max + ").";
                     return false;
                 }
             }

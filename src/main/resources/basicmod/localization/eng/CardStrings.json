@@ -275,8 +275,8 @@
 
   "${modID}:ExpansionPolicy": {
     "NAME": "Expansion Policy",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, add !${modID}:DRAW! ${modID}:Material to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, add !${modID}:DRAW! ${modID}:Material to your hand."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, add 1 ${modID}:Material to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, add 1 ${modID}:Material to your hand."
   },
 
   "${modID}:RapidDeployment": {

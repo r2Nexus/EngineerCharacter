@@ -33,7 +33,8 @@ public class PersonalBattery extends BaseCard {
         setCustomVar("CHARGE", VariableType.MAGIC, CHARGE, UPG_CHARGE);
         setMagic(ENERGY);
 
-        CardModifierManager.addModifier(this, new ChargeMod(customVar("CHARGE")));
+        int max = customVar("CHARGE");
+        CardModifierManager.addModifier(this, new ChargeMod("CHARGE", max));
     }
 
     @Override

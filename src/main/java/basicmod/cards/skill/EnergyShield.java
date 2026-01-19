@@ -31,10 +31,11 @@ public class EnergyShield extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/skill/energy_shield.png"));
 
         setCustomVar("CHARGE", VariableType.MAGIC, CHARGE, UPG_CHARGE);
-
-        CardModifierManager.addModifier(this, new ChargeMod(customVar("CHARGE")));
+        int max = customVar("CHARGE");
+        CardModifierManager.addModifier(this, new ChargeMod("CHARGE", max));
         setBlock(BLOCK, UPG_BLOCK);
     }
+
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

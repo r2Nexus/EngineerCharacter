@@ -33,7 +33,8 @@ public class PersonalLaser extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/attack/personal_laser.png"));
 
         setCustomVar("CHARGE", VariableType.MAGIC, CHARGE, UPG_CHARGE);
-        CardModifierManager.addModifier(this, new ChargeMod(customVar("CHARGE")));
+        int max = customVar("CHARGE");
+        CardModifierManager.addModifier(this, new ChargeMod("CHARGE", max));
 
         setDamage(DAMAGE, UPG_DAMAGE);
     }

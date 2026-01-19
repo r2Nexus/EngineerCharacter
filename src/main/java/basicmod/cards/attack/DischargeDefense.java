@@ -31,7 +31,8 @@ public class DischargeDefense extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/attack/discharge_defense.png"));
 
         setCustomVar("CHARGE", VariableType.MAGIC, CHARGE, UPG_CHARGE);
-        CardModifierManager.addModifier(this, new ChargeMod(customVar("CHARGE")));
+        int max = customVar("CHARGE");
+        CardModifierManager.addModifier(this, new ChargeMod("CHARGE", max));
     }
 
     @Override

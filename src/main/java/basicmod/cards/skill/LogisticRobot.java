@@ -33,7 +33,8 @@ public class LogisticRobot extends BaseCard {
         setExhaust(true);
         setBlock(BLOCK, UPG_BLOCK);
         setCustomVar("CHARGE", VariableType.MAGIC, CHARGE, UPG_CHARGE);
-        CardModifierManager.addModifier(this, new ChargeMod(customVar("CHARGE")));
+        int max = customVar("CHARGE");
+        CardModifierManager.addModifier(this, new ChargeMod("CHARGE", max));
     }
 
     @Override

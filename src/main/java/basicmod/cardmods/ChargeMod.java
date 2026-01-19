@@ -1,6 +1,7 @@
 package basicmod.cardmods;
 
 import basemod.abstracts.AbstractCardModifier;
+import basicmod.cards.BaseCard;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -11,36 +12,58 @@ public class ChargeMod extends AbstractCardModifier {
     public static final String ID = "${modID}:ChargeMod";
 
     public int charge;
-    public int maxCharge;
-
-    public ChargeMod(int maxCharge, int startingCharge) {
-        this.maxCharge = Math.max(1, maxCharge);
-        this.charge = Math.max(0, Math.min(startingCharge, this.maxCharge));
-    }
-
-    public ChargeMod(int maxCharge) {
-        this(maxCharge, 0);
-    }
-
-    public boolean isFullyCharged() {
-        return charge >= maxCharge;
-    }
-
-    public void addCharge(AbstractCard card, int amount) {
-        if (amount <= 0 || isFullyCharged()) return;
-        charge = Math.min(maxCharge, charge + amount);
-        card.superFlash();
-        card.initializeDescription(); // triggers modifyDescription()
-    }
+    private final String varKey; // e.g. "CHARGE"
 
     private static final String PROGRESS_TOKEN = "<CHARGE>";
     private static final Pattern PROGRESS_LINE =
             Pattern.compile("^\\d+\\s*/\\s*\\d+(\\s*\\(Ready\\))?\\s*$");
 
+    public ChargeMod(String varKey, int startingCharge) {
+        this.varKey = varKey;
+        this.charge = Math.max(0, startingCharge);
+    }
+
+    public ChargeMod(String varKey) {
+        this(varKey, 0);
+    }
+
+    public int getMaxCharge(AbstractCard card) {
+        if (card instanceof BaseCard) {
+            int max = ((BaseCard) card).customVar(varKey); // <-- always current (base/upgrade/etc.)
+            return Math.max(1, max);
+        }
+        return 1; // fallback so nothing crashes if applied to non-BaseCard
+    }
+
+    private void clamp(AbstractCard card) {
+        int max = getMaxCharge(card);
+        if (charge > max) charge = max;
+        if (charge < 0) charge = 0;
+    }
+
+    public boolean isFullyCharged(AbstractCard card) {
+        return charge >= getMaxCharge(card);
+    }
+
+    public void addCharge(AbstractCard card, int amount) {
+        if (amount <= 0) return;
+
+        clamp(card);
+        int max = getMaxCharge(card);
+        if (charge >= max) return;
+
+        charge = Math.min(max, charge + amount);
+        card.superFlash();
+        card.initializeDescription(); // triggers modifyDescription()
+    }
+
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
+        int max = getMaxCharge(card);
+        clamp(card);
+
         String base = ensureTokenized(rawDescription);
-        String progress = charge + "/" + maxCharge + (isFullyCharged() ? " (Ready)" : "");
+        String progress = charge + "/" + max + (charge >= max ? " (Ready)" : "");
         return base.replace(PROGRESS_TOKEN, progress);
     }
 
@@ -59,18 +82,19 @@ public class ChargeMod extends AbstractCardModifier {
 
     @Override
     public void onInitialApplication(AbstractCard card) {
+        clamp(card);
         card.initializeDescription();
     }
 
     @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        charge = 0;
+        charge = 0; // your rule
         card.initializeDescription();
     }
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new ChargeMod(maxCharge, charge);
+        return new ChargeMod(varKey, charge);
     }
 
     @Override

@@ -12,7 +12,8 @@
 
   "${modID}:Material": {
     "NAME": "Material",
-    "DESCRIPTION": "A resource used by other cards and buildings. NL Unplayable"
+    "DESCRIPTION": "A resource used by other cards and buildings. NL Unplayable",
+    "UPGRADE_DESCRIPTION": "Add 2 ${modID}:Material to your hand. NL Exhaust."
   },
 
   "${modID}:SubmachineGun": {

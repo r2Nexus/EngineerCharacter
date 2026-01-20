@@ -46,12 +46,13 @@ public class DischargeDefense extends BaseCard {
 
         addToBot(new GainBlockAction(p, p, block));
 
-        int damage = p.currentBlock;
-        addToBot(new SpendChargeAction(this, () ->
-                addToTop(new DamageAction(
-                m,
-                new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
-                AbstractGameAction.AttackEffect.LIGHTNING
-        ))));
+        addToBot(new SpendChargeAction(this, () -> {
+            int damage = p.currentBlock;
+            addToTop(new DamageAction(
+                    m,
+                    new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
+                    AbstractGameAction.AttackEffect.LIGHTNING
+            ));
+        }));
     }
 }

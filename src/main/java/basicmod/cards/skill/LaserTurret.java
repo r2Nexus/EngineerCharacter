@@ -5,48 +5,45 @@ import basicmod.BasicMod;
 import basicmod.actions.SpendChargeAction;
 import basicmod.cardmods.ChargeMod;
 import basicmod.cards.BaseCard;
+import basicmod.orbs.TurretOrb;
 import basicmod.patches.AbstractCardEnum;
+import basicmod.powers.FreeTurretFirePower;
 import basicmod.util.CardStats;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class EnergyShield extends BaseCard {
-    public static final String ID = makeID("EnergyShield");
+public class LaserTurret extends BaseCard {
+    public static final String ID = makeID("LaserTurret");
 
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
             1
     );
 
-    private static final int BLOCK = 7;
-    private static final int UPG_BLOCK = 3;
-
-    private static final int BONUS = 8;
-    private static final int UPG_BONUS = 2;
-
     private static final int CHARGE = 8;
     private static final int UPG_CHARGE = 0;
 
-    public EnergyShield() {
-        super(ID, info, BasicMod.imagePath("cards/skill/energy_shield.png"));
+    public LaserTurret() {
+        super(ID, info, BasicMod.imagePath("cards/skill/laser_turret.png"));
 
         setCustomVar("CHARGE", VariableType.MAGIC, CHARGE, UPG_CHARGE);
         int max = customVar("CHARGE");
         CardModifierManager.addModifier(this, new ChargeMod("CHARGE", max));
 
-        setCustomVar("BONUS", VariableType.BLOCK, BONUS, UPG_BONUS);
-        setBlock(BLOCK, UPG_BLOCK);
+        setCostUpgrade(0);
     }
-
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new ChannelAction(new TurretOrb()));
 
-        addToBot(new GainBlockAction(p, p, block));
-        addToBot(new SpendChargeAction(this, () -> addToTop(new GainBlockAction(p, p, customVar("BONUS")))));
+        addToBot(new SpendChargeAction(this, () -> {
+            addToTop(new ApplyPowerAction(p, p, new FreeTurretFirePower(p), 1));
+        }));
     }
 }

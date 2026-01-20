@@ -67,5 +67,40 @@
     "DESCRIPTIONS": [
       "Whenever a Turret fires, gain !M! Block"
     ]
+  },
+
+  "${modID}:StorageChestPower": {
+    "NAME": "Storage Chest",
+    "DESCRIPTIONS": [
+      "At the end of your turn, NL choose up to !M! cards to retain in your hand."
+    ]
+  },
+
+  "${modID}:YellowInserterPower": {
+    "NAME": "Yellow Inserter",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, draw !D! and add !M! ${modID}:Material to your hand."
+    ]
+  },
+
+  "${modID}:FreeTurretFirePower": {
+    "NAME": "Overclocked Turrets",
+    "DESCRIPTIONS": [
+      "This turn, Turrets do not consume Material at end of turn."
+    ]
+  },
+
+  "${modID}:FlameTurretPower": {
+    "NAME": "Flame Turret",
+    "DESCRIPTIONS": [
+      "This turn, whenever a Turret fires, deal !M! damage to ALL enemies."
+    ]
+  },
+
+  "${modID}:RoboportPower": {
+    "NAME": "Roboport",
+    "DESCRIPTIONS": [
+      "At the start of your turn, Scry !M!."
+    ]
   }
 }

@@ -24,8 +24,8 @@ public class StorageChestPower extends BasePower {
                 owner,
                 null,
                 amount,
-                BasicMod.imagePath("powers/example.png"),
-                BasicMod.imagePath("powers/large/example.png")
+                BasicMod.imagePath("powers/storage_chest_power.png"),
+                BasicMod.imagePath("powers/large/storage_chest_power.png")
         );
         updateDescription();
     }

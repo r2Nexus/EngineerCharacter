@@ -17,8 +17,8 @@ public class RoboportPower extends BasePower {
                 owner,
                 null,
                 amount,
-                BasicMod.imagePath("powers/example.png"),
-                BasicMod.imagePath("powers/large/example.png")
+                BasicMod.imagePath("powers/roboport_power.png"),
+                BasicMod.imagePath("powers/large/roboport_power.png")
         );
         updateDescription();
     }

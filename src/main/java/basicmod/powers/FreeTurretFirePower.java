@@ -17,8 +17,8 @@ public class FreeTurretFirePower extends BasePower {
                 owner,
                 null,
                 1,
-                BasicMod.imagePath("powers/example.png"),
-                BasicMod.imagePath("powers/large/example.png")
+                BasicMod.imagePath("powers/overclock_power.png"),
+                BasicMod.imagePath("powers/large/overclock_power.png")
         );
         updateDescription();
     }

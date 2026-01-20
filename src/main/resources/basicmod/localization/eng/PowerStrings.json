@@ -86,16 +86,21 @@
   "${modID}:FreeTurretFirePower": {
     "NAME": "Overclocked Turrets",
     "DESCRIPTIONS": [
-      "This turn, Turrets do not consume ${modID}:Material at end of turn."
+      "This turn, Turrets do not consume Material at end of turn."
     ]
   },
 
   "${modID}:FlameTurretPower": {
     "NAME": "Flame Turret",
     "DESCRIPTIONS": [
-      "This turn, whenever a ${modID}:Turret fires, deal !M! damage to ALL enemies."
+      "This turn, whenever a Turret fires, deal !M! damage to ALL enemies."
+    ]
+  },
+
+  "${modID}:RoboportPower": {
+    "NAME": "Roboport",
+    "DESCRIPTIONS": [
+      "At the start of your turn, Scry !M!."
     ]
   }
-
-
 }

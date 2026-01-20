@@ -17,8 +17,8 @@ public class FlameTurretPower extends BasePower {
                 owner,
                 null,
                 amount,
-                BasicMod.imagePath("powers/example.png"),
-                BasicMod.imagePath("powers/large/example.png")
+                BasicMod.imagePath("powers/flame_turret_power.png"),
+                BasicMod.imagePath("powers/large/flame_turret_power.png")
         );
         updateDescription();
     }

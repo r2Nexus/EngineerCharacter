@@ -225,6 +225,7 @@ public class BasicMod implements
         BaseMod.addCard(new BeltFed());
         BaseMod.addCard(new ReactiveArmour());
         BaseMod.addCard(new StorageChest());
+        BaseMod.addCard(new Roboport());
 
         // --- Other ---
         BaseMod.addCard(new basicmod.cards.Material());

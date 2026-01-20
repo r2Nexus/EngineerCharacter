@@ -385,5 +385,11 @@
     "NAME": "Flame Turret",
     "DESCRIPTION": "Channel ${modID}:Turret. NL This turn, whenever a ${modID}:Turret fires, deal !M! damage to ALL enemies.",
     "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret. NL This turn, whenever a ${modID}:Turret fires, deal !M! damage to ALL enemies."
+  },
+
+  "${modID}:Roboport": {
+    "NAME": "Roboport",
+    "DESCRIPTION": "At the start of your turn, before drawing, NL Scry !M!.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, before drawing, NL Scry !M!."
   }
 }

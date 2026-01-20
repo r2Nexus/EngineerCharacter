@@ -1,16 +1,14 @@
 package basicmod.cards.skill;
 
 import basicmod.BasicMod;
+import basicmod.actions.ConsumeAllMaterialAction;
 import basicmod.cards.BaseCard;
 import basicmod.cards.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 
 public class RedBelt extends BaseCard {
     public static final String ID = makeID("RedBelt");
@@ -23,22 +21,16 @@ public class RedBelt extends BaseCard {
             1
     );
 
-    private static final int EVOKE = 1;
-
     public RedBelt() {
         super(ID, info, BasicMod.imagePath("cards/skill/red_belt.png"));
-        setExhaust(true,false);
+        setCostUpgrade(0);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-        int filled = (int) AbstractDungeon.player.orbs.stream()
-                .filter(o -> !(o instanceof EmptyOrbSlot))
-                .count();
-        for (int i = 0; i < filled; i++) {
-            addToBot(new EvokeOrbAction(EVOKE));
-            addToBot(new MakeTempCardInHandAction(new Material(), 1));
-        }
+        addToBot(new ConsumeAllMaterialAction(consumed -> {
+            int gain = consumed + 1; // that much + 1
+            addToTop(new MakeTempCardInHandAction(new Material(), gain));
+        }, true, true, true));
     }
 }

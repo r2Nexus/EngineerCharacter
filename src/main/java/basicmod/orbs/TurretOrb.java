@@ -3,8 +3,11 @@ package basicmod.orbs;
 import basicmod.BasicMod;
 import basicmod.actions.ConsumeMaterialAction;
 import basicmod.powers.BeltFedPower;
+import basicmod.powers.FlameTurretPower;
+import basicmod.powers.FreeTurretFirePower;
 import basicmod.powers.SuppressiveFirePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -25,6 +28,18 @@ public class TurretOrb extends BaseOrb {
     public void onEndOfTurn() {
         refresh();
 
+        // Fire for Free
+        if (AbstractDungeon.player.hasPower(FreeTurretFirePower.POWER_ID)) {
+            AbstractDungeon.actionManager.addToTop(new com.megacrit.cardcrawl.actions.AbstractGameAction() {
+                @Override
+                public void update() {
+                    fireAtRandomEnemy();
+                    isDone = true;
+                }
+            });
+            return;
+        }
+
         boolean hasBeltFed = AbstractDungeon.player.hasPower(BeltFedPower.POWER_ID);
 
         AbstractDungeon.actionManager.addToTop(
@@ -33,12 +48,31 @@ public class TurretOrb extends BaseOrb {
                         hasBeltFed,
                         hasBeltFed
                 ));
-
     }
 
     public void fireAtRandomEnemy() {
+        fireAtRandomEnemy(passiveAmount, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
+    }
 
-        com.megacrit.cardcrawl.powers.AbstractPower supp = AbstractDungeon.player.getPower(SuppressiveFirePower.POWER_ID);
+    private void fireAtRandomEnemy(int dmg, AbstractGameAction.AttackEffect effect) {
+
+        // Flame Turret
+        com.megacrit.cardcrawl.powers.AbstractPower flame =
+                AbstractDungeon.player.getPower(FlameTurretPower.POWER_ID);
+        int aoe = (flame != null) ? flame.amount : 0;
+
+        if (aoe > 0) {
+            AbstractDungeon.actionManager.addToTop(new DamageAllEnemiesAction(
+                    AbstractDungeon.player,
+                    DamageInfo.createDamageMatrix(aoe, true),
+                    DamageInfo.DamageType.THORNS,
+                    AbstractGameAction.AttackEffect.FIRE
+            ));
+        }
+
+        // Suppressive Fire
+        com.megacrit.cardcrawl.powers.AbstractPower supp =
+                AbstractDungeon.player.getPower(SuppressiveFirePower.POWER_ID);
         int suppAmountNow = (supp != null) ? supp.amount : 0;
 
         if (suppAmountNow > 0) {
@@ -47,9 +81,10 @@ public class TurretOrb extends BaseOrb {
             );
         }
 
+        // Actual turret shot
         AbstractDungeon.actionManager.addToTop(new DamageRandomEnemyAction(
-                new DamageInfo(AbstractDungeon.player, passiveAmount, DamageInfo.DamageType.THORNS),
-                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL
+                new DamageInfo(AbstractDungeon.player, dmg, DamageInfo.DamageType.THORNS),
+                effect
         ));
     }
 
@@ -57,10 +92,7 @@ public class TurretOrb extends BaseOrb {
     public void onEvoke() {
         refresh();
 
-        AbstractDungeon.actionManager.addToTop(new DamageRandomEnemyAction(
-                new DamageInfo(AbstractDungeon.player, evokeAmount, DamageInfo.DamageType.THORNS),
-                AbstractGameAction.AttackEffect.FIRE
-        ));
+        fireAtRandomEnemy(evokeAmount, AbstractGameAction.AttackEffect.FIRE);
     }
 
     @Override

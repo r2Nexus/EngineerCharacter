@@ -17,7 +17,7 @@
 
   "${modID}:SubmachineGun": {
     "NAME": "Submachine Gun",
-    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1: Deal !${modID}:BONUS! damage.",
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1 from ${modID}:Stock: Deal !${modID}:BONUS! damage.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 1 from ${modID}:Stock: Deal !${modID}:BONUS! damage."
   },
 
@@ -119,14 +119,14 @@
 
   "${modID}:RedBelt": {
     "NAME": "Red Belt",
-    "DESCRIPTION": "Evoke all Orbs. NL Add 1 ${modID}:Material for each evoked orb to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Evoke all Orbs. NL NL Add 1 ${modID}:Material for each evoked orb to your hand."
+    "DESCRIPTION": "${modID}:Consume ALL in ${modID}:Stock: NL Add 1 more ${modID}:Material to your hand than you consumed.",
+    "UPGRADE_DESCRIPTION": "${modID}:Consume ALL in ${modID}:Stock: NL Add 1 more ${modID}:Material to your hand than you consumed."
   },
 
   "${modID}:YellowInserter": {
     "NAME": "Yellow Inserter",
-    "DESCRIPTION": "Draw !M! card. NL Add !${modID}:MAT! ${modID}:Material to your hand.",
-    "UPGRADE_DESCRIPTION": "Draw !M! card. NL Add !${modID}:MAT! ${modID}:Material to your hand."
+    "DESCRIPTION": "Draw !M! card. NL Add !${modID}:MAT! ${modID}:Material to your hand. NL Next turn, draw !M! card and add !${modID}:MAT! ${modID}:Material.",
+    "UPGRADE_DESCRIPTION": "Draw !M! card. NL Add !${modID}:MAT! ${modID}:Material to your hand. NL Next turn, draw !M! card and add !${modID}:MAT! ${modID}:Material."
   },
 
   "${modID}:FastInserter": {
@@ -355,5 +355,35 @@
     "NAME": "Personal Laser",
     "DESCRIPTION": "Deal !D! damage 2 times. NL ${modID}:Charge <CHARGE>: NL Deal !D! damage 2 times.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage 2 times. NL ${modID}:Charge <CHARGE>: NL Deal !D! damage 2 times."
+  },
+
+  "${modID}:StorageChest": {
+    "NAME": "Storage Chest",
+    "DESCRIPTION": "At the end of your turn, NL choose up to !M! cards to retain in your hand.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, NL choose up to !M! cards to retain in your hand."
+  },
+
+  "${modID}:CombatStim": {
+    "NAME": "Combat Stim",
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Charge <CHARGE>: NL The target gains !M! Strength.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Charge <CHARGE>: NL The target gains !M! Strength."
+  },
+
+  "${modID}:Exoskeleton": {
+    "NAME": "Exoskeleton",
+    "DESCRIPTION": "Gain !B! Block. NL ${modID}:Charge <CHARGE>: NL Gain !M! Dexterity.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL ${modID}:Charge <CHARGE>: NL Gain !M! Dexterity."
+  },
+
+  "${modID}:LaserTurret": {
+    "NAME": "Laser Turret",
+    "DESCRIPTION": "Channel ${modID}:Turret. NL ${modID}:Charge <CHARGE>: NL ${modID}:Turrets do not consume ${modID}:Material this turn.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret. NL ${modID}:Charge <CHARGE>: NL ${modID}:Turrets do not consume ${modID}:Material this turn."
+  },
+
+  "${modID}:FlameTurret": {
+    "NAME": "Flame Turret",
+    "DESCRIPTION": "Channel ${modID}:Turret. NL This turn, whenever a ${modID}:Turret fires, deal !M! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret. NL This turn, whenever a ${modID}:Turret fires, deal !M! damage to ALL enemies."
   }
 }

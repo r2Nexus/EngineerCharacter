@@ -178,6 +178,7 @@ public class BasicMod implements
         BaseMod.addCard(new Railgun());
         BaseMod.addCard(new PersonalLaser());
         BaseMod.addCard(new DischargeDefense());
+        BaseMod.addCard(new CombatStim());
 
         // --- Skills ---
         BaseMod.addCard(new Wall());
@@ -207,6 +208,9 @@ public class BasicMod implements
         BaseMod.addCard(new Recycler());
         BaseMod.addCard(new EnergyShield());
         BaseMod.addCard(new PersonalBattery());
+        BaseMod.addCard(new Exoskeleton());
+        BaseMod.addCard(new LaserTurret());
+        BaseMod.addCard(new FlameTurret());
 
         // --- Powers ---
         BaseMod.addCard(new Landfill());
@@ -220,6 +224,7 @@ public class BasicMod implements
         BaseMod.addCard(new SuppressiveFire());
         BaseMod.addCard(new BeltFed());
         BaseMod.addCard(new ReactiveArmour());
+        BaseMod.addCard(new StorageChest());
 
         // --- Other ---
         BaseMod.addCard(new basicmod.cards.Material());

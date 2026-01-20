@@ -26,10 +26,10 @@ public class DischargeDefense extends BaseCard {
     );
 
     private static final int BLOCK = 5;
-    private static final int UPG_BLOCK = 0;
+    private static final int UPG_BLOCK = 4;
 
     private static final int CHARGE = 8;
-    private static final int UPG_CHARGE = -2;
+    private static final int UPG_CHARGE = 0;
 
     public DischargeDefense() {
         super(ID, info, BasicMod.imagePath("cards/attack/discharge_defense.png"));

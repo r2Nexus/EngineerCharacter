@@ -23,13 +23,13 @@ public class EnergyShield extends BaseCard {
     );
 
     private static final int BLOCK = 7;
-    private static final int UPG_BLOCK = 0;
+    private static final int UPG_BLOCK = 3;
 
     private static final int BONUS = 8;
-    private static final int UPG_BONUS = 0;
+    private static final int UPG_BONUS = 2;
 
     private static final int CHARGE = 8;
-    private static final int UPG_CHARGE = -2;
+    private static final int UPG_CHARGE = 0;
 
     public EnergyShield() {
         super(ID, info, BasicMod.imagePath("cards/skill/energy_shield.png"));

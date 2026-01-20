@@ -25,7 +25,7 @@ public class PersonalBattery extends BaseCard {
     );
 
     private static final int CHARGE = 9;
-    private static final int UPG_CHARGE = -2;
+    private static final int UPG_CHARGE = -3;
 
     private static final int ENERGY = 1;
 

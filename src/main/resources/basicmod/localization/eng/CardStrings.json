@@ -35,8 +35,8 @@
 
   "${modID}:RainingBullets": {
     "NAME": "Raining Bullets",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL ${modID}:Consume up to 2: NL ${modID}:Fire all ${modID}:Turrets per consumed.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL ${modID}:Consume up to 3: NL ${modID}:Fire all ${modID}:Turrets per consumed."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Up to 2 times: NL ${modID}:Consume 1: NL ${modID}:Fire all ${modID}:Turrets.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Up to 3 times: NL ${modID}:Consume 1: NL ${modID}:Fire all ${modID}:Turrets."
   },
 
   "${modID}:SteamBattery": {
@@ -71,8 +71,8 @@
 
   "${modID}:Flamethrower": {
     "NAME": "Flamethrower",
-    "DESCRIPTION": "Deal !D! damage. NL Up to 2x: ${modID}:Consume 1: NL Apply !M! Poison to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Up to 2x: ${modID}:Consume 1 from ${modID}:Stock: NL Apply !M! Poison to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage. NL Up to 2 times: ${modID}:Consume 1: NL Apply !M! Poison to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Up to 2 times: ${modID}:Consume 1 from ${modID}:Stock: NL Apply !M! Poison to ALL enemies."
   },
 
   "${modID}:PiercingRounds": {
@@ -89,8 +89,8 @@
 
   "${modID}:RepairSystem": {
     "NAME": "Repair System",
-    "DESCRIPTION": "At the end of your turn, if you ${modID}:consumed 2+ this turn, gain !M! Block.",
-    "UPGRADE_DESCRIPTION": "At the end of your turn, if you ${modID}:consumed 2+ this turn, gain !M! Block."
+    "DESCRIPTION": "At the end of your turn, if you ${modID}:consumed 2 or more this turn, gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, if you ${modID}:consumed 2 or more this turn, gain !M! Block."
   },
 
   "${modID}:EmergencyRepair": {
@@ -263,8 +263,8 @@
 
   "${modID}:LightArmour": {
     "NAME": "Light Armour",
-    "DESCRIPTION": "Gain !B! Block. NL If you ${modID}:Consumed 1+ this turn, gain !${modID}:BONUS! Block.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL If you ${modID}:Consumed 1+ this turn, gain !${modID}:BONUS! Block."
+    "DESCRIPTION": "Gain !B! Block. NL If you ${modID}:Consumed this turn, gain !${modID}:BONUS! Block.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL If you ${modID}:Consumed this turn, gain !${modID}:BONUS! Block."
   },
 
   "${modID}:BudgetDefenses": {
@@ -305,8 +305,8 @@
 
   "${modID}:BeltFed": {
     "NAME": "Belt Fed",
-    "DESCRIPTION": "Turrets can now consume from ${modID}:Stock",
-    "UPGRADE_DESCRIPTION": "Turrets can now consume from ${modID}:Stock"
+    "DESCRIPTION": "Turrets can now ${modID}:consume from ${modID}:Stock.",
+    "UPGRADE_DESCRIPTION": "Turrets can now ${modID}:consume from ${modID}:Stock."
   },
 
   "${modID}:SuppressiveFire": {
@@ -377,8 +377,8 @@
 
   "${modID}:LaserTurret": {
     "NAME": "Laser Turret",
-    "DESCRIPTION": "Channel ${modID}:Turret. NL ${modID}:Charge <CHARGE>: NL ${modID}:Turrets do not consume ${modID}:Material this turn.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret. NL ${modID}:Charge <CHARGE>: NL ${modID}:Turrets do not consume ${modID}:Material this turn."
+    "DESCRIPTION": "Channel ${modID}:Turret. NL ${modID}:Charge <CHARGE>: NL ${modID}:Turrets do not ${modID}:consume ${modID}:Material this turn.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret. NL ${modID}:Charge <CHARGE>: NL ${modID}:Turrets do not ${modID}:consume ${modID}:Material this turn."
   },
 
   "${modID}:FlameTurret": {

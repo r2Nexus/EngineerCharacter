@@ -79,7 +79,7 @@
   "${modID}:YellowInserterPower": {
     "NAME": "Yellow Inserter",
     "DESCRIPTIONS": [
-      "At the start of your next turn, draw !D! and add !M! ${modID}:Material to your hand."
+      "At the start of your next turn, draw !D! and add !M! Material to your hand."
     ]
   },
 
@@ -101,6 +101,13 @@
     "NAME": "Roboport",
     "DESCRIPTIONS": [
       "At the start of your turn, Scry !M!."
+    ]
+  },
+
+  "${modID}:EconomyBoomPower": {
+    "NAME": "Economy Boom",
+    "DESCRIPTIONS": [
+      "At the start of your turn, channel !M! Miner."
     ]
   }
 }

@@ -31,7 +31,7 @@ public class StorageChestPower extends BasePower {
     }
 
     @Override
-    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+    public void atEndOfTurn(boolean isPlayer) {
         if (!isPlayer) return;
         if (amount <= 0) return;
         if (AbstractDungeon.player.hand.isEmpty()) return;

@@ -392,5 +392,53 @@
     "NAME": "Roboport",
     "DESCRIPTION": "At the start of your turn, before drawing, NL Scry !M!.",
     "UPGRADE_DESCRIPTION": "At the start of your turn, before drawing, NL Scry !M!."
+  },
+
+  "${modID}:Refinery": {
+    "NAME": "Refinery",
+    "DESCRIPTION": "${modID}:Consume ALL: NL Add !M! ${modID}:Material to your discard pile per ${modID}:consumed.",
+    "UPGRADE_DESCRIPTION": "${modID}:Consume ALL: NL Add !M! ${modID}:Material to your discard pile per ${modID}:consumed."
+  },
+
+  "${modID}:Tank": {
+    "NAME": "Tank",
+    "DESCRIPTION": "Gain !B! Block. NL Up to 4 times: NL ${modID}:Consume 2 from ${modID}:Stock: NL Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Up to 4 times: NL ${modID}:Consume 2 from ${modID}:Stock: NL Deal !D! damage."
+  },
+
+  "${modID}:NuclearWarhead": {
+    "NAME": "Nuclear Warhead",
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 6 from ${modID}:Stock: increase that damage by !${modID}:BONUS!.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 6 from ${modID}:Stock: increase that damage by !${modID}:BONUS!."
+  },
+
+  "${modID}:Assembler": {
+    "NAME": "Assembler",
+    "DESCRIPTION": "${modID}:Consume !${modID}:CONSUME!: NL Choose !M! of !${modID}:POOL! random Engineer cards to add to your hand.",
+    "UPGRADE_DESCRIPTION": "${modID}:Consume !${modID}:CONSUME!: NL Choose !M! of !${modID}:POOL! random Engineer cards to add to your hand."
+  },
+
+  "${modID}:Fish": {
+    "NAME": "Fish",
+    "DESCRIPTION": "Heal !M! HP. NL ${modID}:Consume 2: NL Heal !${modID}:B_HEAL! HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Heal !M! HP. NL ${modID}:Consume 2: NL Heal !${modID}:B_HEAL! HP. NL Exhaust."
+  },
+
+  "${modID}:Outpost": {
+    "NAME": "Outpost",
+    "DESCRIPTION": "Channel ${modID}:Miner. NL Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Miner.  NL Gain !B! Block."
+  },
+
+  "${modID}:EconomyBoom": {
+    "NAME": "Economy Boom",
+    "DESCRIPTION": "At the start of your turn, Channel !M! ${modID}:Miner.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, Channel !M! ${modID}:Miner. NL Channel ${modID}:Miner."
+  },
+
+  "${modID}:SteelAxe": {
+    "NAME": "Steel Axe",
+    "DESCRIPTION": "Deal !D! damage. NL If it kills, channel ${modID}:Miner.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If it kills, channel ${modID}:Miner."
   }
 }

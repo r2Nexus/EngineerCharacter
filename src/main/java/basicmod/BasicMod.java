@@ -179,11 +179,13 @@ public class BasicMod implements
         BaseMod.addCard(new PersonalLaser());
         BaseMod.addCard(new DischargeDefense());
         BaseMod.addCard(new CombatStim());
+        BaseMod.addCard(new NuclearWarhead());
+        BaseMod.addCard(new SteelAxe());
 
         // --- Skills ---
         BaseMod.addCard(new Wall());
         BaseMod.addCard(new Miner());
-        BaseMod.addCard(new Turret());
+        // BaseMod.addCard(new Turret());
         BaseMod.addCard(new ManualLabor());
         BaseMod.addCard(new SteamBattery());
         BaseMod.addCard(new LandMine());
@@ -211,6 +213,11 @@ public class BasicMod implements
         BaseMod.addCard(new Exoskeleton());
         BaseMod.addCard(new LaserTurret());
         BaseMod.addCard(new FlameTurret());
+        BaseMod.addCard(new Refinery());
+        BaseMod.addCard(new Tank());
+        BaseMod.addCard(new Assembler());
+        BaseMod.addCard(new Fish());
+        BaseMod.addCard(new Outpost());
 
         // --- Powers ---
         BaseMod.addCard(new Landfill());
@@ -226,6 +233,7 @@ public class BasicMod implements
         BaseMod.addCard(new ReactiveArmour());
         BaseMod.addCard(new StorageChest());
         BaseMod.addCard(new Roboport());
+        BaseMod.addCard(new EconomyBoom());
 
         // --- Other ---
         BaseMod.addCard(new basicmod.cards.Material());

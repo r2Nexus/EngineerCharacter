@@ -23,8 +23,8 @@ public class YellowInserterPower extends BasePower {
                 owner,
                 null,
                 1,
-                BasicMod.imagePath("powers/example.png"),
-                BasicMod.imagePath("powers/large/example.png")
+                BasicMod.imagePath("powers/yellow_inserter_power.png"),
+                BasicMod.imagePath("powers/large/yellow_inserter_power.png")
         );
         this.draw = draw;
         this.mat = mat;

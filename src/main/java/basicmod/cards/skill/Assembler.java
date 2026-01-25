@@ -25,7 +25,7 @@ public class Assembler extends BaseCard {
     public static final int UPG_PICK = 1;
 
     public static final int POOL = 3;
-    public static final int UPG_POOL = 0;
+    public static final int UPG_POOL = 2;
 
     public static final int CONSUME = 3;
 

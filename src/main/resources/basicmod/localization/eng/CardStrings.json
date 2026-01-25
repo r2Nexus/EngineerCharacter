@@ -408,8 +408,8 @@
 
   "${modID}:NuclearWarhead": {
     "NAME": "Nuclear Warhead",
-    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 6 from ${modID}:Stock: Deal !${modID}:BONUS! damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 6 from ${modID}:Stock: Deal !${modID}:BONUS! damage."
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 6 from ${modID}:Stock: increase that damage by !${modID}:BONUS!.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${modID}:Consume 6 from ${modID}:Stock: increase that damage by !${modID}:BONUS!."
   },
 
   "${modID}:Assembler": {

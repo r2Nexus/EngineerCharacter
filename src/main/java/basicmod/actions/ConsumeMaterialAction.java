@@ -16,19 +16,30 @@ import java.util.List;
 public class ConsumeMaterialAction extends AbstractGameAction {
     private final int amount;
     private final Runnable onSuccess;
+    private final Runnable onFail; // NEW
 
     private final boolean useHand;
     private final boolean useDraw;
     private final boolean useDiscard;
 
     public ConsumeMaterialAction(int amount, Runnable onSuccess) {
-        this(amount, onSuccess, true, false, false);
+        this(amount, onSuccess, null, true, false, false);
     }
 
     public ConsumeMaterialAction(int amount, Runnable onSuccess,
                                  boolean useHand, boolean useDraw, boolean useDiscard) {
+        this(amount, onSuccess, null, useHand, useDraw, useDiscard);
+    }
+
+    public ConsumeMaterialAction(int amount, Runnable onSuccess, Runnable onFail) {
+        this(amount, onSuccess, onFail, true, false, false);
+    }
+
+    public ConsumeMaterialAction(int amount, Runnable onSuccess, Runnable onFail,
+                                 boolean useHand, boolean useDraw, boolean useDiscard) {
         this.amount = amount;
         this.onSuccess = onSuccess;
+        this.onFail = onFail;
         this.useHand = useHand;
         this.useDraw = useDraw;
         this.useDiscard = useDiscard;
@@ -66,6 +77,7 @@ public class ConsumeMaterialAction extends AbstractGameAction {
         }
 
         if (materials.size() < amount) {
+            if (onFail != null) onFail.run();
             isDone = true;
             return;
         }
@@ -122,5 +134,4 @@ public class ConsumeMaterialAction extends AbstractGameAction {
 
         ConsumeEvents.fireMaterialConsumed(AbstractDungeon.player, card);
     }
-
 }

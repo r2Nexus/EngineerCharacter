@@ -40,22 +40,19 @@ public class NuclearWarhead extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(
-                m,
-                new DamageInfo(p, damage, damageTypeForTurn),
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY
-        ));
-
-        addToBot(new ConsumeMaterialAction(CONSUME, () -> {
-            addToTop(new DamageAction(
-                    m,
-                    new DamageInfo(p, customVar("BONUS"), damageTypeForTurn),
-                    AbstractGameAction.AttackEffect.BLUNT_HEAVY
-            ));
-        },
-                true,
-                true,
-                true
+        addToBot(new ConsumeMaterialAction(
+                CONSUME,
+                () -> addToTop(new DamageAction(
+                        m,
+                        new DamageInfo(p, damage + customVar("BONUS"), damageTypeForTurn),
+                        AbstractGameAction.AttackEffect.BLUNT_HEAVY
+                )),
+                () -> addToTop(new DamageAction(
+                        m,
+                        new DamageInfo(p, damage, damageTypeForTurn),
+                        AbstractGameAction.AttackEffect.BLUNT_HEAVY
+                )),
+                true, true, true
         ));
     }
 }

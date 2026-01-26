@@ -5,7 +5,6 @@ import basemod.animations.SpriterAnimation;
 import basicmod.BasicMod;
 import basicmod.cards.attack.ManualLabor;
 import basicmod.cards.attack.Pistol;
-import basicmod.cards.attack.TurretPush;
 import basicmod.cards.skill.Turret;
 import basicmod.cards.skill.Wall;
 import basicmod.patches.AbstractCardEnum;

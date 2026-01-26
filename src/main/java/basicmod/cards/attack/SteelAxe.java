@@ -26,7 +26,7 @@ public class SteelAxe extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 7;
+    private static final int DAMAGE = 11;
     private static final int UPG_DAMAGE = 3;
 
     public SteelAxe() {

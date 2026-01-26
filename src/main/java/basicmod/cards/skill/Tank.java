@@ -9,6 +9,7 @@ import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -42,6 +43,9 @@ public class Tank extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
+        addToBot(new GainBlockAction(p, p, block));
+
         for(int i = 0; i < REPEATS; i++)
         {
             addToBot(new ConsumeMaterialAction(CONSUME, () ->

@@ -1,6 +1,8 @@
 package basicmod.cards.attack;
 
+import basemod.helpers.CardModifierManager;
 import basicmod.BasicMod;
+import basicmod.cardmods.ChargeMod;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
@@ -17,39 +19,34 @@ public class Railgun extends BaseCard {
             CardType.ATTACK,
             CardRarity.RARE,
             CardTarget.ENEMY,
-            3
+            1
     );
 
-    private static final int MAGIC = 6;      // constant per science played
-    private static final int UPG_MAGIC = 2;  // upgrade bonus (optional)
-
-    private final String BASE_DESCRIPTION;
+    private static final int CHARGE_MAX = 8;
+    private static final int UPG_CHARGE_MAX = 4;
 
     public Railgun() {
         super(ID, info, BasicMod.imagePath("cards/attack/railgun.png"));
-        setCostUpgrade(2);
 
-        setMagic(MAGIC, UPG_MAGIC);
-        setDamage(0); // dynamic
+        // Match your existing charge-card convention exactly:
+        setCustomVar("CHARGE", VariableType.MAGIC, CHARGE_MAX, UPG_CHARGE_MAX);
 
-        BASE_DESCRIPTION = this.rawDescription;
-        initializeDescription();
+        int max = customVar("CHARGE");
+        CardModifierManager.addModifier(this, new ChargeMod("CHARGE", max));
+        setDamage(0);
     }
 
-    private int computeDynamicBaseDamage() {
-        int sciences = Math.max(0, BasicMod.sciencePlayedThisCombat);
-        return magicNumber * sciences;
-    }
-
-    private void updateDynamicDescription() {
-        this.rawDescription = BASE_DESCRIPTION + " NL (Currently: " + this.damage + ")";
-        initializeDescription();
+    private int computeDamageFromCharge() {
+        ChargeMod mod = ChargeMod.get(this);
+        if (mod == null) return 0;
+        return 2 * mod.getCharge(this);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int sciences = Math.max(1, BasicMod.sciencePlayedThisCombat);
-        int dmg = magicNumber * sciences;
+        ChargeMod mod = ChargeMod.get(this);
+        int spent = (mod == null) ? 0 : mod.spendAll(this);
+        int dmg = 2 * spent;
 
         addToBot(new DamageAction(
                 m,
@@ -61,27 +58,21 @@ public class Railgun extends BaseCard {
     public void applyPowers() {
         int realBase = baseDamage;
 
-        baseDamage = computeDynamicBaseDamage();
+        baseDamage = computeDamageFromCharge();
         super.applyPowers();
         baseDamage = realBase;
 
-        updateDynamicDescription();
+        initializeDescription();
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         int realBase = baseDamage;
 
-        baseDamage = computeDynamicBaseDamage();
+        baseDamage = computeDamageFromCharge();
         super.calculateCardDamage(mo);
         baseDamage = realBase;
 
-        updateDynamicDescription();
-    }
-
-    @Override
-    public void onMoveToDiscard() {
-        this.rawDescription = BASE_DESCRIPTION;
         initializeDescription();
     }
 }

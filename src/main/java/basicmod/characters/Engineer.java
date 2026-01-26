@@ -6,6 +6,7 @@ import basicmod.BasicMod;
 import basicmod.cards.attack.ManualLabor;
 import basicmod.cards.attack.Pistol;
 import basicmod.cards.attack.TurretPush;
+import basicmod.cards.skill.Turret;
 import basicmod.cards.skill.Wall;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.PlayerClassEnum;
@@ -122,7 +123,7 @@ public class Engineer extends CustomPlayer {
         ArrayList<String> deck = new ArrayList<>();
         deck.add(Pistol.ID); deck.add(Pistol.ID); deck.add(Pistol.ID); deck.add(Pistol.ID);
         deck.add(Wall.ID);   deck.add(Wall.ID);   deck.add(Wall.ID);   deck.add(Wall.ID);
-        deck.add(ManualLabor.ID); deck.add(TurretPush.ID);
+        deck.add(ManualLabor.ID); deck.add(Turret.ID);
         return deck;
     }
 

@@ -20,11 +20,11 @@ public class NuclearWarhead extends BaseCard {
             CardType.ATTACK,
             CardRarity.UNCOMMON,
             CardTarget.ENEMY,
-            3
+            2
     );
 
-    private static final int DAMAGE = 30;
-    private static final int UPG_DAMAGE = 5;
+    private static final int DAMAGE = 20;
+    private static final int UPG_DAMAGE = 0;
 
     private static final int BONUS_DAMAGE = 30;
     private static final int UPG_BONUS = 15;

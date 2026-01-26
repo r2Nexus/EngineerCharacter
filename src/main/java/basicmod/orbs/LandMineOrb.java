@@ -48,7 +48,7 @@ public class LandMineOrb extends BaseOrb {
         if (!anyMonsterIntendsAttack()) return;
 
         triggeredThisTurn = true;
-        AbstractDungeon.actionManager.addToBottom(new EvokeSpecificOrbAction(this));
+        AbstractDungeon.actionManager.addToTop(new EvokeSpecificOrbAction(this));
     }
 
     @Override

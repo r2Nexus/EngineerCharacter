@@ -30,8 +30,8 @@
 
   "${modID}:Turret": {
     "NAME": "Build Turret",
-    "DESCRIPTION": "Channel ${modID}:Turret. NL Gain !B! Block.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret.  NL Gain !B! Block."
+    "DESCRIPTION": "Channel ${modID}:Turret. NL Add 1 ${modID}:Material to your hand.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret. NL Add 1 ${modID}:Material to your hand."
   },
 
   "${modID}:RainingBullets": {
@@ -282,8 +282,8 @@
 
   "${modID}:RapidDeployment": {
     "NAME": "Rapid Deployment",
-    "DESCRIPTION": "Channel X ${modID}:Turrets. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel X+!M! ${modID}:Turrets. NL Exhaust."
+    "DESCRIPTION": "Channel X ${modID}:Turrets. NL ${modID}:Turrets do not ${modID}:consume ${modID}:Material this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel X+!M! ${modID}:Turrets. NL ${modID}:Turrets do not ${modID}:consume ${modID}:Material this turn. NL Exhaust."
   },
 
   "${modID}:GreenScience": {
@@ -318,8 +318,8 @@
 
   "${modID}:Railgun": {
     "NAME": "Railgun",
-    "DESCRIPTION": "Deal damage equal to !M! x Science Powers played this combat.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to !M! x Science Powers played this combat."
+    "DESCRIPTION": "Spend ALL Current ${modID}:Charge <CHARGE>. NL Deal 3 times Charge spent damage.",
+    "UPGRADE_DESCRIPTION": "Spend ALL Current ${modID}:Charge <CHARGE>. NL Deal 3 times Charge spent damage."
   },
 
   "${modID}:ReactiveArmour": {

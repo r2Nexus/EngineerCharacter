@@ -4,7 +4,6 @@ import basicmod.BasicMod;
 import basicmod.actions.ConsumeMaterialAction;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
-import basicmod.patches.CardTagEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;

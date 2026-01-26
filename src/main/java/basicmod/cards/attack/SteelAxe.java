@@ -2,14 +2,11 @@ package basicmod.cards.attack;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.cards.skill.Miner;
 import basicmod.orbs.MinerOrb;
 import basicmod.patches.AbstractCardEnum;
-import basicmod.patches.CardTagEnum;
 import basicmod.util.CardStats;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.DamageCallbackAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

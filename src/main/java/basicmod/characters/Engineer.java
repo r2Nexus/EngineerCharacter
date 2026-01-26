@@ -44,8 +44,6 @@ public class Engineer extends CustomPlayer {
             BasicMod.imagePath("char/engineer/orb/layer3d.png"),
             BasicMod.imagePath("char/engineer/orb/layer4d.png"),
             BasicMod.imagePath("char/engineer/orb/layer5d.png"),
-            BasicMod.imagePath("char/engineer/orb/layer6d.png"),
-            BasicMod.imagePath("char/engineer/orb/test.png")
     };
 
     private static final String ORB_VFX = BasicMod.imagePath("char/engineer/orb/vfx.png");
@@ -54,7 +52,7 @@ public class Engineer extends CustomPlayer {
             -40f,  40f,  -25f,  25f,  -15f,  0f,
 
             // Dark
-            -40f,  40f,  -25f,  25f,  -15f,  15f,
+            -40f,  40f,  -25f,  25f,
 
             // Base/frame should be static
             0f

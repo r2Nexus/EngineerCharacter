@@ -28,14 +28,13 @@ public class HeavyArmour extends BaseCard {
     public HeavyArmour() {
         super(ID, info, BasicMod.imagePath("cards/skill/heavy_armour.png"));
         setBlock(BLOCK, UPG_BLOCK);
-        exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
 
-        addToBot(new ConsumeMaterialAction(1, () -> {
+        addToBot(new ConsumeMaterialAction(2, () -> {
             addToTop(new ApplyPowerAction(
                     p, p,
                     new PlatedArmorPower(p, 3),

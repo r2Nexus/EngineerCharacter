@@ -72,8 +72,8 @@
 
   "${modID}:Flamethrower": {
     "NAME": "Flamethrower",
-    "DESCRIPTION": "Deal !D! damage. NL Up to 2 times: ${modID}:Consume 1: NL Apply !M! Poison to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Up to 2 times: ${modID}:Consume 1 from ${modID}:Stock: NL Apply !M! Poison to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage. NL Up to 3 times: ${modID}:Consume 1: NL Apply !M! Poison to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Up to 3 times: ${modID}:Consume 1 from ${modID}:Stock: NL Apply !M! Poison to ALL enemies."
   },
 
   "${modID}:PiercingRounds": {
@@ -102,8 +102,8 @@
 
   "${modID}:HeavyArmour": {
     "NAME": "Heavy Armour",
-    "DESCRIPTION": "Gain !B! Block. NL ${modID}:Consume 1: NL Gain 3 Plated Armor. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL ${modID}:Consume 1: NL Gain 3 Plated Armor. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL ${modID}:Consume 2: NL Gain 3 Plated Armor.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL ${modID}:Consume 2: NL Gain 3 Plated Armor."
   },
 
   "${modID}:TurretPush": {

@@ -32,7 +32,7 @@ public class Flamethrower extends BaseCard {
     private static final int MAGIC = 4;
     private static final int UPG_MAGIC = 1;
 
-    private static final int TIMES = 2;
+    private static final int TIMES = 3;
 
     public Flamethrower() {
         super(ID, info, BasicMod.imagePath("cards/attack/flame_thrower.png"));

@@ -21,13 +21,12 @@ public class TurretPush extends BaseCard {
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
             CardType.ATTACK,
-            CardRarity.BASIC,
+            CardRarity.COMMON,
             CardTarget.ENEMY,
             1
     );
 
 
-    // TODO: add art
     public TurretPush() {
         super(ID, info, BasicMod.imagePath("cards/attack/turret_push.png"));
         setDamage(DAMAGE, UPG_DAMAGE);

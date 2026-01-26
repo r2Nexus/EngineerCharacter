@@ -185,7 +185,7 @@ public class BasicMod implements
         // --- Skills ---
         BaseMod.addCard(new Wall());
         BaseMod.addCard(new Miner());
-        // BaseMod.addCard(new Turret());
+        BaseMod.addCard(new Turret());
         BaseMod.addCard(new ManualLabor());
         BaseMod.addCard(new SteamBattery());
         BaseMod.addCard(new LandMine());

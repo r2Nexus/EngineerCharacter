@@ -139,4 +139,29 @@ public class ChargeMod extends AbstractCardModifier {
             }
         }
     }
+
+    public int getCharge(AbstractCard card) {
+        clamp(card);
+        return charge;
+    }
+
+    public int spend(AbstractCard card, int amount) {
+        if (amount <= 0) return 0;
+
+        clamp(card);
+        int spent = Math.min(charge, amount);
+        if (spent <= 0) return 0;
+
+        charge -= spent;
+
+        card.initializeDescription();
+        syncToMasterDeck(card);
+        return spent;
+    }
+
+    public int spendAll(AbstractCard card) {
+        clamp(card);
+        if (charge <= 0) return 0;
+        return spend(card, charge);
+    }
 }

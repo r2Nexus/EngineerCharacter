@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 
 public class LandMineOrb extends BaseOrb {
@@ -48,7 +47,7 @@ public class LandMineOrb extends BaseOrb {
         if (!anyMonsterIntendsAttack()) return;
 
         triggeredThisTurn = true;
-        AbstractDungeon.actionManager.addToBottom(new EvokeSpecificOrbAction(this));
+        AbstractDungeon.actionManager.addToTop(new EvokeSpecificOrbAction(this));
     }
 
     @Override

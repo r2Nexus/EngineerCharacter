@@ -28,6 +28,8 @@ public class Recycler extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/skill/recycler.png"));
         setMagic(MAX_EXHAUST, UPG_MAX_EXHAUST);
         setExhaust(true);
+
+        cardsToPreview = new Material();
     }
 
     @Override

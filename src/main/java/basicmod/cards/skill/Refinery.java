@@ -31,6 +31,8 @@ public class Refinery extends BaseCard {
     public Refinery() {
         super(ID, info, BasicMod.imagePath("cards/skill/refinery.png"));
         setMagic(GAIN, UPG_GAIN);
+
+        cardsToPreview = new Material();
     }
 
     @Override

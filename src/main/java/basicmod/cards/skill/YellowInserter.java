@@ -33,6 +33,8 @@ public class YellowInserter extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/skill/yellow_inserter.png"));
         setMagic(DRAW, UPG_DRAW);
         setCustomVar("MAT", VariableType.MAGIC, MAT, UPG_MAT);
+
+        cardsToPreview = new Material();
     }
 
     @Override

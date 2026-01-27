@@ -40,6 +40,8 @@ public class CargoWagon extends BaseCard {
 
         setCustomVar("HAND", VariableType.MAGIC, HAND_MAT, 0);
         setCustomVar("DISC", VariableType.MAGIC, DISC_MAT, UPG_DISC_MAT);
+
+        cardsToPreview = new Material();
     }
 
     @Override

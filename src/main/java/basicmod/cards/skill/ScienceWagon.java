@@ -1,7 +1,9 @@
 package basicmod.cards.skill;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
+import basicmod.cards.power.*;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;
 import basicmod.util.CardStats;
@@ -35,6 +37,12 @@ public class ScienceWagon extends BaseCard {
         setMagic(AMOUNT, UPG_AMOUNT);
         setBlock(BLOCK);
         setExhaust(true);
+
+//        MultiCardPreview.add(this, new RedScience());
+//        MultiCardPreview.add(this, new GreenScience());
+//        MultiCardPreview.add(this, new BlackScience());
+//        MultiCardPreview.add(this, new BlueScience());
+//        MultiCardPreview.add(this, new PurpleScience());
     }
 
     @Override

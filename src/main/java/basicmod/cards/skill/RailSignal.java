@@ -1,7 +1,11 @@
 package basicmod.cards.skill;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
+import basicmod.cards.attack.ArtilleryWagon;
+import basicmod.cards.attack.CargoWagon;
+import basicmod.cards.attack.FluidWagon;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import basicmod.util.WagonTracker;
@@ -30,6 +34,11 @@ public class RailSignal extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/skill/rail_signal.png"));
         setBlock(BLOCK, UPG_BLOCK);
         setCustomVar("BONUS", VariableType.BLOCK, BONUS, UPG_BONUS);
+
+//        MultiCardPreview.add(this, new CargoWagon());
+//        MultiCardPreview.add(this, new ArtilleryWagon());
+//        MultiCardPreview.add(this, new FluidWagon());
+//        MultiCardPreview.add(this, new ScienceWagon());
     }
 
     @Override

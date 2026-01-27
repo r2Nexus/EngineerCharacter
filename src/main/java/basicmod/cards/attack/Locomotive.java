@@ -1,7 +1,10 @@
 package basicmod.cards.attack;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
+import basicmod.cards.power.RedScience;
+import basicmod.cards.skill.ScienceWagon;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;
 import basicmod.util.CardStats;
@@ -36,6 +39,11 @@ public class Locomotive extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/attack/locomotive.png"));
         setDamage(DAMAGE, UPG_DAMAGE);
         setExhaust(true);
+
+//        MultiCardPreview.add(this, new CargoWagon());
+//        MultiCardPreview.add(this, new ArtilleryWagon());
+//        MultiCardPreview.add(this, new FluidWagon());
+//        MultiCardPreview.add(this, new ScienceWagon());
     }
 
     @Override

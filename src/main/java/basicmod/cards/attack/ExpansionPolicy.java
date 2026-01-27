@@ -31,6 +31,7 @@ public class ExpansionPolicy extends BaseCard {
         setDamage(DAMAGE, UPG_DAMAGE);
 
         this.isMultiDamage = true;
+        cardsToPreview = new Material();
     }
 
     @Override

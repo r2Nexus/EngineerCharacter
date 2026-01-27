@@ -32,6 +32,8 @@ public class ManualLabor extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/attack/manual_labor.png"));
         setMagic(DRAW);
         setDamage(DAMAGE, UPG_DAMAGE);
+
+        cardsToPreview = new Material();
     }
 
     @Override

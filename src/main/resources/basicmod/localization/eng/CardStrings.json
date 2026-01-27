@@ -13,7 +13,7 @@
   "${modID}:Material": {
     "NAME": "Material",
     "DESCRIPTION": "A resource used by other cards and buildings. NL Unplayable",
-    "UPGRADE_DESCRIPTION": "Add 2 ${modID}:Material to your hand. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Add 2 #yMaterial to your hand. NL Exhaust."
   },
 
   "${modID}:SubmachineGun": {
@@ -24,14 +24,14 @@
 
   "${modID}:Miner": {
     "NAME": "Build Miner",
-    "DESCRIPTION": "Channel ${modID}:Miner. NL Add !M! ${modID}:Material to your hand.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Miner. NL Add !M! ${modID}:Material to your hand."
+    "DESCRIPTION": "Channel ${modID}:Miner. NL Add !M! #yMaterial to your hand.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Miner. NL Add !M! #yMaterial to your hand."
   },
 
   "${modID}:Turret": {
     "NAME": "Build Turret",
-    "DESCRIPTION": "Channel ${modID}:Turret. NL Add 1 ${modID}:Material to your hand.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret. NL Add 1 ${modID}:Material to your hand."
+    "DESCRIPTION": "Channel ${modID}:Turret. NL Add 1 #yMaterial to your hand.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret. NL Add 1 #yMaterial to your hand."
   },
 
   "${modID}:RainingBullets": {
@@ -48,8 +48,8 @@
 
   "${modID}:ManualLabor": {
     "NAME": "Manual Labor",
-    "DESCRIPTION": "Deal !D! damage. NL Add !M! ${modID}:Material to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add !M! ${modID}:Material to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Add !M! #yMaterial to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add !M! #yMaterial to your hand."
   },
 
   "${modID}:Landfill": {
@@ -114,20 +114,20 @@
 
   "${modID}:YellowBelt": {
     "NAME": "Yellow Belt",
-    "DESCRIPTION": "Draw !M! cards. NL Add !${modID}:BONUS! ${modID}:Material to your hand.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Add !${modID}:BONUS! ${modID}:Material to your hand."
+    "DESCRIPTION": "Draw !M! cards. NL Add !${modID}:BONUS! #yMaterial to your hand.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Add !${modID}:BONUS! #yMaterial to your hand."
   },
 
   "${modID}:RedBelt": {
     "NAME": "Red Belt",
-    "DESCRIPTION": "${modID}:Consume ALL in ${modID}:Stock: NL Add 1 more ${modID}:Material to your hand than you consumed.",
-    "UPGRADE_DESCRIPTION": "${modID}:Consume ALL in ${modID}:Stock: NL Add 1 more ${modID}:Material to your hand than you consumed."
+    "DESCRIPTION": "${modID}:Consume ALL in ${modID}:Stock: NL Add 1 more #yMaterial to your hand than you consumed.",
+    "UPGRADE_DESCRIPTION": "${modID}:Consume ALL in ${modID}:Stock: NL Add 1 more #yMaterial to your hand than you consumed."
   },
 
   "${modID}:YellowInserter": {
     "NAME": "Yellow Inserter",
-    "DESCRIPTION": "Draw !M! card. NL Add !${modID}:MAT! ${modID}:Material to your hand. NL Next turn, draw !M! card and add !${modID}:MAT! ${modID}:Material.",
-    "UPGRADE_DESCRIPTION": "Draw !M! card. NL Add !${modID}:MAT! ${modID}:Material to your hand. NL Next turn, draw !M! card and add !${modID}:MAT! ${modID}:Material."
+    "DESCRIPTION": "Draw !M! card. NL Add !${modID}:MAT! #yMaterial to your hand. NL Next turn, draw !M! card and add !${modID}:MAT! #yMaterial.",
+    "UPGRADE_DESCRIPTION": "Draw !M! card. NL Add !${modID}:MAT! #yMaterial to your hand. NL Next turn, draw !M! card and add !${modID}:MAT! #yMaterial."
   },
 
   "${modID}:FastInserter": {
@@ -186,8 +186,8 @@
 
   "${modID}:RedScience": {
     "NAME": "Red Science",
-    "DESCRIPTION": "At the start of your turn, NL add 1 ${modID}:Material to your hand.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, NL add 2 ${modID}:Material to your hand."
+    "DESCRIPTION": "At the start of your turn, NL add 1 #yMaterial to your hand.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, NL add 2 #yMaterial to your hand."
   },
 
   "${modID}:PerimeterWall": {
@@ -222,8 +222,8 @@
 
   "${modID}:CargoWagon": {
     "NAME": "Cargo Wagon",
-    "DESCRIPTION": "Deal !D! damage. NL Add !${modID}:HAND! ${modID}:Material to your hand. NL Add !${modID}:DISC! ${modID}:Material to your discard pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add !${modID}:HAND! ${modID}:Material to your hand. NL Add !${modID}:DISC! ${modID}:Material to your discard pile."
+    "DESCRIPTION": "Deal !D! damage. NL Add !${modID}:HAND! #yMaterial to your hand. NL Add !${modID}:DISC! #yMaterial to your discard pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add !${modID}:HAND! #yMaterial to your hand. NL Add !${modID}:DISC! #yMaterial to your discard pile."
   },
 
   "${modID}:ArtilleryWagon": {
@@ -258,8 +258,8 @@
 
   "${modID}:FluidWagon": {
     "NAME": "Fluid Wagon",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block for each ${modID}:Material in ${modID}:Stock.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !B! Block for each ${modID}:Material in ${modID}:Stock."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block for each #yMaterial in ${modID}:Stock.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !B! Block for each #yMaterial in ${modID}:Stock."
   },
 
   "${modID}:LightArmour": {
@@ -270,38 +270,38 @@
 
   "${modID}:BudgetDefenses": {
     "NAME": "Budget Defenses",
-    "DESCRIPTION": "Gain !B! Block. NL Add !${modID}:DRAW! ${modID}:Material to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add !${modID}:DRAW! ${modID}:Material to your hand. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL Add !${modID}:DRAW! #yMaterial to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add !${modID}:DRAW! #yMaterial to your hand. NL Exhaust."
   },
 
   "${modID}:ExpansionPolicy": {
     "NAME": "Expansion Policy",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, add 1 ${modID}:Material to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, add 1 ${modID}:Material to your hand."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, add 1 #yMaterial to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL For each enemy damaged, add 1 #yMaterial to your hand."
   },
 
   "${modID}:RapidDeployment": {
     "NAME": "Rapid Deployment",
-    "DESCRIPTION": "Channel X ${modID}:Turrets. NL ${modID}:Turrets do not ${modID}:consume ${modID}:Material this turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel X+!M! ${modID}:Turrets. NL ${modID}:Turrets do not ${modID}:consume ${modID}:Material this turn. NL Exhaust."
+    "DESCRIPTION": "Channel X ${modID}:Turrets. NL ${modID}:Turrets do not ${modID}:consume #yMaterial this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel X+!M! ${modID}:Turrets. NL ${modID}:Turrets do not ${modID}:consume #yMaterial this turn. NL Exhaust."
   },
 
   "${modID}:GreenScience": {
     "NAME": "Green Science",
-    "DESCRIPTION": "At the start of your turn, NL draw !M! card that isn't ${modID}:Material.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, NL draw !M! cards that aren't ${modID}:Material."
+    "DESCRIPTION": "At the start of your turn, NL draw !M! card that isn't #yMaterial.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, NL draw !M! cards that aren't #yMaterial."
   },
 
   "${modID}:PurpleScience": {
     "NAME": "Purple Science",
-    "DESCRIPTION": "Whenever you Evoke an Orb, NL add !M! ${modID}:Material to your discard pile.",
-    "UPGRADE_DESCRIPTION": "Whenever you Evoke an Orb, NL add !M! ${modID}:Material to your discard pile."
+    "DESCRIPTION": "Whenever you Evoke an Orb, NL add !M! #yMaterial to your discard pile.",
+    "UPGRADE_DESCRIPTION": "Whenever you Evoke an Orb, NL add !M! #yMaterial to your discard pile."
   },
 
   "${modID}:SteamEngine": {
     "NAME": "Steam Engine",
-    "DESCRIPTION": "Add !M! ${modID}:Material to your hand. NL ${modID}:Consume !${modID}:CONS!: NL Gain !M! Energy. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add !M! ${modID}:Material to your hand. NL ${modID}:Consume !${modID}:CONS! from ${modID}:Stock: NL Gain !M! Energy. Exhaust."
+    "DESCRIPTION": "Add !M! #yMaterial to your hand. NL ${modID}:Consume !${modID}:CONS!: NL Gain !M! Energy. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !M! #yMaterial to your hand. NL ${modID}:Consume !${modID}:CONS! from ${modID}:Stock: NL Gain !M! Energy. Exhaust."
   },
 
   "${modID}:BeltFed": {
@@ -330,8 +330,8 @@
 
   "${modID}:Recycler": {
     "NAME": "Recycler",
-    "DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand. NL Exhaust."
+    "DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much #yMaterial to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much #yMaterial to your hand. NL Exhaust."
   },
 
   "${modID}:EnergyShield": {
@@ -378,8 +378,8 @@
 
   "${modID}:LaserTurret": {
     "NAME": "Laser Turret",
-    "DESCRIPTION": "Channel ${modID}:Turret. NL ${modID}:Charge <CHARGE>: NL ${modID}:Turrets do not ${modID}:consume ${modID}:Material this turn.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret. NL ${modID}:Charge <CHARGE>: NL ${modID}:Turrets do not ${modID}:consume ${modID}:Material this turn."
+    "DESCRIPTION": "Channel ${modID}:Turret. NL ${modID}:Charge <CHARGE>: NL ${modID}:Turrets do not ${modID}:consume #yMaterial this turn.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Turret. NL ${modID}:Charge <CHARGE>: NL ${modID}:Turrets do not ${modID}:consume #yMaterial this turn."
   },
 
   "${modID}:FlameTurret": {
@@ -396,8 +396,8 @@
 
   "${modID}:Refinery": {
     "NAME": "Refinery",
-    "DESCRIPTION": "${modID}:Consume ALL: NL Add !M! ${modID}:Material to your discard pile per ${modID}:consumed.",
-    "UPGRADE_DESCRIPTION": "${modID}:Consume ALL: NL Add !M! ${modID}:Material to your discard pile per ${modID}:consumed."
+    "DESCRIPTION": "${modID}:Consume ALL: NL Add !M! #yMaterial to your discard pile per ${modID}:consumed.",
+    "UPGRADE_DESCRIPTION": "${modID}:Consume ALL: NL Add !M! #yMaterial to your discard pile per ${modID}:consumed."
   },
 
   "${modID}:Tank": {

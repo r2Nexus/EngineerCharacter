@@ -25,6 +25,7 @@ public class Turret extends BaseCard {
     public Turret() {
         super(ID, info, BasicMod.imagePath("cards/skill/turret.png"));
         setCostUpgrade(0);
+        cardsToPreview = new Material();
     }
 
     @Override

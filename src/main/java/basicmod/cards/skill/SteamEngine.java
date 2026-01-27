@@ -31,6 +31,8 @@ public class SteamEngine extends BaseCard {
         setMagic(MAT);
         setCustomVar("CONS", VariableType.MAGIC, CONS, 0);
         exhaust = true;
+
+        cardsToPreview = new Material();
     }
 
     @Override

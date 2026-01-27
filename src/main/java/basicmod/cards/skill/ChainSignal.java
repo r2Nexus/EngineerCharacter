@@ -1,7 +1,11 @@
 package basicmod.cards.skill;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
+import basicmod.cards.attack.ArtilleryWagon;
+import basicmod.cards.attack.CargoWagon;
+import basicmod.cards.attack.FluidWagon;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.powers.ChainSignalPower;
 import basicmod.util.CardStats;
@@ -27,6 +31,11 @@ public class ChainSignal extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/skill/chain_signal.png"));
         setMagic(AMOUNT, UPG_AMOUNT);
         setExhaust(true);
+
+//        MultiCardPreview.add(this, new CargoWagon());
+//        MultiCardPreview.add(this, new ArtilleryWagon());
+//        MultiCardPreview.add(this, new FluidWagon());
+//        MultiCardPreview.add(this, new ScienceWagon());
     }
 
     @Override

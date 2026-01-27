@@ -32,6 +32,8 @@ public class YellowBelt extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/skill/yellow_belt.png"));
         setMagic(DRAW, UPG_DRAW);
         setCustomVar("BONUS", VariableType.MAGIC, BONUS, UPG_BONUS);
+
+        cardsToPreview = new Material();
     }
 
     @Override

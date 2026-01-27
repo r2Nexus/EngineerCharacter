@@ -32,6 +32,8 @@ public class BudgetDefenses extends BaseCard {
         setBlock(BLOCK, UPG_BLOCK);
         setCustomVar("DRAW", VariableType.MAGIC, DRAW, UPG_DRAW);
         exhaust = true;
+
+        cardsToPreview = new Material();
     }
 
     @Override

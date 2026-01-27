@@ -24,6 +24,8 @@ public class RedBelt extends BaseCard {
     public RedBelt() {
         super(ID, info, BasicMod.imagePath("cards/skill/red_belt.png"));
         setCostUpgrade(0);
+
+        cardsToPreview = new Material();
     }
 
     @Override

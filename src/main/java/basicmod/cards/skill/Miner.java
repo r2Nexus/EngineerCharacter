@@ -28,6 +28,8 @@ public class Miner extends BaseCard {
     public Miner() {
         super(ID, info, BasicMod.imagePath("cards/skill/miner.png"));
         setMagic(MATERIALS, UPG_MATERIALS);
+
+        cardsToPreview = new Material();
     }
 
     @Override

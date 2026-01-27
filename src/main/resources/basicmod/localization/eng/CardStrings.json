@@ -270,8 +270,8 @@
 
   "${modID}:BudgetDefenses": {
     "NAME": "Budget Defenses",
-    "DESCRIPTION": "Gain !B! Block. NL Add !${modID}:DRAW! ${modID}:Material to your hand.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add !${modID}:DRAW! ${modID}:Material to your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Add !${modID}:DRAW! ${modID}:Material to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add !${modID}:DRAW! ${modID}:Material to your hand. NL Exhaust."
   },
 
   "${modID}:ExpansionPolicy": {

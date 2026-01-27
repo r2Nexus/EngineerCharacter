@@ -16,33 +16,48 @@ import java.util.List;
 public class ConsumeMaterialAction extends AbstractGameAction {
     private final int amount;
     private final Runnable onSuccess;
-    private final Runnable onFail; // NEW
+    private final Runnable onFail;
 
     private final boolean useHand;
     private final boolean useDraw;
     private final boolean useDiscard;
 
+    private final boolean endOfTurnContext;
+
     public ConsumeMaterialAction(int amount, Runnable onSuccess) {
-        this(amount, onSuccess, null, true, false, false);
+        this(amount, onSuccess, null, true, false, false, false);
     }
 
     public ConsumeMaterialAction(int amount, Runnable onSuccess,
                                  boolean useHand, boolean useDraw, boolean useDiscard) {
-        this(amount, onSuccess, null, useHand, useDraw, useDiscard);
+        this(amount, onSuccess, null, useHand, useDraw, useDiscard, false);
+    }
+
+    public ConsumeMaterialAction(int amount, Runnable onSuccess,
+                                 boolean useHand, boolean useDraw, boolean useDiscard,
+                                 boolean endOfTurnContext) {
+        this(amount, onSuccess, null, useHand, useDraw, useDiscard, endOfTurnContext);
     }
 
     public ConsumeMaterialAction(int amount, Runnable onSuccess, Runnable onFail) {
-        this(amount, onSuccess, onFail, true, false, false);
+        this(amount, onSuccess, onFail, true, false, false, false);
     }
 
     public ConsumeMaterialAction(int amount, Runnable onSuccess, Runnable onFail,
                                  boolean useHand, boolean useDraw, boolean useDiscard) {
+        this(amount, onSuccess, onFail, useHand, useDraw, useDiscard, false);
+    }
+
+    public ConsumeMaterialAction(int amount, Runnable onSuccess, Runnable onFail,
+                                 boolean useHand, boolean useDraw, boolean useDiscard,
+                                 boolean endOfTurnContext) {
         this.amount = amount;
         this.onSuccess = onSuccess;
         this.onFail = onFail;
         this.useHand = useHand;
         this.useDraw = useDraw;
         this.useDiscard = useDiscard;
+        this.endOfTurnContext = endOfTurnContext;
     }
 
     private static class MatRef {
@@ -132,6 +147,13 @@ public class ConsumeMaterialAction extends AbstractGameAction {
             AbstractDungeon.player.hand.applyPowers();
         }
 
-        ConsumeEvents.fireMaterialConsumed(AbstractDungeon.player, card);
+        // tag the event as end-of-turn if caller requested it,
+        // and also infer from GameActionManager as a fallback.
+        boolean inferredEot = AbstractDungeon.actionManager != null && AbstractDungeon.actionManager.turnHasEnded;
+        ConsumeEvents.fireMaterialConsumed(
+                AbstractDungeon.player,
+                card,
+                this.endOfTurnContext || inferredEot
+        );
     }
 }

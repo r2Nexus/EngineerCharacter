@@ -1,16 +1,32 @@
 {
   "${modID}:BuiltMiner": {
-    "NAME": "Built Miner",
+    "NAME": "Pocket Miner",
     "FLAVOR": "Not enough minerals...",
     "DESCRIPTIONS": [
       "At the start of combat, channel 1 Miner and add 1 Material to your hand."
     ]
   },
   "${modID}:BuiltTurret": {
-    "NAME": "Built Turret",
+    "NAME": "Pocket Turret",
     "FLAVOR": "Automation begins.",
     "DESCRIPTIONS": [
       "At the start of combat, channel 1 Turret and add 1 Material to your hand."
+    ]
+  },
+
+  "${modID}:ProductivityModule": {
+    "NAME": "Productivity Module",
+    "FLAVOR": "So I heard you like free stuff...",
+    "DESCRIPTIONS": [
+      "For every #b3 Material #yConsumed, draw #b1 card. NL If it would happen after the end of your turn, draw them next turn instead."
+    ]
+  },
+
+  "${modID}:TungstenCarbide": {
+    "NAME": "Tungsten Carbide",
+    "FLAVOR": "Shipped from Vulcanus",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b3 Block for each #yMaterial in your hand."
     ]
   }
 }

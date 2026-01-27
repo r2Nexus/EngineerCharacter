@@ -24,6 +24,7 @@ public class Railgun extends BaseCard {
 
     private static final int CHARGE_MAX = 8;
     private static final int UPG_CHARGE_MAX = 4;
+    private static final int DAMAGE_PER_CHARGE = 3;
 
     public Railgun() {
         super(ID, info, BasicMod.imagePath("cards/attack/railgun.png"));
@@ -39,14 +40,14 @@ public class Railgun extends BaseCard {
     private int computeDamageFromCharge() {
         ChargeMod mod = ChargeMod.get(this);
         if (mod == null) return 0;
-        return 2 * mod.getCharge(this);
+        return DAMAGE_PER_CHARGE * mod.getCharge(this);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         ChargeMod mod = ChargeMod.get(this);
         int spent = (mod == null) ? 0 : mod.spendAll(this);
-        int dmg = 2 * spent;
+        int dmg = DAMAGE_PER_CHARGE * spent;
 
         addToBot(new DamageAction(
                 m,

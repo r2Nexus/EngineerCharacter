@@ -10,6 +10,7 @@ import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.PlayerClassEnum;
 import basicmod.relics.BuiltMiner;
 import basicmod.relics.BuiltTurret;
+import basicmod.relics.ProductivityModule;
 import basicmod.util.*;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
@@ -244,6 +245,7 @@ public class BasicMod implements
         // --- Relics ---
         BaseMod.addRelicToCustomPool(new BuiltMiner(), AbstractCardEnum.ENGINEER);
         BaseMod.addRelicToCustomPool(new BuiltTurret(), AbstractCardEnum.ENGINEER);
+        BaseMod.addRelicToCustomPool(new ProductivityModule(), AbstractCardEnum.ENGINEER);
     }
 
     public static final Color ENGINEER_COLOR = CardHelper.getColor(140f, 140f, 140f);

@@ -20,18 +20,29 @@ public class ConsumeAllMaterialAction extends AbstractGameAction {
     private final boolean includeDraw;
     private final boolean includeDiscard;
 
+    private final boolean endOfTurnContext;
+
     public ConsumeAllMaterialAction(Consumer<Integer> onConsumed) {
-        this(onConsumed, true, true, true);
+        this(onConsumed, true, true, true, false);
     }
 
     public ConsumeAllMaterialAction(Consumer<Integer> onConsumed,
                                     boolean includeHand,
                                     boolean includeDraw,
                                     boolean includeDiscard) {
+        this(onConsumed, includeHand, includeDraw, includeDiscard, false);
+    }
+
+    public ConsumeAllMaterialAction(Consumer<Integer> onConsumed,
+                                    boolean includeHand,
+                                    boolean includeDraw,
+                                    boolean includeDiscard,
+                                    boolean endOfTurnContext) {
         this.onConsumed = onConsumed;
         this.includeHand = includeHand;
         this.includeDraw = includeDraw;
         this.includeDiscard = includeDiscard;
+        this.endOfTurnContext = endOfTurnContext;
     }
 
     @Override
@@ -102,6 +113,12 @@ public class ConsumeAllMaterialAction extends AbstractGameAction {
             AbstractDungeon.player.hand.applyPowers();
         }
 
-        ConsumeEvents.fireMaterialConsumed(AbstractDungeon.player, card);
+        // tag event as end-of-turn if requested, with inference fallback
+        boolean inferredEot = AbstractDungeon.actionManager != null && AbstractDungeon.actionManager.turnHasEnded;
+        ConsumeEvents.fireMaterialConsumed(
+                AbstractDungeon.player,
+                card,
+                this.endOfTurnContext || inferredEot
+        );
     }
 }

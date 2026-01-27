@@ -46,7 +46,8 @@ public class TurretOrb extends BaseOrb {
                 new ConsumeMaterialAction(1, this::fireAtRandomEnemy,
                         true,
                         hasBeltFed,
-                        hasBeltFed
+                        hasBeltFed,
+                        true
                 ));
     }
 

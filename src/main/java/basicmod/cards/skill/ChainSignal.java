@@ -32,10 +32,12 @@ public class ChainSignal extends BaseCard {
         setMagic(AMOUNT, UPG_AMOUNT);
         setExhaust(true);
 
-//        MultiCardPreview.add(this, new CargoWagon());
-//        MultiCardPreview.add(this, new ArtilleryWagon());
-//        MultiCardPreview.add(this, new FluidWagon());
-//        MultiCardPreview.add(this, new ScienceWagon());
+        setPreviewCycle(
+                CargoWagon::new,
+                ArtilleryWagon::new,
+                FluidWagon::new,
+                ScienceWagon::new
+        );
     }
 
     @Override

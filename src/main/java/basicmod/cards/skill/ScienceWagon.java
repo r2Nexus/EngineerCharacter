@@ -38,11 +38,13 @@ public class ScienceWagon extends BaseCard {
         setBlock(BLOCK);
         setExhaust(true);
 
-//        MultiCardPreview.add(this, new RedScience());
-//        MultiCardPreview.add(this, new GreenScience());
-//        MultiCardPreview.add(this, new BlackScience());
-//        MultiCardPreview.add(this, new BlueScience());
-//        MultiCardPreview.add(this, new PurpleScience());
+        setPreviewCycle(
+                RedScience::new,
+                GreenScience::new,
+                BlackScience::new,
+                BlueScience::new,
+                PurpleScience::new
+        );
     }
 
     @Override

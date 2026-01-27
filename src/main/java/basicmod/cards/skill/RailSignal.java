@@ -35,10 +35,12 @@ public class RailSignal extends BaseCard {
         setBlock(BLOCK, UPG_BLOCK);
         setCustomVar("BONUS", VariableType.BLOCK, BONUS, UPG_BONUS);
 
-//        MultiCardPreview.add(this, new CargoWagon());
-//        MultiCardPreview.add(this, new ArtilleryWagon());
-//        MultiCardPreview.add(this, new FluidWagon());
-//        MultiCardPreview.add(this, new ScienceWagon());
+        setPreviewCycle(
+                CargoWagon::new,
+                ArtilleryWagon::new,
+                FluidWagon::new,
+                ScienceWagon::new
+        );
     }
 
     @Override

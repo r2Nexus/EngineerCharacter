@@ -14,7 +14,7 @@ public class TungstenCarbide extends BaseRelic {
     private static final int BLOCK_PER_MATERIAL = 3;
 
     public TungstenCarbide() {
-        super(ID, "tungsten_carbide", AbstractCardEnum.ENGINEER, RelicTier.UNCOMMON, LandingSound.HEAVY);
+        super(ID, "tungsten_carbide_relic", AbstractCardEnum.ENGINEER, RelicTier.UNCOMMON, LandingSound.HEAVY);
     }
 
     @Override

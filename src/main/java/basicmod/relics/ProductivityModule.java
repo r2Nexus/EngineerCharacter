@@ -17,7 +17,7 @@ public class ProductivityModule extends BaseRelic implements OnMaterialConsumedL
     private int pendingDraw = 0;
 
     public ProductivityModule() {
-        super(ID, "productivity_module", AbstractCardEnum.ENGINEER, RelicTier.RARE, LandingSound.CLINK);
+        super(ID, "productivity_module_relic", AbstractCardEnum.ENGINEER, RelicTier.RARE, LandingSound.CLINK);
         this.counter = -1;
     }
 

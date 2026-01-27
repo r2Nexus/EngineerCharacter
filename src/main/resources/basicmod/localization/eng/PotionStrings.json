@@ -1,12 +1,15 @@
 {
-  "${modID}:PotionID": {
-    "NAME": "Some Kind of Potion",
+  "${modID}:OverclockPotion": {
+    "NAME": "Overclock Potion",
     "DESCRIPTIONS": [
-      "Little",
-      " pieces ",
-      "that get put together",
-      " into a description.",
-      " Exactly how depends on the potion, and you can set it up however you want."
+      "Draw #b!P! cards. Fully charge all #yCharge cards. NL Can be used outside combat (draws only in combat)."
+    ]
+  },
+
+  "${modID}:MaterialPotion": {
+    "NAME": "Material Canister",
+    "DESCRIPTIONS": [
+      "Add #b!P! #yMaterial to your hand."
     ]
   }
 }

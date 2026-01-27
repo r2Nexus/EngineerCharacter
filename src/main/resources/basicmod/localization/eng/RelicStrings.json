@@ -1,13 +1,13 @@
 {
   "${modID}:BuiltMiner": {
-    "NAME": "Built Miner",
+    "NAME": "Pocket Miner",
     "FLAVOR": "Not enough minerals...",
     "DESCRIPTIONS": [
       "At the start of combat, channel 1 Miner and add 1 Material to your hand."
     ]
   },
   "${modID}:BuiltTurret": {
-    "NAME": "Built Turret",
+    "NAME": "Pocket Turret",
     "FLAVOR": "Automation begins.",
     "DESCRIPTIONS": [
       "At the start of combat, channel 1 Turret and add 1 Material to your hand."

@@ -8,9 +8,12 @@ import basicmod.cards.skill.*;
 import basicmod.characters.Engineer;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.PlayerClassEnum;
+import basicmod.potions.MaterialPotion;
+import basicmod.potions.OverclockPotion;
 import basicmod.relics.BuiltMiner;
 import basicmod.relics.BuiltTurret;
 import basicmod.relics.ProductivityModule;
+import basicmod.relics.TungstenCarbide;
 import basicmod.util.*;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
@@ -238,6 +241,25 @@ public class BasicMod implements
 
         // --- Other ---
         BaseMod.addCard(new basicmod.cards.Material());
+
+        BaseMod.addPotion(
+                MaterialPotion.class,
+                new Color(0.55f, 0.55f, 0.55f, 1f),
+                new Color(0.25f, 0.25f, 0.25f, 1f),
+                new Color(0.10f, 0.10f, 0.10f, 1f),
+                MaterialPotion.ID,
+                PlayerClassEnum.ENGINEER
+        );
+
+
+        BaseMod.addPotion(
+                OverclockPotion.class,
+                OverclockPotion.LIQUID_COLOR,
+                OverclockPotion.HYBRID_COLOR,
+                OverclockPotion.SPOTS_COLOR,
+                OverclockPotion.ID,
+                PlayerClassEnum.ENGINEER
+        );
     }
 
     @Override
@@ -246,6 +268,7 @@ public class BasicMod implements
         BaseMod.addRelicToCustomPool(new BuiltMiner(), AbstractCardEnum.ENGINEER);
         BaseMod.addRelicToCustomPool(new BuiltTurret(), AbstractCardEnum.ENGINEER);
         BaseMod.addRelicToCustomPool(new ProductivityModule(), AbstractCardEnum.ENGINEER);
+        BaseMod.addRelicToCustomPool(new TungstenCarbide(), AbstractCardEnum.ENGINEER);
     }
 
     public static final Color ENGINEER_COLOR = CardHelper.getColor(140f, 140f, 140f);

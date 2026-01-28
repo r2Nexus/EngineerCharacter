@@ -2,7 +2,7 @@ package basicmod.cards.skill;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.powers.YellowInserterPower;
 import basicmod.util.CardStats;

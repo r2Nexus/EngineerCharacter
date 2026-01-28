@@ -1,8 +1,10 @@
 package basicmod;
 
 import basemod.BaseMod;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import basicmod.cards.attack.*;
+import basicmod.cards.other.*;
 import basicmod.cards.power.*;
 import basicmod.cards.skill.*;
 import basicmod.characters.Engineer;
@@ -10,10 +12,7 @@ import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.PlayerClassEnum;
 import basicmod.potions.MaterialPotion;
 import basicmod.potions.OverclockPotion;
-import basicmod.relics.BuiltMiner;
-import basicmod.relics.BuiltTurret;
-import basicmod.relics.ProductivityModule;
-import basicmod.relics.TungstenCarbide;
+import basicmod.relics.*;
 import basicmod.util.*;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
@@ -222,6 +221,10 @@ public class BasicMod implements
         BaseMod.addCard(new Assembler());
         BaseMod.addCard(new Fish());
         BaseMod.addCard(new Outpost());
+        BaseMod.addCard(new Laboratory());
+        BaseMod.addCard(new Scrap());
+        BaseMod.addCard(new SlowCapsule());
+        BaseMod.addCard(new NuclearReactor());
 
         // --- Powers ---
         BaseMod.addCard(new Landfill());
@@ -240,7 +243,8 @@ public class BasicMod implements
         BaseMod.addCard(new EconomyBoom());
 
         // --- Other ---
-        BaseMod.addCard(new basicmod.cards.Material());
+        BaseMod.addCard(new Material());
+        BaseMod.addCard(new Cliff());
 
         BaseMod.addPotion(
                 MaterialPotion.class,
@@ -269,6 +273,9 @@ public class BasicMod implements
         BaseMod.addRelicToCustomPool(new BuiltTurret(), AbstractCardEnum.ENGINEER);
         BaseMod.addRelicToCustomPool(new ProductivityModule(), AbstractCardEnum.ENGINEER);
         BaseMod.addRelicToCustomPool(new TungstenCarbide(), AbstractCardEnum.ENGINEER);
+        BaseMod.addRelicToCustomPool(new SmolderingLog(), AbstractCardEnum.ENGINEER);
+
+        BaseMod.addRelic(new MandiBlade(), RelicType.SHARED);
     }
 
     public static final Color ENGINEER_COLOR = CardHelper.getColor(140f, 140f, 140f);

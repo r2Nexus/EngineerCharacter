@@ -2,11 +2,12 @@ package basicmod.cards.skill;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -21,34 +22,44 @@ public class Recycler extends BaseCard {
             1
     );
 
-    private static final int MAX_EXHAUST = 2;
-    private static final int UPG_MAX_EXHAUST = 2;
-
     public Recycler() {
         super(ID, info, BasicMod.imagePath("cards/skill/recycler.png"));
-        setMagic(MAX_EXHAUST, UPG_MAX_EXHAUST);
-        setExhaust(true);
-
         cardsToPreview = new Material();
+        setCostUpgrade(0);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int cap = Math.min(magicNumber, p.hand.size());
+        if (p.hand.isEmpty()) return;
 
-        addToBot(new ExhaustAction(p, p, cap, false, true, true) {
+        addToBot(new ExhaustAction(p, p, 1, false, false, false) {
             private final int before = p.exhaustPile.size();
 
             @Override
             public void update() {
                 super.update();
-                if (this.isDone) {
-                    int exhausted = p.exhaustPile.size() - before;
-                    if (exhausted > 0) {
-                        addToTop(new MakeTempCardInHandAction(new Material(), exhausted));
-                    }
+
+                if (!this.isDone) return;
+
+                int after = p.exhaustPile.size();
+                int exhausted = after - before;
+                if (exhausted <= 0) return;
+
+                AbstractCard exhaustedCard = p.exhaustPile.group.get(after - 1);
+
+                int mats = getMaterialFromCost(exhaustedCard);
+                if (mats > 0) {
+                    addToTop(new MakeTempCardInHandAction(new Material(), mats));
                 }
             }
         });
+    }
+
+    private int getMaterialFromCost(AbstractCard c) {
+        int cost = c.costForTurn;
+
+        if (cost == -2) return 0;
+        if (cost == -1) return 0;
+        return Math.max(0, cost);
     }
 }

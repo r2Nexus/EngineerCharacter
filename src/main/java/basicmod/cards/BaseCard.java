@@ -72,7 +72,7 @@ public abstract class BaseCard extends CustomCard {
     // =============================================================
     // Preview cycling (single cardsToPreview that rotates on hover)
     // =============================================================
-    protected static final float PREVIEW_CYCLE_INTERVAL_SECONDS = 1.0f; // hard-coded shared delay
+    protected static final float PREVIEW_CYCLE_INTERVAL_SECONDS = 1.25f; // hard-coded shared delay
     protected static final boolean PREVIEW_CYCLE_RESET_WHEN_NOT_HOVERED = true;
     protected static final boolean PREVIEW_CYCLE_MIRROR_OWNER_UPGRADE = true;
 

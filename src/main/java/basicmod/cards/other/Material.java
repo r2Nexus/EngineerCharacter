@@ -1,6 +1,7 @@
-package basicmod.cards;
+package basicmod.cards.other;
 
 import basicmod.BasicMod;
+import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;

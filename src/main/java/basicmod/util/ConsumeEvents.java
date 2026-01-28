@@ -45,4 +45,36 @@ public class ConsumeEvents {
             endOfTurnContext = prev;
         }
     }
+
+    public static void fireConsume(AbstractCreature owner, int amount) {
+        fireConsume(owner, amount, false);
+    }
+
+    public static void fireConsume(AbstractCreature owner, int amount, boolean isEndOfTurnContext) {
+        if (owner == null) return;
+        if (amount <= 0) return;
+
+        boolean prev = endOfTurnContext;
+        endOfTurnContext = isEndOfTurnContext;
+        try {
+            // Powers on owner
+            for (AbstractPower p : owner.powers) {
+                if (p instanceof OnConsumeListener) {
+                    ((OnConsumeListener) p).onConsume(amount);
+                }
+            }
+
+            // Relics (player only)
+            if (AbstractDungeon.player != null && owner == AbstractDungeon.player) {
+                for (AbstractRelic r : AbstractDungeon.player.relics) {
+                    if (r instanceof OnConsumeListener) {
+                        ((OnConsumeListener) r).onConsume(amount);
+                    }
+                }
+            }
+        } finally {
+            endOfTurnContext = prev;
+        }
+    }
+
 }

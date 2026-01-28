@@ -3,7 +3,7 @@ package basicmod.cards.skill;
 import basicmod.BasicMod;
 import basicmod.actions.ConsumeAllMaterialAction;
 import basicmod.cards.BaseCard;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;

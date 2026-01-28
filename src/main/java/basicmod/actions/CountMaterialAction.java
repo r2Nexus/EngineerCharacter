@@ -1,6 +1,6 @@
 package basicmod.actions;
 
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.util.MaterialUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

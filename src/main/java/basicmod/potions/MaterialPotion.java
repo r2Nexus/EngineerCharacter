@@ -1,6 +1,6 @@
 package basicmod.potions;
 
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.patches.PlayerClassEnum;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;

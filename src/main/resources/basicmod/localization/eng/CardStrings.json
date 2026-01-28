@@ -180,8 +180,14 @@
 
   "${modID}:PoisonCapsule": {
     "NAME": "Poison Capsule",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Poison. NL ${modID}:Consume 2: NL Apply !${modID}:DEBUFF! Vulnerable and !${modID}:DEBUFF! Weak.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Poison. NL ${modID}:Consume 2: NL Apply !${modID}:DEBUFF! Vulnerable and !${modID}:DEBUFF! Weak."
+    "DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Consume 1: This turn, ${modID}:Landmines apply !M! Poison.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Consume 1: This turn, ${modID}:Landmines apply !M! Poison."
+  },
+
+  "${modID}:SlowCapsule": {
+    "NAME": "Slowdown Capsule",
+    "DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Charge <CHARGE>: This turn, ${modID}:Landmines apply !${modID}:VULN! Vulnerable and !M! Weak.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Charge <CHARGE>: This turn, ${modID}:Landmines apply !${modID}:VULN! Vulnerable and !M! Weak."
   },
 
   "${modID}:RedScience": {
@@ -330,8 +336,8 @@
 
   "${modID}:Recycler": {
     "NAME": "Recycler",
-    "DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Exhaust up to !M! cards in your hand. NL Add that much ${modID}:Material to your hand. NL Exhaust."
+    "DESCRIPTION": "Exhaust a card in your hand. NL Add ${modID}:Material to your hand equal to its cost.",
+    "UPGRADE_DESCRIPTION": "Exhaust a card in your hand. NL Add ${modID}:Material to your hand equal to its cost."
   },
 
   "${modID}:EnergyShield": {
@@ -440,5 +446,35 @@
     "NAME": "Steel Axe",
     "DESCRIPTION": "Deal !D! damage. NL If it kills, channel ${modID}:Miner.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If it kills, channel ${modID}:Miner."
+  },
+
+  "${modID}:Cliff": {
+    "NAME": "Cliff",
+    "DESCRIPTION": "Exhaust. NL Retain this card.",
+    "UPGRADE_DESCRIPTION": "Exhaust. NL Retain this card."
+  },
+
+  "${modID}:TemporarySolution": {
+    "NAME": "Temporary Solution",
+    "DESCRIPTION": "Gain 2 [E]. Add 2 ${modID}:Material to your hand. NL Add a Cliff into your discard pile.",
+    "UPGRADE_DESCRIPTION": "Gain 2 [E]. Add 3 ${modID}:Material to your hand. NL Add a Cliff into your discard pile."
+  },
+
+  "${modID}:Laboratory": {
+    "NAME": "Laboratory",
+    "DESCRIPTION": "Draw !M! cards. NL ${modID}:Charge <CHARGE>: Add 1 random Science card to your hand. It costs 0 this turn.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL ${modID}:Charge <CHARGE>: Add 1 random Science card to your hand. It costs 0 this turn."
+  },
+
+  "${modID}:Scrap": {
+    "NAME": "Scrap",
+    "DESCRIPTION": "Lose all Block. NL Add 1 ${modID}:Material to your hand for every !M! Block you lost.",
+    "UPGRADE_DESCRIPTION": "Lose all Block. NL Add 1 ${modID}:Material to your hand for every !M! Block you lost."
+  },
+
+  "${modID}:NuclearReactor": {
+    "NAME": "Nuclear Reactor",
+    "DESCRIPTION": "Gain !M! [E]. NL Consume !M! from ${modID}:Stock: Permanently increase this card's Energy gain and Consume by 1.",
+    "UPGRADE_DESCRIPTION": "Gain !M! [E]. NL Consume !M! from ${modID}:Stock: Permanently increase this card's Energy gain and Consume by 1."
   }
 }

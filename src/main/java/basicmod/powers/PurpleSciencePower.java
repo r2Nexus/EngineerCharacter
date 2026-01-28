@@ -1,7 +1,7 @@
 package basicmod.powers;
 
 import basicmod.BasicMod;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;

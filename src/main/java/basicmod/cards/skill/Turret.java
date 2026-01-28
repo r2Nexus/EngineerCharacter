@@ -2,7 +2,7 @@ package basicmod.cards.skill;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.orbs.TurretOrb;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
@@ -25,6 +25,7 @@ public class Turret extends BaseCard {
     public Turret() {
         super(ID, info, BasicMod.imagePath("cards/skill/turret.png"));
         setCostUpgrade(0);
+        cardsToPreview = new Material();
     }
 
     @Override

@@ -2,12 +2,11 @@ package basicmod.cards.skill;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -32,6 +31,8 @@ public class YellowBelt extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/skill/yellow_belt.png"));
         setMagic(DRAW, UPG_DRAW);
         setCustomVar("BONUS", VariableType.MAGIC, BONUS, UPG_BONUS);
+
+        cardsToPreview = new Material();
     }
 
     @Override

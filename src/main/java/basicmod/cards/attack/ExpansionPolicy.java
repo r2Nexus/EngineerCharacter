@@ -2,7 +2,7 @@ package basicmod.cards.attack;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -31,6 +31,7 @@ public class ExpansionPolicy extends BaseCard {
         setDamage(DAMAGE, UPG_DAMAGE);
 
         this.isMultiDamage = true;
+        cardsToPreview = new Material();
     }
 
     @Override

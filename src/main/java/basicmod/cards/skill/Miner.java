@@ -2,7 +2,7 @@ package basicmod.cards.skill;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.orbs.MinerOrb;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
@@ -28,6 +28,8 @@ public class Miner extends BaseCard {
     public Miner() {
         super(ID, info, BasicMod.imagePath("cards/skill/miner.png"));
         setMagic(MATERIALS, UPG_MATERIALS);
+
+        cardsToPreview = new Material();
     }
 
     @Override

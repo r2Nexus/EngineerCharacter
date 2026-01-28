@@ -2,7 +2,7 @@ package basicmod.cards.skill;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -32,6 +32,8 @@ public class BudgetDefenses extends BaseCard {
         setBlock(BLOCK, UPG_BLOCK);
         setCustomVar("DRAW", VariableType.MAGIC, DRAW, UPG_DRAW);
         exhaust = true;
+
+        cardsToPreview = new Material();
     }
 
     @Override

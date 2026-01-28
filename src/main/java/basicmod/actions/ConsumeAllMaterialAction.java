@@ -1,7 +1,7 @@
 package basicmod.actions;
 
 import basicmod.BasicMod;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.util.ChargeSystem;
 import basicmod.util.ConsumeCardEffect;
 import basicmod.util.ConsumeEvents;
@@ -67,6 +67,14 @@ public class ConsumeAllMaterialAction extends AbstractGameAction {
         if (onConsumed != null) {
             onConsumed.accept(consumed);
         }
+
+        boolean inferredEot = AbstractDungeon.actionManager != null && AbstractDungeon.actionManager.turnHasEnded;
+        ConsumeEvents.fireConsume(
+                AbstractDungeon.player,
+                consumed,
+                this.endOfTurnContext || inferredEot
+        );
+
         isDone = true;
     }
 
@@ -115,9 +123,9 @@ public class ConsumeAllMaterialAction extends AbstractGameAction {
 
         // tag event as end-of-turn if requested, with inference fallback
         boolean inferredEot = AbstractDungeon.actionManager != null && AbstractDungeon.actionManager.turnHasEnded;
-        ConsumeEvents.fireMaterialConsumed(
+        ConsumeEvents.fireConsume(
                 AbstractDungeon.player,
-                card,
+                amount,
                 this.endOfTurnContext || inferredEot
         );
     }

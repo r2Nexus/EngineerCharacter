@@ -1,7 +1,7 @@
 package basicmod.powers;
 
 import basicmod.BasicMod;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

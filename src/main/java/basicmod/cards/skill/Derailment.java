@@ -3,6 +3,9 @@ package basicmod.cards.skill;
 import basicmod.BasicMod;
 import basicmod.actions.ExhaustWagonCardsInHandAction;
 import basicmod.cards.BaseCard;
+import basicmod.cards.attack.ArtilleryWagon;
+import basicmod.cards.attack.CargoWagon;
+import basicmod.cards.attack.FluidWagon;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -28,6 +31,13 @@ public class Derailment extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/skill/derailment.png"));
         setBlock(BLOCK_PER, UPG_BLOCK_PER);
         setExhaust(true);
+
+        setPreviewCycle(
+                CargoWagon::new,
+                ArtilleryWagon::new,
+                FluidWagon::new,
+                ScienceWagon::new
+        );
     }
 
     @Override

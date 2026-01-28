@@ -3,6 +3,7 @@ package basicmod.cards.attack;
 import basicmod.BasicMod;
 import basicmod.actions.CountMaterialAction;
 import basicmod.cards.BaseCard;
+import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;
 import basicmod.util.CardStats;
@@ -36,6 +37,8 @@ public class FluidWagon extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setBlock(BLOCK_PER, UPG_BLOCK_PER);
+
+        cardsToPreview = new Material();
     }
 
     @Override

@@ -2,7 +2,7 @@ package basicmod.cards.attack;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;
 import basicmod.util.CardStats;
@@ -40,6 +40,8 @@ public class CargoWagon extends BaseCard {
 
         setCustomVar("HAND", VariableType.MAGIC, HAND_MAT, 0);
         setCustomVar("DISC", VariableType.MAGIC, DISC_MAT, UPG_DISC_MAT);
+
+        cardsToPreview = new Material();
     }
 
     @Override

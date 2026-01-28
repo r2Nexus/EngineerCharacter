@@ -6,7 +6,7 @@ import basemod.abstracts.DynamicVariable;
 import basicmod.BasicMod;
 import basicmod.util.CardStats;
 import basicmod.util.TriFunction;
-import com.badlogic.gdx.Gdx; // ✅ NEW
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -16,11 +16,18 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 import static basicmod.util.GeneralUtils.removePrefix;
 import static basicmod.util.TextureLoader.getCardTextureString;
+
+import basemod.ReflectionHacks;
+import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
+
 
 public abstract class BaseCard extends CustomCard {
     final private static Map<String, DynamicVariable> customVars = new HashMap<>();
@@ -56,6 +63,177 @@ public abstract class BaseCard extends CustomCard {
 
     private static final String MISSING_IMG = BasicMod.imagePath("missing.png");
 
+    public void tickPreviewCycleInPopup() {
+        if (previewCycler != null) {
+            previewCycler.updateForcedActive();
+        }
+    }
+
+    // =============================================================
+    // Preview cycling (single cardsToPreview that rotates on hover)
+    // =============================================================
+    protected static final float PREVIEW_CYCLE_INTERVAL_SECONDS = 1.25f; // hard-coded shared delay
+    protected static final boolean PREVIEW_CYCLE_RESET_WHEN_NOT_HOVERED = true;
+    protected static final boolean PREVIEW_CYCLE_MIRROR_OWNER_UPGRADE = true;
+
+    private transient PreviewCycler previewCycler;
+    private transient Supplier<? extends AbstractCard>[] previewCycleFactories;
+    private transient float previewCycleInterval = PREVIEW_CYCLE_INTERVAL_SECONDS;
+    private transient boolean previewCycleResetWhenNotHovered = PREVIEW_CYCLE_RESET_WHEN_NOT_HOVERED;
+    private transient boolean previewCycleMirrorOwnerUpgrade = PREVIEW_CYCLE_MIRROR_OWNER_UPGRADE;
+
+    @SafeVarargs
+    protected final void setPreviewCycle(Supplier<? extends AbstractCard>... factories) {
+        setPreviewCycle(PREVIEW_CYCLE_INTERVAL_SECONDS,
+                PREVIEW_CYCLE_RESET_WHEN_NOT_HOVERED,
+                PREVIEW_CYCLE_MIRROR_OWNER_UPGRADE,
+                factories);
+    }
+
+    @SafeVarargs
+    protected final void setPreviewCycle(float intervalSeconds,
+                                         boolean resetWhenNotHovered,
+                                         boolean mirrorOwnerUpgrade,
+                                         Supplier<? extends AbstractCard>... factories) {
+        this.previewCycleFactories = factories;
+        this.previewCycleInterval = intervalSeconds;
+        this.previewCycleResetWhenNotHovered = resetWhenNotHovered;
+        this.previewCycleMirrorOwnerUpgrade = mirrorOwnerUpgrade;
+        rebuildPreviewCycler();
+    }
+
+    protected final void refreshPreviewCycle() {
+        if (previewCycler != null) previewCycler.refreshNow();
+    }
+
+    private void rebuildPreviewCycler() {
+        this.previewCycler = null;
+
+        if (previewCycleFactories == null || previewCycleFactories.length == 0) return;
+
+        this.previewCycler = new PreviewCycler(
+                this,
+                previewCycleInterval,
+                previewCycleResetWhenNotHovered,
+                previewCycleMirrorOwnerUpgrade,
+                previewCycleFactories
+        );
+    }
+
+    protected static class PreviewCycler {
+        private final AbstractCard owner;
+        private final float intervalSeconds;
+        private final boolean resetWhenNotHovered;
+        private final boolean mirrorOwnerUpgrade;
+        private final List<Supplier<? extends AbstractCard>> factories;
+
+        private float timer = 0f;
+        private int index = 0;
+        private boolean lastHovered = false;
+
+        @SafeVarargs
+        public PreviewCycler(AbstractCard owner,
+                             float intervalSeconds,
+                             boolean resetWhenNotHovered,
+                             boolean mirrorOwnerUpgrade,
+                             Supplier<? extends AbstractCard>... factories) {
+            this.owner = owner;
+            this.intervalSeconds = intervalSeconds;
+            this.resetWhenNotHovered = resetWhenNotHovered;
+            this.mirrorOwnerUpgrade = mirrorOwnerUpgrade;
+            this.factories = Arrays.asList(factories);
+            refreshNow();
+        }
+
+        public void update() {
+            boolean hovered = owner.hb != null && owner.hb.hovered;
+            boolean inPopup = isCardInSingleViewPopup(owner);
+
+            boolean active = hovered || inPopup;
+
+            if (!active) {
+                if (resetWhenNotHovered && lastHovered) {
+                    index = 0;
+                    timer = 0f;
+                    refreshNow();
+                }
+                lastHovered = false;
+                return;
+            }
+
+            lastHovered = true;
+            timer -= Gdx.graphics.getDeltaTime();
+
+            if (timer <= 0f) {
+                timer = intervalSeconds;
+                index = (index + 1) % factories.size();
+                refreshNow();
+            }
+        }
+
+        private static boolean isCardInSingleViewPopup(AbstractCard c) {
+            try {
+                if (CardCrawlGame.cardPopup == null) return false;
+
+                // isOpen is commonly present; using Reflection keeps it version-safe.
+                Boolean open = ReflectionHacks.getPrivate(CardCrawlGame.cardPopup, SingleCardViewPopup.class, "isOpen");
+                if (open == null || !open) return false;
+
+                AbstractCard popupCard = ReflectionHacks.getPrivate(CardCrawlGame.cardPopup, SingleCardViewPopup.class, "card");
+                return popupCard == c;
+            } catch (Exception ignored) {
+                return false;
+            }
+        }
+
+        public void updateForcedActive() {
+            timer -= Gdx.graphics.getDeltaTime();
+            if (timer <= 0f) {
+                timer = intervalSeconds;
+                index = (index + 1) % factories.size();
+                refreshNow();
+            }
+            lastHovered = true;
+        }
+
+
+        public void refreshNow() {
+            if (factories.isEmpty()) return;
+
+            AbstractCard preview = factories.get(index).get();
+
+            if (mirrorOwnerUpgrade && owner.upgraded && !preview.upgraded) {
+                preview.upgrade();
+            }
+            preview.initializeDescription();
+
+            owner.cardsToPreview = preview;
+        }
+    }
+
+    // Make sure cycling ticks for every card that uses it
+    @Override
+    public void update() {
+        super.update();
+        if (previewCycler != null) previewCycler.update();
+    }
+
+    private static boolean isCardInSingleViewPopup(AbstractCard c) {
+        try {
+            if (CardCrawlGame.cardPopup == null) return false;
+
+            // isOpen is commonly present; using Reflection keeps it version-safe.
+            Boolean open = ReflectionHacks.getPrivate(CardCrawlGame.cardPopup, SingleCardViewPopup.class, "isOpen");
+            if (open == null || !open) return false;
+
+            AbstractCard popupCard = ReflectionHacks.getPrivate(CardCrawlGame.cardPopup, SingleCardViewPopup.class, "card");
+            return popupCard == c;
+        } catch (Exception ignored) {
+            return false;
+        }
+    }
+    // =============================================================
+
     private static String safeCardImage(String path, String cardID) {
         try {
             if (path != null && !path.isEmpty() && Gdx.files.internal(path).exists()) {
@@ -67,11 +245,9 @@ public abstract class BaseCard extends CustomCard {
                 return MISSING_IMG;
             }
 
-            // If even the fallback is missing, log loudly and return original (will still crash, but message is clear)
             BasicMod.logger.error("[MISSING FALLBACK IMG] missing.png not found at: " + MISSING_IMG + " (card=" + cardID + ").");
             return path;
         } catch (Exception e) {
-            // Ultra-safe: never crash during constructor from file check
             BasicMod.logger.error("[CARD IMG CHECK FAILED] " + cardID + " path=" + path, e);
             return path;
         }
@@ -106,6 +282,8 @@ public abstract class BaseCard extends CustomCard {
         this.damageUpgrade = 0;
         this.blockUpgrade = 0;
         this.magicUpgrade = 0;
+
+        this.initializeDescription();
     }
 
     private static String getName(String ID) {
@@ -360,7 +538,7 @@ public abstract class BaseCard extends CustomCard {
         return var.base;
     }
     public int customVar(String key) {
-        LocalVarInfo var = cardVariables == null ? null : cardVariables.get(key); //Prevents crashing when used with dynamic text
+        LocalVarInfo var = cardVariables == null ? null : cardVariables.get(key);
         if (var == null)
             return -1;
         return var.value;
@@ -461,6 +639,13 @@ public abstract class BaseCard extends CustomCard {
                 target.upgrade = current.upgrade;
                 target.calculation = current.calculation;
             }
+
+            // Copy preview-cycling config & rebuild cycler for the new instance (no shared state)
+            card.previewCycleFactories = this.previewCycleFactories == null ? null : this.previewCycleFactories.clone();
+            card.previewCycleInterval = this.previewCycleInterval;
+            card.previewCycleResetWhenNotHovered = this.previewCycleResetWhenNotHovered;
+            card.previewCycleMirrorOwnerUpgrade = this.previewCycleMirrorOwnerUpgrade;
+            card.rebuildPreviewCycler();
         }
 
         return candidate;
@@ -524,6 +709,9 @@ public abstract class BaseCard extends CustomCard {
                 this.selfRetain = upgRetain;
 
             this.initializeDescription();
+
+            // Ensure the preview immediately reflects upgraded state
+            refreshPreviewCycle();
         }
     }
 

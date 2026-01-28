@@ -1,6 +1,8 @@
 package basicmod.orbs;
 
 import basicmod.BasicMod;
+import basicmod.powers.DebuffMinesPower;
+import basicmod.powers.PoisonMinesPower;
 import com.evacipated.cardcrawl.mod.stslib.actions.defect.EvokeSpecificOrbAction;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -62,6 +64,15 @@ public class LandMineOrb extends BaseOrb {
                         AbstractGameAction.AttackEffect.FIRE
                 )
         );
+
+        PoisonMinesPower pmp = (PoisonMinesPower) AbstractDungeon.player.getPower(PoisonMinesPower.POWER_ID);
+        if (pmp != null) {
+            pmp.onMineTriggered();
+        }
+
+        DebuffMinesPower dmp = (DebuffMinesPower) AbstractDungeon.player.getPower(DebuffMinesPower.POWER_ID);
+        if (dmp != null) dmp.onMineTriggered();
+
         AbstractDungeon.actionManager.addToTop(
                 new GainBlockAction(
                         AbstractDungeon.player,

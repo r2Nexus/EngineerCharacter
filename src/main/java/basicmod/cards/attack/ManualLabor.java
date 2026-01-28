@@ -2,7 +2,7 @@ package basicmod.cards.attack;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -32,6 +32,8 @@ public class ManualLabor extends BaseCard {
         super(ID, info, BasicMod.imagePath("cards/attack/manual_labor.png"));
         setMagic(DRAW);
         setDamage(DAMAGE, UPG_DAMAGE);
+
+        cardsToPreview = new Material();
     }
 
     @Override

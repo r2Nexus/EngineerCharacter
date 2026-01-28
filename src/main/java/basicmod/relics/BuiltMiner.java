@@ -1,7 +1,7 @@
 package basicmod.relics;
 
 import basicmod.BasicMod;
-import basicmod.cards.Material;
+import basicmod.cards.other.Material;
 import basicmod.orbs.MinerOrb;
 import basicmod.patches.PlayerClassEnum;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;

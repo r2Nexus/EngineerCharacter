@@ -36,7 +36,7 @@ public class SlowCapsule extends BaseCard {
 
         // store debuff amounts in magic/second var style
         setMagic(WEAK); // We'll treat magicNumber = weak amount
-        setCustomVar("VULN", VariableType.MAGIC, FRAGILE, 0);
+        setCustomVar("VULN", VariableType.MAGIC, FRAGILE, 1);
 
         // Charge display + gating like LaserTurret
         setCustomVar("CHARGE", VariableType.MAGIC, CHARGE, UPG_CHARGE);

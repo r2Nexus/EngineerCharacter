@@ -12,9 +12,18 @@ public class DebuffMinesPower extends BasePower {
     public static final String POWER_ID = BasicMod.makeID("DebuffMines");
 
     public DebuffMinesPower(AbstractCreature owner, AbstractCreature source, int vulnAmt, int fragileAmt) {
-        super(POWER_ID, PowerType.BUFF, true, owner, source, 1);
-        this.amount = vulnAmt;      // amount = vulnerable
-        this.amount2 = fragileAmt;  // amount2 = fragile
+        super(
+                POWER_ID,
+                PowerType.BUFF,
+                true,
+                owner,
+                source,
+                1,
+                BasicMod.imagePath("powers/slow_mines_power.png"),
+                BasicMod.imagePath("powers/large/slow_mines_power.png")
+        );
+        this.amount = vulnAmt;
+        this.amount2 = fragileAmt;
         updateDescription();
     }
 
@@ -30,10 +39,10 @@ public class DebuffMinesPower extends BasePower {
             if (mo == null || mo.isDeadOrEscaped()) continue;
 
             if (amount > 0) {
-                addToBot(new ApplyPowerAction(mo, owner, new VulnerablePower(mo, amount, false), amount));
+                addToTop(new ApplyPowerAction(mo, owner, new VulnerablePower(mo, amount, false), amount));
             }
             if (amount2 > 0) {
-                addToBot(new ApplyPowerAction(mo, owner, new WeakPower(mo, amount2, false), amount2));
+                addToTop(new ApplyPowerAction(mo, owner, new WeakPower(mo, amount2, false), amount2));
             }
         }
     }

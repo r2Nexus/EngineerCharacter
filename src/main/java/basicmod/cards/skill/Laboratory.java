@@ -33,7 +33,7 @@ public class Laboratory extends BaseCard {
     private static final int UPG_CHARGE = 0;
 
     public Laboratory() {
-        super(ID, info, BasicMod.imagePath("cards/skill/laboratory.png"));
+        super(ID, info, BasicMod.imagePath("cards/skill/science_lab.png"));
 
         setMagic(DRAW, UPG_DRAW);
 

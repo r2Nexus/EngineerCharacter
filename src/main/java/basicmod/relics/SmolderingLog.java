@@ -14,7 +14,7 @@ public class SmolderingLog extends BaseRelic implements OnConsumeListener {
     public static final String ID = makeID("SmolderingLog");
 
     public SmolderingLog() {
-        super(ID, "smoldering_log_relic", AbstractCardEnum.ENGINEER, RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, "smoldering_log", AbstractCardEnum.ENGINEER, RelicTier.UNCOMMON, LandingSound.FLAT);
     }
 
     @Override

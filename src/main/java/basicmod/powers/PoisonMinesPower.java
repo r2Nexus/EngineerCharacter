@@ -11,8 +11,15 @@ public class PoisonMinesPower extends BasePower {
     public static final String POWER_ID = BasicMod.makeID("PoisonMines");
 
     public PoisonMinesPower(AbstractCreature owner, AbstractCreature source, int amount) {
-        super(POWER_ID, PowerType.BUFF, true, owner, source, amount);
-        // BasePower auto-loads textures via ID (removePrefix) and pulls PowerStrings
+        super(
+                POWER_ID,
+                PowerType.BUFF,
+                true,
+                owner,
+                source,
+                amount,
+                BasicMod.imagePath("powers/poison_mines_power.png"),
+                BasicMod.imagePath("powers/large/poison_mines_power.png"));
         updateDescription();
     }
 
@@ -29,7 +36,7 @@ public class PoisonMinesPower extends BasePower {
 
         for (AbstractCreature mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo != null && !mo.isDeadOrEscaped()) {
-                addToBot(new ApplyPowerAction(mo, owner, new PoisonPower(mo, owner, amount), amount));
+                addToTop(new ApplyPowerAction(mo, owner, new PoisonPower(mo, owner, amount), amount));
             }
         }
     }

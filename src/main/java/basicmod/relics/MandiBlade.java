@@ -17,7 +17,7 @@ public class MandiBlade extends BaseRelic {
     private static final int HEAL = 2;
 
     public MandiBlade() {
-        super(ID, "mandi_blade_relic", AbstractCardEnum.ENGINEER, RelicTier.RARE, LandingSound.CLINK);
+        super(ID, "mandiblade", AbstractCardEnum.ENGINEER, RelicTier.RARE, LandingSound.CLINK);
     }
 
     @Override

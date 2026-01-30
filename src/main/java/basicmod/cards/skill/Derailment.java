@@ -1,14 +1,12 @@
 package basicmod.cards.skill;
 
 import basicmod.BasicMod;
-import basicmod.actions.ExhaustWagonCardsInHandAction;
 import basicmod.cards.BaseCard;
-import basicmod.cards.attack.ArtilleryWagon;
-import basicmod.cards.attack.CargoWagon;
-import basicmod.cards.attack.FluidWagon;
+import basicmod.cards.other.Cliff;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -23,28 +21,19 @@ public class Derailment extends BaseCard {
             1
     );
 
-    // per exhausted
-    private static final int BLOCK_PER = 15;
-    private static final int UPG_BLOCK_PER = 7;
+    private static final int BLOCK = 14;
+    private static final int UPG_BLOCK = 4;
 
     public Derailment() {
         super(ID, info, BasicMod.imagePath("cards/skill/derailment.png"));
-        setBlock(BLOCK_PER, UPG_BLOCK_PER);
-        setExhaust(true);
+        setBlock(BLOCK, UPG_BLOCK);
 
-        setPreviewCycle(
-                CargoWagon::new,
-                ArtilleryWagon::new,
-                FluidWagon::new,
-                ScienceWagon::new
-        );
+        cardsToPreview = new Cliff();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ExhaustWagonCardsInHandAction(exhausted -> {
-            if (exhausted <= 0) return;
-            addToTop(new GainBlockAction(p, p, block * exhausted));
-        }));
+        addToBot(new GainBlockAction(p, p, block));
+        addToBot(new MakeTempCardInDiscardAction(new Cliff(), 1));
     }
 }

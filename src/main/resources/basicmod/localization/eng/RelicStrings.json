@@ -34,7 +34,7 @@
     "NAME": "Mandi-blade",
     "FLAVOR": "A trophy pried from a behemoth biter.",
     "DESCRIPTIONS": [
-      "Your #yStrikes cost #b1 less and #yExhaust. Heal #b2 whenever you play a #yStrike."
+      "Your #yExhaust. Heal #b2 whenever you play a #yStrike."
     ]
   },
 

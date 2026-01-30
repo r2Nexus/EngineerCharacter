@@ -225,6 +225,7 @@ public class BasicMod implements
         BaseMod.addCard(new Scrap());
         BaseMod.addCard(new SlowCapsule());
         BaseMod.addCard(new NuclearReactor());
+        BaseMod.addCard(new TemporarySolution());
 
         // --- Powers ---
         BaseMod.addCard(new Landfill());

@@ -22,11 +22,11 @@ public class NuclearWarhead extends BaseCard {
             2
     );
 
-    private static final int DAMAGE = 20;
-    private static final int UPG_DAMAGE = 0;
+    private static final int DAMAGE = 15;
+    private static final int UPG_DAMAGE = 5;
 
     private static final int BONUS_DAMAGE = 30;
-    private static final int UPG_BONUS = 15;
+    private static final int UPG_BONUS = 10;
 
     private static final int CONSUME = 6;
 

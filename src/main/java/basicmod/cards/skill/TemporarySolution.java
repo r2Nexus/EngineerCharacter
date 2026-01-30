@@ -18,7 +18,7 @@ public class TemporarySolution extends BaseCard {
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
             0
     );
@@ -28,10 +28,10 @@ public class TemporarySolution extends BaseCard {
     private static final int MATERIAL = 2;
     private static final int UPG_MATERIAL = 1;
 
-    private static final int CLIFFS = 1;
+    private static final int CLIFFS = 2;
 
     public TemporarySolution() {
-        super(ID, info, BasicMod.imagePath("cards/temporary_solution.png"));
+        super(ID, info, BasicMod.imagePath("cards/skill/temporary_solution.png"));
         setMagic(MATERIAL, UPG_MATERIAL);
 
         setPreviewCycle(

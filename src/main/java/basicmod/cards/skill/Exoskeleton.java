@@ -27,11 +27,11 @@ public class Exoskeleton extends BaseCard {
     private static final int CHARGE = 8;
     private static final int UPG_CHARGE = 0;
 
-    private static final int BLOCK = 16;
+    private static final int BLOCK = 12;
     private static final int UPG_BLOCK = 4;
 
     private static final int DEX = 2;
-    private static final int UPG_DEX = 1;
+    private static final int UPG_DEX = 0;
 
     public Exoskeleton() {
         super(ID, info, BasicMod.imagePath("cards/skill/exoskeleton.png"));

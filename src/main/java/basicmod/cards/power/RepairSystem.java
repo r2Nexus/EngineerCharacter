@@ -13,19 +13,20 @@ public class RepairSystem extends BaseCard {
     public static final String ID = makeID("RepairSystem");
 
     private static final int BLOCK = 6;
-    private static final int UPG_BLOCK = 3;
+    private static final int UPG_BLOCK = 0;
 
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
             CardType.POWER,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
-            1
+            2
     );
 
     public RepairSystem() {
         super(ID, info, BasicMod.imagePath("cards/power/repair_system.png"));
         setMagic(BLOCK, UPG_BLOCK);
+        setCostUpgrade(1);
     }
 
     @Override

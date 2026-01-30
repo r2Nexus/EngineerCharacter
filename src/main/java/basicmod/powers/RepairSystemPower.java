@@ -8,7 +8,7 @@ import static basicmod.BasicMod.makeID;
 
 public class RepairSystemPower extends BasePower {
     public static final String POWER_ID = makeID("RepairSystemPower");
-    private static final int THRESHOLD = 2;
+    private static final int THRESHOLD = 3;
 
     public RepairSystemPower(AbstractCreature owner, int blockAmount) {
         super(

@@ -2,7 +2,6 @@ package basicmod.actions;
 
 import basicmod.util.EngineerDraftPool;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
@@ -19,7 +18,6 @@ public class DraftToHandAction extends AbstractGameAction {
         this.picks = picks;
         this.prompt = prompt;
 
-        // IMPORTANT: initialize duration so the action doesn't finish instantly
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
 
         ArrayList<AbstractCard> generated = EngineerDraftPool.randomOptions(poolSize);
@@ -30,7 +28,6 @@ public class DraftToHandAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        // First update tick: open the selection screen
         if (this.duration == this.startDuration) {
             int actualPicks = Math.min(picks, options.size());
             AbstractDungeon.gridSelectScreen.open(options, actualPicks, prompt, false, false, false, false);
@@ -38,11 +35,27 @@ public class DraftToHandAction extends AbstractGameAction {
             return;
         }
 
-        // After player picks cards, they'll appear here
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             for (AbstractCard picked : AbstractDungeon.gridSelectScreen.selectedCards) {
-                addToTop(new MakeTempCardInHandAction(picked.makeCopy(), 1));
+                AbstractCard copy = picked.makeCopy();
+
+                // 0 cost this turn
+                copy.setCostForTurn(0);
+                copy.isCostModifiedForTurn = true;
+
+                // add to hand (with overflow handling like the base game)
+                if (AbstractDungeon.player.hand.size() >= 10) {
+                    AbstractDungeon.player.createHandIsFullDialog();
+                    AbstractDungeon.player.discardPile.addToTop(copy);
+                } else {
+                    AbstractDungeon.player.hand.addToTop(copy);
+                    copy.triggerWhenDrawn();
+                }
+
+                AbstractDungeon.player.hand.refreshHandLayout();
+                AbstractDungeon.player.hand.glowCheck();
             }
+
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             this.isDone = true;
             return;

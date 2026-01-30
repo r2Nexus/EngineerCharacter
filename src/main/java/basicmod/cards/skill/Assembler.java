@@ -18,7 +18,7 @@ public class Assembler extends BaseCard {
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
-            0
+            1
     );
 
     public static final int PICK = 1;

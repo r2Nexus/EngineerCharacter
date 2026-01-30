@@ -28,7 +28,10 @@ public class Shotgun extends BaseCard {
     private static final int DAMAGE = 6;
     private static final int MAGIC = 2;
     private static final int UPG_DAMAGE = 0;
-    private static final int UPG_MAGIC = 1;
+    private static final int UPG_MAGIC = 0;
+
+    private static final int MAT = 2;
+    public static final int UPG_MAT = -1;
 
     public Shotgun() {
         super(ID, info, BasicMod.imagePath("cards/attack/shotgun.png"));
@@ -36,6 +39,8 @@ public class Shotgun extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
+        setCustomVar("MAT", VariableType.MAGIC, MAT, UPG_MAT);
+
         isMultiDamage = true;
     }
 
@@ -49,7 +54,7 @@ public class Shotgun extends BaseCard {
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT
         ));
 
-        addToBot(new ConsumeMaterialAction(1, () -> {
+        addToBot(new ConsumeMaterialAction(customVar("MAT"), () -> {
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (!mo.isDeadOrEscaped()) {
                     addToTop(new ApplyPowerAction(

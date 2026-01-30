@@ -16,12 +16,6 @@ public class MandiBladeStrikeMod extends AbstractCardModifier {
     public void onInitialApplication(AbstractCard card) {
         // Make it exhaust
         card.exhaust = true;
-
-        // Reduce cost by 1, but don’t go below 0
-        if (card.cost >= 0) {
-            card.updateCost(-1);
-            // updateCost already clamps and updates costForTurn as needed
-        }
     }
 
     @Override

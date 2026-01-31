@@ -2,6 +2,7 @@ package basicmod.cards.power;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
+import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;
 import basicmod.powers.PurpleSciencePower;
@@ -29,6 +30,8 @@ public class PurpleScience extends BaseCard {
         tags.add(CardTagEnum.SCIENCE);
         setCostUpgrade(1);
         setMagic(MAGIC, UPG_MAGIC);
+
+        cardsToPreview = new Material();
     }
 
     @Override

@@ -149,13 +149,13 @@
   },
 
   "${modID}:BlackScience": {
-    "NAME": "Black Science",
+    "NAME": "Military Science",
     "DESCRIPTION": "Gain !M! Strength.",
     "UPGRADE_DESCRIPTION": "Gain !M! Strength."
   },
 
   "${modID}:BlueScience": {
-    "NAME": "Blue Science",
+    "NAME": "Chemical Science",
     "DESCRIPTION": "Gain !M! Focus.",
     "UPGRADE_DESCRIPTION": "Gain !M! Focus."
   },
@@ -191,7 +191,7 @@
   },
 
   "${modID}:RedScience": {
-    "NAME": "Red Science",
+    "NAME": "Automation Science",
     "DESCRIPTION": "At the start of your turn, NL add 1 ${modID}:Material to your hand.",
     "UPGRADE_DESCRIPTION": "At the start of your turn, NL add 2 ${modID}:Material to your hand."
   },
@@ -293,15 +293,15 @@
   },
 
   "${modID}:GreenScience": {
-    "NAME": "Green Science",
+    "NAME": "Logistics Science",
     "DESCRIPTION": "At the start of your turn, NL draw !M! card that isn't ${modID}:Material.",
     "UPGRADE_DESCRIPTION": "At the start of your turn, NL draw !M! cards that aren't ${modID}:Material."
   },
 
   "${modID}:PurpleScience": {
-    "NAME": "Purple Science",
-    "DESCRIPTION": "Whenever you Evoke an Orb, NL add !M! ${modID}:Material to your discard pile.",
-    "UPGRADE_DESCRIPTION": "Whenever you Evoke an Orb, NL add !M! ${modID}:Material to your discard pile."
+    "NAME": "Production Science",
+    "DESCRIPTION": "The first ${modID}:Consume each turn, behaves as if you had !M! extra ${modID}:Material in your hand.",
+    "UPGRADE_DESCRIPTION": "The first ${modID}:Consume each turn, behaves as if you had !M! extra ${modID}:Material in your hand."
   },
 
   "${modID}:SteamEngine": {

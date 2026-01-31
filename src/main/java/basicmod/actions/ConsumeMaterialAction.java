@@ -2,6 +2,7 @@ package basicmod.actions;
 
 import basicmod.BasicMod;
 import basicmod.cards.other.Material;
+import basicmod.powers.PurpleSciencePower;
 import basicmod.util.ChargeSystem;
 import basicmod.util.ConsumeCardEffect;
 import basicmod.util.ConsumeEvents;
@@ -78,42 +79,61 @@ public class ConsumeMaterialAction extends AbstractGameAction {
             return;
         }
 
+        // --- PurpleScience
+        int virtualPaid = 0;
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower(PurpleSciencePower.POWER_ID)) {
+            PurpleSciencePower p = (PurpleSciencePower) AbstractDungeon.player.getPower(PurpleSciencePower.POWER_ID);
+            virtualPaid = p.trySpendVirtualForConsume(amount);
+        }
+        int realNeeded = amount - virtualPaid;
+
+        if (realNeeded <= 0) {
+            int totalConsumed = amount;
+
+            BasicMod.materialConsumedThisTurn += totalConsumed;
+            ChargeSystem.onMaterialConsumed(totalConsumed);
+
+            boolean inferredEot = AbstractDungeon.actionManager != null && AbstractDungeon.actionManager.turnHasEnded;
+            ConsumeEvents.fireConsume(
+                    AbstractDungeon.player,
+                    totalConsumed,
+                    this.endOfTurnContext || inferredEot
+            );
+
+            if (onSuccess != null) onSuccess.run();
+            isDone = true;
+            return;
+        }
+
         List<MatRef> materials = new ArrayList<>();
 
         // Priority order: Hand → Draw → Discard
-        if (useHand) {
-            collect(materials, AbstractDungeon.player.hand);
-        }
-        if (useDraw) {
-            collect(materials, AbstractDungeon.player.drawPile);
-        }
-        if (useDiscard) {
-            collect(materials, AbstractDungeon.player.discardPile);
-        }
+        if (useHand) collect(materials, AbstractDungeon.player.hand);
+        if (useDraw) collect(materials, AbstractDungeon.player.drawPile);
+        if (useDiscard) collect(materials, AbstractDungeon.player.discardPile);
 
-        if (materials.size() < amount) {
+        if (materials.size() < realNeeded) {
             if (onFail != null) onFail.run();
             isDone = true;
             return;
         }
 
-        for (int i = 0; i < amount; i++) {
+        for (int i = 0; i < realNeeded; i++) {
             MatRef ref = materials.get(i);
             removeWithConsumeEffect(ref.from, ref.card);
             BasicMod.materialConsumedThisTurn++;
         }
 
-        // Charge system
-        ChargeSystem.onMaterialConsumed(amount);
+        int totalConsumed = realNeeded + virtualPaid;
 
-        if (onSuccess != null) {
-            onSuccess.run();
-        }
+        ChargeSystem.onMaterialConsumed(totalConsumed);
+
+        if (onSuccess != null) onSuccess.run();
 
         boolean inferredEot = AbstractDungeon.actionManager != null && AbstractDungeon.actionManager.turnHasEnded;
         ConsumeEvents.fireConsume(
                 AbstractDungeon.player,
-                amount,
+                totalConsumed,
                 this.endOfTurnContext || inferredEot
         );
 
@@ -129,24 +149,21 @@ public class ConsumeMaterialAction extends AbstractGameAction {
     }
 
     private void removeWithConsumeEffect(CardGroup from, AbstractCard card) {
-        // prevent hover jank
         card.unhover();
         card.stopGlowing();
         card.isGlowing = false;
 
-        // spawn VFX using a copy (safer)
         AbstractCard vfxCard = card.makeStatEquivalentCopy();
         vfxCard.current_x = card.current_x;
         vfxCard.current_y = card.current_y;
-        vfxCard.target_x  = card.current_x;
-        vfxCard.target_y  = card.current_y;
+        vfxCard.target_x = card.current_x;
+        vfxCard.target_y = card.current_y;
         vfxCard.drawScale = card.drawScale;
-        vfxCard.angle     = card.angle;
+        vfxCard.angle = card.angle;
         vfxCard.transparency = card.transparency;
 
         AbstractDungeon.effectList.add(new ConsumeCardEffect(vfxCard));
 
-        // remove mechanically (no exhaust)
         from.group.remove(card);
 
         if (from == AbstractDungeon.player.hand) {
@@ -154,8 +171,6 @@ public class ConsumeMaterialAction extends AbstractGameAction {
             AbstractDungeon.player.hand.applyPowers();
         }
 
-        // tag the event as end-of-turn if caller requested it,
-        // and also infer from GameActionManager as a fallback.
         boolean inferredEot = AbstractDungeon.actionManager != null && AbstractDungeon.actionManager.turnHasEnded;
         ConsumeEvents.fireMaterialConsumed(
                 AbstractDungeon.player,

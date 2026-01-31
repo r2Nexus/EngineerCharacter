@@ -62,6 +62,7 @@ public class ChargeMod extends AbstractCardModifier {
         charge = 0;
         card.initializeDescription();
         syncToMasterDeck(card);
+
         return true;
     }
 
@@ -156,6 +157,7 @@ public class ChargeMod extends AbstractCardModifier {
 
         card.initializeDescription();
         syncToMasterDeck(card);
+
         return spent;
     }
 

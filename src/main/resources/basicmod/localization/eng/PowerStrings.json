@@ -44,7 +44,7 @@
   "${modID}:PurpleSciencePower": {
     "NAME": "Purple Science",
     "DESCRIPTIONS": [
-      "Whenever you Evoke an Orb, add !M! Material to your discard pile."
+      "The first Consume each turn, behaves as if you had !M! extra Material in your hand."
     ]
   },
 

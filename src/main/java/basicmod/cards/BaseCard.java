@@ -4,6 +4,7 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import basicmod.BasicMod;
+import basicmod.cardmods.ChargeMod;
 import basicmod.util.CardStats;
 import basicmod.util.TriFunction;
 import com.badlogic.gdx.Gdx;
@@ -897,6 +898,23 @@ public abstract class BaseCard extends CustomCard {
 
         public boolean isModified() {
             return forceModified || base != value;
+        }
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
+
+        // only glow special while actually in the player's hand
+        boolean inHand = AbstractDungeon.player != null
+                && AbstractDungeon.player.hand != null
+                && AbstractDungeon.player.hand.group.contains(this);
+
+        if (!inHand) return;
+
+        ChargeMod mod = ChargeMod.get(this);
+        if (mod != null && mod.isFullyCharged(this)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
         }
     }
 }

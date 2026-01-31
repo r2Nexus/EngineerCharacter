@@ -2,6 +2,7 @@ package basicmod.cards.power;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
+import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;
 import basicmod.powers.RedSciencePower;
@@ -29,6 +30,7 @@ public class RedScience extends BaseCard {
         tags.add(CardTagEnum.SCIENCE);
 
         setMagic(MAGIC, UPG_MAGIC);
+        cardsToPreview = new Material();
     }
 
     @Override

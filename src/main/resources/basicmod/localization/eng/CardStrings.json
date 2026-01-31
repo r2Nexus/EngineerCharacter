@@ -60,14 +60,14 @@
 
   "${modID}:LandMine": {
     "NAME": "Build Land Mine",
-    "DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Consume 1: Channel ${modID}:Landmine. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Consume 1: Channel ${modID}:Landmine."
+    "DESCRIPTION": "Channel ${modID}:Land_Mine. NL ${modID}:Consume 1: Channel ${modID}:Land_Mine. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Land_Mine. NL ${modID}:Consume 1: Channel ${modID}:Land_Mine."
   },
 
   "${modID}:MineField": {
     "NAME": "Mine Field",
-    "DESCRIPTION": "Channel X+!M! ${modID}:Landmines. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel X+!M! ${modID}:Landmines. NL Exhaust."
+    "DESCRIPTION": "Channel X+!M! ${modID}:Land_Mines. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel X+!M! ${modID}:Land_Mines. NL Exhaust."
   },
 
   "${modID}:Flamethrower": {
@@ -168,26 +168,26 @@
 
   "${modID}:Blueprint": {
     "NAME": "Blueprint",
-    "DESCRIPTION": "Channel ${modID}:Landmine. NL Channel ${modID}:Turret. NL Channel ${modID}:Miner. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Landmine. NL Channel ${modID}:Turret. NL Channel ${modID}:Miner."
+    "DESCRIPTION": "Channel ${modID}:Land_Mine. NL Channel ${modID}:Turret. NL Channel ${modID}:Miner. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Land_Mine. NL Channel ${modID}:Turret. NL Channel ${modID}:Miner."
   },
 
   "${modID}:Detonator": {
     "NAME": "Detonator",
-    "DESCRIPTION": "Deal !D! damage. NL Channel ${modID}:Landmine.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel ${modID}:Landmine."
+    "DESCRIPTION": "Deal !D! damage. NL Channel ${modID}:Land_Mine.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel ${modID}:Land_Mine."
   },
 
   "${modID}:PoisonCapsule": {
     "NAME": "Poison Capsule",
-    "DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Consume 1: This turn, ${modID}:Landmines apply !M! Poison.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Consume 1: This turn, ${modID}:Landmines apply !M! Poison."
+    "DESCRIPTION": "Channel ${modID}:Land_Mine. NL ${modID}:Consume 1: This turn, ${modID}:Land_Mines apply !M! Poison.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Land_Mine. NL ${modID}:Consume 1: This turn, ${modID}:Land_Mines apply !M! Poison."
   },
 
   "${modID}:SlowCapsule": {
     "NAME": "Slowdown Capsule",
-    "DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Charge <CHARGE>: This turn, ${modID}:Landmines apply !${modID}:VULN! Vulnerable and !M! Weak.",
-    "UPGRADE_DESCRIPTION": "Channel ${modID}:Landmine. NL ${modID}:Charge <CHARGE>: This turn, ${modID}:Landmines apply !${modID}:VULN! Vulnerable and !M! Weak."
+    "DESCRIPTION": "Channel ${modID}:Land_Mine. NL ${modID}:Charge <CHARGE>: This turn, ${modID}:Land_Mines apply !${modID}:VULN! Vulnerable and !M! Weak.",
+    "UPGRADE_DESCRIPTION": "Channel ${modID}:Land_Mine. NL ${modID}:Charge <CHARGE>: This turn, ${modID}:Land_Mines apply !${modID}:VULN! Vulnerable and !M! Weak."
   },
 
   "${modID}:RedScience": {
@@ -330,8 +330,8 @@
 
   "${modID}:ReactiveArmour": {
     "NAME": "Reactive Armour",
-    "DESCRIPTION": "Once per turn, whenever you take unblocked damage, NL Channel ${modID}:Landmine.",
-    "UPGRADE_DESCRIPTION": "Once per turn, whenever you take unblocked damage, NL Channel ${modID}:Landmine."
+    "DESCRIPTION": "Once per turn, whenever you take unblocked damage, NL Channel ${modID}:Land_Mine.",
+    "UPGRADE_DESCRIPTION": "Once per turn, whenever you take unblocked damage, NL Channel ${modID}:Land_Mine."
   },
 
   "${modID}:Recycler": {

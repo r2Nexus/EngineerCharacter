@@ -13,6 +13,8 @@ import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.PlayerClassEnum;
 import basicmod.potions.MaterialPotion;
 import basicmod.potions.OverclockPotion;
+import basicmod.powers.BeltFedPower;
+import basicmod.powers.FreeTurretFirePower;
 import basicmod.relics.*;
 import basicmod.util.*;
 import com.badlogic.gdx.Files;
@@ -28,7 +30,10 @@ import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.*;
@@ -53,7 +58,8 @@ public class BasicMod implements
         EditCharactersSubscriber,
         OnStartBattleSubscriber,
         EditRelicsSubscriber,
-        PostDrawSubscriber{
+        PostDrawSubscriber,
+        PostUpdateSubscriber {
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
@@ -487,5 +493,83 @@ public class BasicMod implements
     @Override
     public void receivePostDraw(AbstractCard abstractCard) {
         materialConsumedThisTurn = 0;
+    }
+
+    private int lastTurretAmmo = -1;
+    private int lastOrbCount = -1;
+    private boolean lastBeltFed = false;
+    private boolean lastFreeFire = false;
+    private boolean lastInCombat = false;
+
+    @Override
+    public void receivePostUpdate() {
+        // Not actually in a run yet (main menu, loading screens, etc.)
+        if (CardCrawlGame.dungeon == null) {
+            if (lastInCombat) resetTurretIntentCache();
+            lastInCombat = false;
+            return;
+        }
+
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p == null) return;
+
+        // During transitions / loading, currMapNode can be null even if player exists
+        if (AbstractDungeon.currMapNode == null) {
+            if (lastInCombat) resetTurretIntentCache();
+            lastInCombat = false;
+            return;
+        }
+
+        // Now it's safe to ask for room/monsters
+        if (AbstractDungeon.getCurrRoom() == null || AbstractDungeon.getMonsters() == null) {
+            if (lastInCombat) resetTurretIntentCache();
+            lastInCombat = false;
+            return;
+        }
+
+        boolean inCombat = !AbstractDungeon.getMonsters().areMonstersBasicallyDead();
+
+        if (!inCombat) {
+            if (lastInCombat) resetTurretIntentCache();
+            lastInCombat = false;
+            return;
+        }
+        lastInCombat = true;
+
+        boolean beltFed = p.hasPower(BeltFedPower.POWER_ID);
+        boolean freeFire = p.hasPower(FreeTurretFirePower.POWER_ID);
+
+        int ammo;
+        if (freeFire) {
+            ammo = Integer.MAX_VALUE;
+        } else {
+            ammo = MaterialUtils.countHand(p);
+            if (beltFed) {
+                ammo += MaterialUtils.countDraw(p);
+                ammo += MaterialUtils.countDiscard(p);
+            }
+        }
+
+        int orbCount = p.orbs.size();
+
+        if (ammo != lastTurretAmmo ||
+                orbCount != lastOrbCount ||
+                beltFed != lastBeltFed ||
+                freeFire != lastFreeFire) {
+
+            lastTurretAmmo = ammo;
+            lastOrbCount = orbCount;
+            lastBeltFed = beltFed;
+            lastFreeFire = freeFire;
+
+            TurretIntentHelper.updateTurretIntents();
+        }
+    }
+
+    private void resetTurretIntentCache() {
+        lastTurretAmmo = -1;
+        lastOrbCount = -1;
+        lastBeltFed = false;
+        lastFreeFire = false;
     }
 }

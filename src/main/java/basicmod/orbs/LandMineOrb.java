@@ -3,6 +3,8 @@ package basicmod.orbs;
 import basicmod.BasicMod;
 import basicmod.powers.DebuffMinesPower;
 import basicmod.powers.PoisonMinesPower;
+import basicmod.util.HasOrbIntent;
+import basicmod.util.OrbIntent;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.actions.defect.EvokeSpecificOrbAction;
@@ -15,7 +17,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 
-public class LandMineOrb extends BaseOrb {
+public class LandMineOrb extends BaseOrb implements HasOrbIntent {
 
     public static final String ORB_ID = makeID("LandMine");
 
@@ -54,7 +56,7 @@ public class LandMineOrb extends BaseOrb {
 
     @Override
     public void onEvoke() {
-        refresh(); // Focus BS
+        refresh(); // Focus sync
 
         AbstractDungeon.actionManager.addToTop(
                 new DamageAllEnemiesAction(
@@ -84,29 +86,6 @@ public class LandMineOrb extends BaseOrb {
 
     @Override
     public void renderText(SpriteBatch sb) {
-        float yOffset = 16.0f * Settings.scale;
-
-        // Top: damage
-        FontHelper.renderFontCentered(
-                sb,
-                FontHelper.cardEnergyFont_L,
-                Integer.toString(evokeAmount),
-                cX + NUM_X_OFFSET,
-                cY + NUM_Y_OFFSET + bobEffect.y / 2.0f + yOffset,
-                Color.WHITE.cpy(),
-                fontScale
-        );
-
-        // Bottom: block
-        FontHelper.renderFontCentered(
-                sb,
-                FontHelper.cardEnergyFont_L,
-                Integer.toString(secondaryAmount),
-                cX + NUM_X_OFFSET,
-                cY + NUM_Y_OFFSET + bobEffect.y / 2.0f - yOffset,
-                Color.WHITE.cpy(),
-                fontScale * 0.80f
-        );
     }
 
     @Override
@@ -117,5 +96,21 @@ public class LandMineOrb extends BaseOrb {
     @Override
     public void playChannelSFX() {
         // optional
+    }
+
+    // =========================
+    // HasOrbIntent
+    // =========================
+
+    @Override
+    public boolean shouldShowIntent() {
+        // Show only when it would trigger this turn
+        return inCombat() && !triggeredThisTurn && anyMonsterIntendsAttack();
+    }
+
+    @Override
+    public OrbIntent getOrbIntent() {
+        // Intent is the on-evoke effect: damage + block
+        return new OrbIntent(OrbIntent.Type.ATTACK_DEFEND, evokeAmount, secondaryAmount);
     }
 }

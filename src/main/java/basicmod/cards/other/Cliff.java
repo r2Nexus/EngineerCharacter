@@ -2,13 +2,8 @@ package basicmod.cards.other;
 
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.cards.attack.ArtilleryWagon;
-import basicmod.cards.attack.CargoWagon;
-import basicmod.cards.attack.FluidWagon;
-import basicmod.cards.skill.ScienceWagon;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 

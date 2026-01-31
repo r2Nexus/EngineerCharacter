@@ -1,7 +1,6 @@
 package basicmod.relics;
 
 import basicmod.patches.AbstractCardEnum;
-import basicmod.util.ConsumeEvents;
 import basicmod.util.OnConsumeListener;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

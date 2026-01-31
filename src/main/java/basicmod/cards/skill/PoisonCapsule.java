@@ -3,12 +3,12 @@ package basicmod.cards.skill;
 import basicmod.BasicMod;
 import basicmod.actions.ConsumeMaterialAction;
 import basicmod.cards.BaseCard;
-import basicmod.orbs.LandMineOrb; // <-- rename if your mine orb is different
+import basicmod.orbs.LandMineOrb;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.powers.PoisonMinesPower;
 import basicmod.util.CardStats;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 

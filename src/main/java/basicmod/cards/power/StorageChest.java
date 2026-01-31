@@ -4,7 +4,6 @@ import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;
-import basicmod.powers.RedSciencePower;
 import basicmod.powers.StorageChestPower;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;

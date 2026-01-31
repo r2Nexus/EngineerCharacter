@@ -1,7 +1,7 @@
 package basicmod.powers;
 
 import basicmod.BasicMod;
-import basicmod.orbs.MinerOrb; // <- adjust to your actual Miner orb class/package
+import basicmod.orbs.MinerOrb;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 

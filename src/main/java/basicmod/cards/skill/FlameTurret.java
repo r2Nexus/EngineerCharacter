@@ -6,8 +6,8 @@ import basicmod.orbs.TurretOrb;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.powers.FlameTurretPower;
 import basicmod.util.CardStats;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 

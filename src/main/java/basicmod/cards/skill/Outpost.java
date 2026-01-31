@@ -3,7 +3,6 @@ package basicmod.cards.skill;
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
 import basicmod.orbs.MinerOrb;
-import basicmod.orbs.TurretOrb;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;

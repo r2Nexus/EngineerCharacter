@@ -1,9 +1,7 @@
 package basicmod.cards.attack;
 
-import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
-import basicmod.cards.power.*;
 import basicmod.cards.skill.ScienceWagon;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.CardTagEnum;

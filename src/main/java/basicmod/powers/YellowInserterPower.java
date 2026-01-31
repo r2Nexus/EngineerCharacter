@@ -2,9 +2,7 @@ package basicmod.powers;
 
 import basicmod.BasicMod;
 import basicmod.actions.AddMaterialAction;
-import basicmod.cards.other.Material;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 

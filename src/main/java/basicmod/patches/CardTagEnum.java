@@ -1,8 +1,8 @@
 // basicmod/patches/CardTagEnum.java
 package basicmod.patches;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class CardTagEnum {
     @SpireEnum

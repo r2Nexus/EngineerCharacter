@@ -1,7 +1,6 @@
 package basicmod.cards.attack;
 
 import basicmod.BasicMod;
-import basicmod.actions.AddMaterialAction;
 import basicmod.cards.BaseCard;
 import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
@@ -12,8 +11,6 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import static basicmod.actions.AddMaterialAction.Destination.*;
 
 public class CargoWagon extends BaseCard {
     public static final String ID = makeID("CargoWagon");

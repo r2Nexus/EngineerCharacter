@@ -9,11 +9,9 @@ import basicmod.cards.skill.Turret;
 import basicmod.cards.skill.Wall;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.PlayerClassEnum;
-
 import basicmod.relics.BuiltTurret;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

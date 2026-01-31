@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 
 import java.lang.reflect.Field;
-import java.util.List;
 
 public abstract class BasePotion extends AbstractPotion {
     private static final Field containerImg, outlineImg, liquidImg, hybridImg, spotsImg;

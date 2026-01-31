@@ -1,6 +1,7 @@
 package basicmod.cards;
 
 import basemod.BaseMod;
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import basicmod.BasicMod;
@@ -16,21 +17,14 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Supplier;
-
-import static basicmod.util.GeneralUtils.removePrefix;
-import static basicmod.util.TextureLoader.getCardTextureString;
-
-import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 
+import java.util.*;
+import java.util.function.Supplier;
+
 import static basicmod.actions.AddMaterialAction.Destination.*;
+import static basicmod.util.GeneralUtils.removePrefix;
+import static basicmod.util.TextureLoader.getCardTextureString;
 
 
 public abstract class BaseCard extends CustomCard {

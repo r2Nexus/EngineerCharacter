@@ -7,7 +7,6 @@ import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -38,7 +37,7 @@ public class SteamEngine extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        addToBot(new MakeTempCardInHandAction(new Material(),magicNumber));
+        addMaterialToHand(magicNumber);
         addToBot(new ConsumeMaterialAction(customVar("CONS"), () -> {
             addToTop(new GainEnergyAction(2));
         },

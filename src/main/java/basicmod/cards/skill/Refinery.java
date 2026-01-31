@@ -6,7 +6,6 @@ import basicmod.cards.BaseCard;
 import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -34,7 +33,7 @@ public class Refinery extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ConsumeAllMaterialAction(consumed ->{
-            if(consumed >= 1) addToTop(new MakeTempCardInDiscardAction(new Material(), consumed * magicNumber));
+            if(consumed >= 1) addMaterialToDiscard(magicNumber * consumed);
         }, true, false, false));
     }
 }

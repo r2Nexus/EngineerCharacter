@@ -8,7 +8,6 @@ import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -43,7 +42,7 @@ public class TemporarySolution extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainEnergyAction(ENERGY));
-        addToBot(new MakeTempCardInHandAction(new Material(), magicNumber));
+        addMaterialToHand(magicNumber);
         addToBot(new MakeTempCardInDiscardAction(new Cliff(), CLIFFS));
     }
 }

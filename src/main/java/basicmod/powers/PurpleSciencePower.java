@@ -1,15 +1,15 @@
 package basicmod.powers;
 
 import basicmod.BasicMod;
-import basicmod.cards.other.Material;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
 
 import static basicmod.BasicMod.makeID;
 
 public class PurpleSciencePower extends BasePower {
     public static final String POWER_ID = makeID("PurpleSciencePower");
+
+    // Once-per-turn gate
+    private boolean usedThisTurn = false;
 
     public PurpleSciencePower(AbstractCreature owner, int amount) {
         super(
@@ -26,9 +26,18 @@ public class PurpleSciencePower extends BasePower {
     }
 
     @Override
-    public void onEvokeOrb(AbstractOrb orb) {
+    public void atStartOfTurn() {
+        usedThisTurn = false;
+    }
+
+    public int trySpendVirtualForConsume(int requested) {
+        if (usedThisTurn) return 0;
+        if (requested <= 0) return 0;
+
+        usedThisTurn = true;
         flash();
-        addToBot(new MakeTempCardInDiscardAction(new Material(), this.amount));
+
+        return Math.min(this.amount, requested);
     }
 
     @Override

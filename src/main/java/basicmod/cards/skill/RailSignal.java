@@ -1,6 +1,5 @@
 package basicmod.cards.skill;
 
-import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
 import basicmod.cards.attack.ArtilleryWagon;

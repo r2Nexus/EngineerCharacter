@@ -6,7 +6,6 @@ import basicmod.cards.other.Material;
 import basicmod.orbs.TurretOrb;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -32,6 +31,6 @@ public class Turret extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         addToBot(new ChannelAction(new TurretOrb()));
-        addToBot(new MakeTempCardInHandAction(new Material()));
+        addMaterialToHand(1);
     }
 }

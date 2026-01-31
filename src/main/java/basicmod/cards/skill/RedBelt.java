@@ -6,7 +6,6 @@ import basicmod.cards.BaseCard;
 import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -32,7 +31,7 @@ public class RedBelt extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ConsumeAllMaterialAction(consumed -> {
             int gain = consumed + 1; // that much + 1
-            addToTop(new MakeTempCardInHandAction(new Material(), gain));
+            addMaterialToHand(gain);
         }, true, true, true));
     }
 }

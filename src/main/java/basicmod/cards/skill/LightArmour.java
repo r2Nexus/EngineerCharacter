@@ -1,16 +1,12 @@
 package basicmod.cards.skill;
 
-import basemod.BaseMod;
 import basicmod.BasicMod;
-import basicmod.actions.ConsumeMaterialAction;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 
 public class LightArmour extends BaseCard {
     public static final String ID = makeID("LightArmour");

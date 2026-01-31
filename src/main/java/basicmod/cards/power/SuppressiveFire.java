@@ -3,7 +3,6 @@ package basicmod.cards.power;
 import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
-import basicmod.powers.BeltFedPower;
 import basicmod.powers.SuppressiveFirePower;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;

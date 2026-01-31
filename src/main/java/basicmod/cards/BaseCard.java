@@ -1,9 +1,12 @@
 package basicmod.cards;
 
 import basemod.BaseMod;
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import basicmod.BasicMod;
+import basicmod.actions.AddMaterialAction;
+import basicmod.cardmods.ChargeMod;
 import basicmod.util.CardStats;
 import basicmod.util.TriFunction;
 import com.badlogic.gdx.Gdx;
@@ -14,19 +17,14 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Supplier;
 
+import static basicmod.actions.AddMaterialAction.Destination.*;
 import static basicmod.util.GeneralUtils.removePrefix;
 import static basicmod.util.TextureLoader.getCardTextureString;
-
-import basemod.ReflectionHacks;
-import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 
 
 public abstract class BaseCard extends CustomCard {
@@ -898,5 +896,34 @@ public abstract class BaseCard extends CustomCard {
         public boolean isModified() {
             return forceModified || base != value;
         }
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
+
+        // only glow special while actually in the player's hand
+        boolean inHand = AbstractDungeon.player != null
+                && AbstractDungeon.player.hand != null
+                && AbstractDungeon.player.hand.group.contains(this);
+
+        if (!inHand) return;
+
+        ChargeMod mod = ChargeMod.get(this);
+        if (mod != null && mod.isFullyCharged(this)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
+        }
+    }
+
+    protected void addMaterialToHand(int amount) {
+        addToBot(new AddMaterialAction(amount, HAND));
+    }
+
+    protected void addMaterialToDiscard(int amount) {
+        addToBot(new AddMaterialAction(amount, DISCARD_PILE));
+    }
+
+    protected void addMaterialToDrawPile(int amount) {
+        addToBot(new AddMaterialAction(amount, DRAW_PILE));
     }
 }

@@ -8,8 +8,6 @@ import basicmod.patches.CardTagEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -52,7 +50,7 @@ public class CargoWagon extends BaseCard {
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT
         ));
 
-        addToBot(new MakeTempCardInHandAction(new Material(), customVar("HAND")));
-        addToBot(new MakeTempCardInDiscardAction(new Material(), customVar("DISC")));
+        addMaterialToHand(customVar("HAND"));
+        addMaterialToDiscard( customVar("DISC"));
     }
 }

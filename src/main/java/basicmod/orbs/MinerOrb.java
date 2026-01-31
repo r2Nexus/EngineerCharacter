@@ -1,10 +1,11 @@
 package basicmod.orbs;
 
 import basicmod.BasicMod;
-import basicmod.cards.other.Material;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import basicmod.actions.AddMaterialAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+
+import static basicmod.actions.AddMaterialAction.Destination.HAND;
 
 public class MinerOrb extends BaseOrb {
     public static final String ORB_ID = makeID("Miner");
@@ -25,7 +26,7 @@ public class MinerOrb extends BaseOrb {
         refresh();
 
         AbstractDungeon.actionManager.addToBottom(
-                new MakeTempCardInHandAction(new Material(), passiveAmount)
+                new AddMaterialAction(passiveAmount, HAND)
         );
     }
 
@@ -33,7 +34,7 @@ public class MinerOrb extends BaseOrb {
     public void onEvoke() {
         refresh();
         AbstractDungeon.actionManager.addToTop(
-                new MakeTempCardInHandAction(new Material(), evokeAmount)
+                new AddMaterialAction(evokeAmount, HAND)
         );
     }
 

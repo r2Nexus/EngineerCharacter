@@ -7,7 +7,6 @@ import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -44,6 +43,6 @@ public class ManualLabor extends BaseCard {
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT
         ));
 
-        addToBot(new MakeTempCardInHandAction(new Material(), magicNumber));
+        addMaterialToHand(magicNumber);
     }
 }

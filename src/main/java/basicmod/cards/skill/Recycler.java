@@ -1,12 +1,12 @@
 package basicmod.cards.skill;
 
 import basicmod.BasicMod;
+import basicmod.actions.AddMaterialAction;
 import basicmod.cards.BaseCard;
 import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -49,7 +49,7 @@ public class Recycler extends BaseCard {
 
                 int mats = getMaterialFromCost(exhaustedCard);
                 if (mats > 0) {
-                    addToTop(new MakeTempCardInHandAction(new Material(), mats));
+                    addToTop(new AddMaterialAction(mats, AddMaterialAction.Destination.HAND));
                 }
             }
         });

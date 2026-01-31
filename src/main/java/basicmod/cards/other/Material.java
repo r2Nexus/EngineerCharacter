@@ -4,7 +4,6 @@ import basicmod.BasicMod;
 import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -60,6 +59,6 @@ public class Material extends BaseCard {
         if (!upgraded) return;
 
         // Add 2 normal (unupgraded) Materials to hand
-        addToBot(new MakeTempCardInHandAction(new Material(), GEN));
+        addMaterialToHand(GEN);
     }
 }

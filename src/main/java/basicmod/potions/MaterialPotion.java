@@ -1,9 +1,9 @@
 package basicmod.potions;
 
+import basicmod.actions.AddMaterialAction;
 import basicmod.cards.other.Material;
 import basicmod.patches.PlayerClassEnum;
 import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 
 import static basicmod.BasicMod.makeID;
+import static basicmod.actions.AddMaterialAction.Destination.HAND;
 
 public class MaterialPotion extends BasePotion {
     public static final String ID = makeID("MaterialPotion");
@@ -33,7 +34,7 @@ public class MaterialPotion extends BasePotion {
     public void use(AbstractCreature target) {
         if (AbstractDungeon.player == null) return;
         AbstractDungeon.actionManager.addToBottom(
-                new MakeTempCardInHandAction(new Material(), this.potency)
+                new AddMaterialAction(potency, HAND)
         );
     }
 

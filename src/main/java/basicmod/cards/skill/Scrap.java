@@ -5,7 +5,6 @@ import basicmod.cards.BaseCard;
 import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.LoseBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -39,7 +38,7 @@ public class Scrap extends BaseCard {
             addToBot(new LoseBlockAction(p, p, block));
         }
         if (mats > 0) {
-            addToBot(new MakeTempCardInHandAction(new Material(), mats));
+            addMaterialToHand(mats);
         }
     }
 }

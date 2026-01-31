@@ -8,7 +8,6 @@ import basicmod.powers.YellowInserterPower;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -41,7 +40,7 @@ public class YellowInserter extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // now
         addToBot(new DrawCardAction(p, magicNumber));
-        addToBot(new MakeTempCardInHandAction(new Material(), customVar("MAT")));
+        addMaterialToHand(customVar("MAT"));
 
         // next turn
         addToBot(new ApplyPowerAction(p, p,

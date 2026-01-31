@@ -1,6 +1,7 @@
 package basicmod.powers;
 
 import basicmod.BasicMod;
+import basicmod.actions.AddMaterialAction;
 import basicmod.cards.other.Material;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
 import static basicmod.BasicMod.makeID;
+import static basicmod.actions.AddMaterialAction.Destination.HAND;
 
 public class YellowInserterPower extends BasePower {
     public static final String POWER_ID = makeID("YellowInserterPower");
@@ -35,7 +37,7 @@ public class YellowInserterPower extends BasePower {
     public void atStartOfTurn() {
         flash();
         addToBot(new DrawCardAction(draw));
-        addToBot(new MakeTempCardInHandAction(new Material(), mat));
+        addToBot(new AddMaterialAction(mat, HAND));
         addToBot(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
     }
 

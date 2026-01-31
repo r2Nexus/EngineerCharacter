@@ -39,7 +39,7 @@ public class Scrap extends BaseCard {
             addToBot(new LoseBlockAction(p, p, block));
         }
         if (mats > 0) {
-            addToBot(new MakeTempCardInHandAction(new Material(), mats));
+            addMaterialToHand(mats);
         }
     }
 }

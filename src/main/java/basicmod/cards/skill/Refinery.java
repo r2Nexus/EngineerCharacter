@@ -34,7 +34,7 @@ public class Refinery extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ConsumeAllMaterialAction(consumed ->{
-            if(consumed >= 1) addToTop(new MakeTempCardInDiscardAction(new Material(), consumed * magicNumber));
+            if(consumed >= 1) addMaterialToDiscard(magicNumber * consumed);
         }, true, false, false));
     }
 }

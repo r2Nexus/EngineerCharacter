@@ -38,7 +38,7 @@ public class SteamEngine extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        addToBot(new MakeTempCardInHandAction(new Material(),magicNumber));
+        addMaterialToHand(magicNumber);
         addToBot(new ConsumeMaterialAction(customVar("CONS"), () -> {
             addToTop(new GainEnergyAction(2));
         },

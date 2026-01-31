@@ -43,7 +43,7 @@ public class TemporarySolution extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainEnergyAction(ENERGY));
-        addToBot(new MakeTempCardInHandAction(new Material(), magicNumber));
+        addMaterialToHand(magicNumber);
         addToBot(new MakeTempCardInDiscardAction(new Cliff(), CLIFFS));
     }
 }

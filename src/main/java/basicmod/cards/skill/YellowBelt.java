@@ -38,6 +38,6 @@ public class YellowBelt extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DrawCardAction(p, magicNumber));
-        addToBot(new MakeTempCardInHandAction(new Material(), customVar("BONUS")));
+        addMaterialToHand(customVar("BONUS"));
     }
 }

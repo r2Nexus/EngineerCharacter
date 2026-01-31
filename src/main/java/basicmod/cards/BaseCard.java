@@ -4,6 +4,7 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import basicmod.BasicMod;
+import basicmod.actions.AddMaterialAction;
 import basicmod.cardmods.ChargeMod;
 import basicmod.util.CardStats;
 import basicmod.util.TriFunction;
@@ -28,6 +29,8 @@ import static basicmod.util.TextureLoader.getCardTextureString;
 
 import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
+
+import static basicmod.actions.AddMaterialAction.Destination.*;
 
 
 public abstract class BaseCard extends CustomCard {
@@ -916,5 +919,17 @@ public abstract class BaseCard extends CustomCard {
         if (mod != null && mod.isFullyCharged(this)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR;
         }
+    }
+
+    protected void addMaterialToHand(int amount) {
+        addToBot(new AddMaterialAction(amount, HAND));
+    }
+
+    protected void addMaterialToDiscard(int amount) {
+        addToBot(new AddMaterialAction(amount, DISCARD_PILE));
+    }
+
+    protected void addMaterialToDrawPile(int amount) {
+        addToBot(new AddMaterialAction(amount, DRAW_PILE));
     }
 }

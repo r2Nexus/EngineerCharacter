@@ -41,7 +41,7 @@ public class YellowInserter extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // now
         addToBot(new DrawCardAction(p, magicNumber));
-        addToBot(new MakeTempCardInHandAction(new Material(), customVar("MAT")));
+        addMaterialToHand(customVar("MAT"));
 
         // next turn
         addToBot(new ApplyPowerAction(p, p,

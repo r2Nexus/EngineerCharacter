@@ -1,6 +1,7 @@
 package basicmod.cards.skill;
 
 import basicmod.BasicMod;
+import basicmod.actions.AddMaterialAction;
 import basicmod.cards.BaseCard;
 import basicmod.cards.other.Material;
 import basicmod.patches.AbstractCardEnum;
@@ -49,7 +50,7 @@ public class Recycler extends BaseCard {
 
                 int mats = getMaterialFromCost(exhaustedCard);
                 if (mats > 0) {
-                    addToTop(new MakeTempCardInHandAction(new Material(), mats));
+                    addToTop(new AddMaterialAction(mats, AddMaterialAction.Destination.HAND));
                 }
             }
         });

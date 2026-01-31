@@ -60,6 +60,6 @@ public class Material extends BaseCard {
         if (!upgraded) return;
 
         // Add 2 normal (unupgraded) Materials to hand
-        addToBot(new MakeTempCardInHandAction(new Material(), GEN));
+        addMaterialToHand(2);
     }
 }

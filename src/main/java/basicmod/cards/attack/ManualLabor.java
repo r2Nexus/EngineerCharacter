@@ -44,6 +44,6 @@ public class ManualLabor extends BaseCard {
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT
         ));
 
-        addToBot(new MakeTempCardInHandAction(new Material(), magicNumber));
+        addMaterialToHand(magicNumber);
     }
 }

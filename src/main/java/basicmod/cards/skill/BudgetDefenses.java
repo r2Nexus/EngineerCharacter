@@ -40,6 +40,6 @@ public class BudgetDefenses extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         addToBot(new GainBlockAction(p, p, this.block));
-        addToBot(new MakeTempCardInHandAction(new Material(), customVar("DRAW")));
+        addMaterialToHand(customVar("DRAW"));
     }
 }

@@ -36,6 +36,6 @@ public class Miner extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         addToBot(new ChannelAction(new MinerOrb()));
-        addToBot(new MakeTempCardInHandAction(new Material(), magicNumber));
+        addMaterialToHand(magicNumber);
     }
 }

@@ -1,11 +1,13 @@
 package basicmod.powers;
 
 import basicmod.BasicMod;
+import basicmod.actions.AddMaterialAction;
 import basicmod.cards.other.Material;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
 import static basicmod.BasicMod.makeID;
+import static basicmod.actions.AddMaterialAction.Destination.HAND;
 
 public class RedSciencePower extends BasePower {
     public static final String POWER_ID = makeID("RedSciencePower");
@@ -27,7 +29,7 @@ public class RedSciencePower extends BasePower {
     @Override
     public void atStartOfTurn() {
         flash();
-        addToBot(new MakeTempCardInHandAction(new Material(), this.amount));
+        addToBot(new AddMaterialAction(this.amount, HAND));
     }
 
     @Override

@@ -1,6 +1,7 @@
 package basicmod.relics;
 
 import basicmod.BasicMod;
+import basicmod.actions.AddMaterialAction;
 import basicmod.cards.other.Material;
 import basicmod.orbs.MinerOrb;
 import basicmod.patches.PlayerClassEnum;
@@ -8,6 +9,8 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+
+import static basicmod.actions.AddMaterialAction.Destination.HAND;
 
 public class BuiltMiner extends BaseRelic {
 
@@ -21,7 +24,7 @@ public class BuiltMiner extends BaseRelic {
     public void atBattleStart() {
         flash();
         addToBot(new ChannelAction(new MinerOrb()));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Material(), 1));
+        AbstractDungeon.actionManager.addToBottom(new AddMaterialAction(1, HAND));
     }
 
     @Override

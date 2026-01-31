@@ -32,6 +32,6 @@ public class Turret extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         addToBot(new ChannelAction(new TurretOrb()));
-        addToBot(new MakeTempCardInHandAction(new Material()));
+        addMaterialToHand(1);
     }
 }

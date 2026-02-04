@@ -3,14 +3,14 @@
     "NAME": "Pocket Miner",
     "FLAVOR": "Not enough minerals...",
     "DESCRIPTIONS": [
-      "At the start of combat, channel 1 Miner and add 1 Material to your hand."
+      "At the start of combat, #yChannel #b1 #yMiner NL and add #b1 #yMaterial to your hand."
     ]
   },
   "${modID}:BuiltTurret": {
     "NAME": "Pocket Turret",
     "FLAVOR": "Automation begins.",
     "DESCRIPTIONS": [
-      "At the start of combat, channel 1 Turret and add 1 Material to your hand."
+      "At the start of combat, #yChannel #b1 #yTurret NL and add #b1 #yMaterial to your hand."
     ]
   },
 
@@ -26,7 +26,7 @@
     "NAME": "Tungsten Carbide",
     "FLAVOR": "Shipped from Vulcanus",
     "DESCRIPTIONS": [
-      "At the end of your turn, gain #b3 Block for each #yMaterial in your hand."
+      "At the end of your turn, gain #b3 #yBlock for each #yMaterial in your hand."
     ]
   },
 

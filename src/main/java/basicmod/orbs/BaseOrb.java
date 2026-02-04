@@ -1,6 +1,9 @@
 package basicmod.orbs;
 
 import basicmod.BasicMod;
+import basicmod.util.HasOrbIntent;
+import basicmod.util.OrbIntent;
+import basicmod.util.OrbIntentRenderer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -17,17 +20,6 @@ import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
 
-/**
- * Base class to remove orb boilerplate:
- * - loads OrbStrings + sets name
- * - loads texture + default render
- * - standardized focus math (with per-stat toggles)
- * - optional secondary stat (e.g. block amount, charges, etc.)
- * - token-based description formatting (!P!, !E!, and optional secondary token)
- *
- * NOTE: We "poll" for focus changes (and some other relevant state) during updateAnimation.
- * This avoids fragile patches and keeps descriptions synced (e.g. when Focus changes mid-combat).
- */
 public abstract class BaseOrb extends AbstractOrb {
 
     protected static String makeID(String name) {
@@ -212,16 +204,42 @@ public abstract class BaseOrb extends AbstractOrb {
         super.updateAnimation();
         this.bobEffect.update();
 
-        // ✅ Keep description synced (e.g. Focus changes mid-combat)
+
         refreshIfNeeded();
     }
 
+    protected static final float INTENT_SCALE_MULT = 0.95f;
+    protected static final float INTENT_Y_MULT = 0.95f;
+    protected static final float INTENT_SHADOW_ALPHA = 0.65f;
+
+    protected float getRenderXOffset() { return 0f; }
+
+    protected float getIntentCenterX() { return this.cX + getRenderXOffset(); }
+    protected float getIntentCenterY() { return this.cY + this.bobEffect.y + ORB_H * INTENT_Y_MULT; }
+
     @Override
     public void render(SpriteBatch sb) {
-        sb.setColor(Color.WHITE);
-        sb.draw(orbImg, cX - 48.0F, cY - 48.0F + bobEffect.y, ORB_W, ORB_H);
+        float rx = getRenderXOffset();
 
-        // Keep these when overriding render in subclasses
+        sb.setColor(Color.WHITE);
+        sb.draw(orbImg, (cX + rx) - 48.0F, cY - 48.0F + bobEffect.y, ORB_W, ORB_H);
+
+        if (this instanceof HasOrbIntent) {
+            HasOrbIntent hoi = (HasOrbIntent) this;
+            if (hoi.shouldShowIntent()) {
+                OrbIntent intent = hoi.getOrbIntent();
+                OrbIntentRenderer.renderIntent(
+                        sb,
+                        intent,
+                        getIntentCenterX(),
+                        getIntentCenterY(),
+                        INTENT_SCALE_MULT,
+                        INTENT_SHADOW_ALPHA,
+                        true // drawNumbersRight
+                );
+            }
+        }
+
         renderText(sb);
         hb.render(sb);
     }

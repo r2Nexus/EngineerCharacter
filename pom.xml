@@ -31,11 +31,16 @@
 
     <!-- This information will be displayed in ModTheSpire, the modded launcher. -->
     <name>The Engineer</name>
-    <version>0.9.3</version>
+    <version>1.0.0</version>
     <!-- Avoid using \ in this description, as they can cause the description to fail to load. -->
     <!-- If you really want to use them, you'll need to "escape" them by putting another one in front, like \\ -->
     <description>This mod adds a vaguely Factorio inspired character.
         \n The Factory must grow!
+        \n
+        \n 75+ Cards
+        \n New Mechanics
+        \n New Relics
+        \n New Potions
     </description>
 
     <!--You shouldn't need to change anything below this point, but feel free to look at it.-->

@@ -444,8 +444,8 @@
 
   "${modID}:SteelAxe": {
     "NAME": "Steel Axe",
-    "DESCRIPTION": "Deal !D! damage. NL If it kills, channel ${modID}:Miner.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If it kills, channel ${modID}:Miner."
+    "DESCRIPTION": "Deal !D! damage. NL If it kills, Channel ${modID}:Miner.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If it kills, Channel ${modID}:Miner."
   },
 
   "${modID}:Cliff": {

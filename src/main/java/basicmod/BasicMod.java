@@ -8,6 +8,7 @@ import basicmod.cards.other.Cliff;
 import basicmod.cards.other.Material;
 import basicmod.cards.power.*;
 import basicmod.cards.skill.*;
+import basicmod.cards.power.ExpandedPockets;
 import basicmod.characters.Engineer;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.PlayerClassEnum;
@@ -249,6 +250,8 @@ public class BasicMod implements
         BaseMod.addCard(new StorageChest());
         BaseMod.addCard(new Roboport());
         BaseMod.addCard(new EconomyBoom());
+        BaseMod.addCard(new ExpandedPockets());
+        BaseMod.addCard(new Beacon());
 
         // --- Other ---
         BaseMod.addCard(new Material());

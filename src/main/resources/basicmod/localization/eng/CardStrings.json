@@ -476,5 +476,17 @@
     "NAME": "Nuclear Reactor",
     "DESCRIPTION": "Gain !M! [E]. NL Consume !M! from ${modID}:Stock: Permanently increase this card's Energy gain and Consume by 1.",
     "UPGRADE_DESCRIPTION": "Gain !M! [E]. NL Consume !M! from ${modID}:Stock: Permanently increase this card's Energy gain and Consume by 1."
+  },
+
+  "${modID}:ExpandedPockets": {
+    "NAME": "Expanded Pockets",
+    "DESCRIPTION": "Increase your maximum hand size by !M! this combat.",
+    "UPGRADE_DESCRIPTION": "Increase your maximum hand size by !M! this combat."
+  },
+
+  "${modID}:Beacon": {
+    "NAME": "Beacon",
+    "DESCRIPTION": "At the start of your turn, ${modID}Consume !${modID}:COST! from ${modID}:Stock: Gain 1 Focus. Otherwise, lose 1 Focus.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, ${modID}Consume !${modID}:COST! from ${modID}:Stock: Gain 1 Focus. Otherwise, lose 1 Focus."
   }
 }

@@ -115,8 +115,8 @@
     "NAME": "Expanded Pockets",
     "DESCRIPTIONS": [
       "Increase your maximum hand size by #b",
-      " this combat. NL (Total hand size capped at #b",
-      "#w.)"
+      " this combat. NL (Total hand size is capped at #b",
+      " this will not increase it further)"
     ]
   },
 

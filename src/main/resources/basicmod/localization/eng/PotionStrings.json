@@ -16,7 +16,7 @@
   "${modID}:SpaghettiBrew": {
     "NAME": "Spaghetti Brew",
     "DESCRIPTIONS": [
-      "Gain #b!P! Orb slots. NL Channel a random Orb for each Orb slot you have."
+      "Gain #b!P! #yOrb slots. NL #yChannel a random #yOrb for each #yOrb slot you have."
     ]
   }
 }

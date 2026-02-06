@@ -16,9 +16,9 @@ public class Landfill extends BaseCard {
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
             CardType.POWER,
-            CardRarity.RARE,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
-            2
+            1
     );
 
     public Landfill() {

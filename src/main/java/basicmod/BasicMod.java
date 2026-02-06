@@ -12,8 +12,7 @@ import basicmod.cards.power.ExpandedPockets;
 import basicmod.characters.Engineer;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.PlayerClassEnum;
-import basicmod.potions.MaterialPotion;
-import basicmod.potions.OverclockPotion;
+import basicmod.potions.*;
 import basicmod.powers.BeltFedPower;
 import basicmod.powers.FreeTurretFirePower;
 import basicmod.relics.*;
@@ -38,6 +37,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.relics.RunicCapacitor;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -275,6 +275,15 @@ public class BasicMod implements
                 OverclockPotion.ID,
                 PlayerClassEnum.ENGINEER
         );
+
+        BaseMod.addPotion(
+                SpaghettiBrew.class,
+                SpaghettiBrew.LIQUID_COLOR,
+                SpaghettiBrew.HYBRID_COLOR,
+                SpaghettiBrew.SPOTS_COLOR,
+                SpaghettiBrew.ID,
+                PlayerClassEnum.ENGINEER
+        );
     }
 
     @Override
@@ -285,6 +294,8 @@ public class BasicMod implements
         BaseMod.addRelicToCustomPool(new ProductivityModule(), AbstractCardEnum.ENGINEER);
         BaseMod.addRelicToCustomPool(new TungstenCarbide(), AbstractCardEnum.ENGINEER);
         BaseMod.addRelicToCustomPool(new SmolderingLog(), AbstractCardEnum.ENGINEER);
+        BaseMod.addRelicToCustomPool(new RunicCapacitor(), AbstractCardEnum.ENGINEER);
+        UnlockTracker.markRelicAsSeen(RunicCapacitor.ID);
 
         BaseMod.addRelic(new MandiBlade(), RelicType.SHARED);
     }

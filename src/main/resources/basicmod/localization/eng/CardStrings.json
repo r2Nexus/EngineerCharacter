@@ -138,8 +138,8 @@
 
   "${modID}:Deconstruction": {
     "NAME": "Deconstruction",
-    "DESCRIPTION": "Evoke 1 Orb. NL Gain 1 Orb Slot. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Evoke 1 Orb. NL Gain 1 Orb Slot."
+    "DESCRIPTION": "Evoke your next Orb. NL Gain 1 Orb Slot.",
+    "UPGRADE_DESCRIPTION": "Evoke your next Orb twice. NL Gain 1 Orb Slot."
   },
 
   "${modID}:RocketBarrage": {

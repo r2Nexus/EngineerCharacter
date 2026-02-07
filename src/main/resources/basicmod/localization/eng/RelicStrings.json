@@ -44,5 +44,18 @@
     "DESCRIPTIONS": [
       "Whenever you #yConsume, add a random card to your hand."
     ]
+  },
+
+  "${modID}:SpeedModule": {
+    "NAME": "Speed Module",
+    "DESCRIPTIONS": [
+      "At the start of each of your first #b3 turns of combat, gain #b1 Orb Slot."
+    ]
+  },
+  "${modID}:BurnerMiningDrill": {
+    "NAME": "Burner Mining Drill",
+    "DESCRIPTIONS": [
+      "The first card you play each combat costs #b0 (if it has a cost) and #yExhausts."
+    ]
   }
 }

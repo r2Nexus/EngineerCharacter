@@ -15,7 +15,7 @@ public class BurnerMiningDrill extends BaseRelic {
     private boolean usedThisCombat = false;
 
     public BurnerMiningDrill() {
-        super(ID, "burner_mining_drill_relic", AbstractCardEnum.ENGINEER, RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, "burner_mining_drill", AbstractCardEnum.ENGINEER, RelicTier.UNCOMMON, LandingSound.CLINK);
         this.counter = -1;
     }
 

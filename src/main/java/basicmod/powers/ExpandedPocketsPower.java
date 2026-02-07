@@ -21,8 +21,8 @@ public class ExpandedPocketsPower extends BasePower {
                 owner,
                 null,
                 Math.max(0, amount),
-                BasicMod.imagePath("powers/expanded_pockets.png"),
-                BasicMod.imagePath("powers/large/expanded_pockets.png")
+                BasicMod.imagePath("powers/expanded_pockets_power.png"),
+                BasicMod.imagePath("powers/large/expanded_pockets_power.png")
         );
     }
 

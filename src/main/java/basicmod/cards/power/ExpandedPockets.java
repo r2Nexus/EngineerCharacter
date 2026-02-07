@@ -26,7 +26,7 @@ public class ExpandedPockets extends BaseCard {
     private static final int UPG_BONUS = 0;
 
     public ExpandedPockets() {
-        super(ID, info, BasicMod.imagePath("cards/skill/expanded_pockets.png"));
+        super(ID, info, BasicMod.imagePath("cards/power/expanded_pockets.png"));
         setMagic(BONUS, UPG_BONUS);
         setCostUpgrade(0);
     }

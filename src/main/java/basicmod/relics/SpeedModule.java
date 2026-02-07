@@ -12,7 +12,7 @@ public class SpeedModule extends BaseRelic {
     public static final String ID = makeID("SpeedModule");
 
     public SpeedModule() {
-        super(ID, "speed_module_relic", AbstractCardEnum.ENGINEER, RelicTier.SHOP, LandingSound.CLINK);
+        super(ID, "speed_module", AbstractCardEnum.ENGINEER, RelicTier.SHOP, LandingSound.CLINK);
         this.counter = -1;
     }
 

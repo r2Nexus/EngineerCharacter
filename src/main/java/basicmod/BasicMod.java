@@ -294,8 +294,8 @@ public class BasicMod implements
         BaseMod.addRelicToCustomPool(new ProductivityModule(), AbstractCardEnum.ENGINEER);
         BaseMod.addRelicToCustomPool(new TungstenCarbide(), AbstractCardEnum.ENGINEER);
         BaseMod.addRelicToCustomPool(new SmolderingLog(), AbstractCardEnum.ENGINEER);
-        BaseMod.addRelicToCustomPool(new RunicCapacitor(), AbstractCardEnum.ENGINEER);
-        UnlockTracker.markRelicAsSeen(RunicCapacitor.ID);
+        BaseMod.addRelicToCustomPool(new BurnerMiningDrill(), AbstractCardEnum.ENGINEER);
+        BaseMod.addRelicToCustomPool(new SpeedModule(), AbstractCardEnum.ENGINEER);
 
         BaseMod.addRelic(new MandiBlade(), RelicType.SHARED);
     }

@@ -11,5 +11,12 @@
     "DESCRIPTIONS": [
       "Add #b!P! #yMaterial to your hand."
     ]
+  },
+
+  "${modID}:SpaghettiBrew": {
+    "NAME": "Spaghetti Brew",
+    "DESCRIPTIONS": [
+      "Gain #b!P! #yOrb slots. NL #yChannel a random #yOrb for each #yOrb slot you have."
+    ]
   }
 }

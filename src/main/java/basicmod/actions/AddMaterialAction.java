@@ -1,5 +1,6 @@
 package basicmod.actions;
 
+import basemod.BaseMod;
 import basicmod.cards.other.Material;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -51,7 +52,7 @@ public class AddMaterialAction extends AbstractGameAction {
     }
 
     private void addToHandLeft(int amt) {
-        int handSpace = 10 - AbstractDungeon.player.hand.size();
+        int handSpace = BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.hand.size();
         int toHand = Math.max(0, Math.min(amt, handSpace));
         int toDiscard = amt - toHand;
 

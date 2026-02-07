@@ -5,6 +5,7 @@ import basicmod.cards.BaseCard;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.util.CardStats;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
+import com.megacrit.cardcrawl.actions.defect.EvokeWithoutRemovingOrbAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -26,11 +27,11 @@ public class Deconstruction extends BaseCard {
     public Deconstruction() {
         super(ID, info, BasicMod.imagePath("cards/skill/deconstruction.png"));
         setMagic(MAGIC);
-        setExhaust(true,false);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if(upgraded) addToBot(new EvokeWithoutRemovingOrbAction(EVOKE));
         addToBot(new EvokeOrbAction(EVOKE));
         addToBot(new IncreaseMaxOrbAction(magicNumber));
     }

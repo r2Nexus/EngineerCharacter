@@ -15,7 +15,7 @@ public class RedScience extends BaseCard {
     public static final String ID = makeID("RedScience");
 
     private static final int MAGIC = 1;
-    private static final int UPG_MAGIC = 1;
+    private static final int UPG_MAGIC = 0;
 
     private static final CardStats info = new CardStats(
             AbstractCardEnum.ENGINEER,
@@ -31,6 +31,7 @@ public class RedScience extends BaseCard {
 
         setMagic(MAGIC, UPG_MAGIC);
         cardsToPreview = new Material();
+        setInnate(false, true);
     }
 
     @Override

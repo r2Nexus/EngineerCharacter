@@ -8,11 +8,11 @@ import basicmod.cards.other.Cliff;
 import basicmod.cards.other.Material;
 import basicmod.cards.power.*;
 import basicmod.cards.skill.*;
+import basicmod.cards.power.ExpandedPockets;
 import basicmod.characters.Engineer;
 import basicmod.patches.AbstractCardEnum;
 import basicmod.patches.PlayerClassEnum;
-import basicmod.potions.MaterialPotion;
-import basicmod.potions.OverclockPotion;
+import basicmod.potions.*;
 import basicmod.powers.BeltFedPower;
 import basicmod.powers.FreeTurretFirePower;
 import basicmod.relics.*;
@@ -37,6 +37,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.relics.RunicCapacitor;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -249,6 +250,8 @@ public class BasicMod implements
         BaseMod.addCard(new StorageChest());
         BaseMod.addCard(new Roboport());
         BaseMod.addCard(new EconomyBoom());
+        BaseMod.addCard(new ExpandedPockets());
+        BaseMod.addCard(new Beacon());
 
         // --- Other ---
         BaseMod.addCard(new Material());
@@ -272,6 +275,15 @@ public class BasicMod implements
                 OverclockPotion.ID,
                 PlayerClassEnum.ENGINEER
         );
+
+        BaseMod.addPotion(
+                SpaghettiBrew.class,
+                SpaghettiBrew.LIQUID_COLOR,
+                SpaghettiBrew.HYBRID_COLOR,
+                SpaghettiBrew.SPOTS_COLOR,
+                SpaghettiBrew.ID,
+                PlayerClassEnum.ENGINEER
+        );
     }
 
     @Override
@@ -282,6 +294,8 @@ public class BasicMod implements
         BaseMod.addRelicToCustomPool(new ProductivityModule(), AbstractCardEnum.ENGINEER);
         BaseMod.addRelicToCustomPool(new TungstenCarbide(), AbstractCardEnum.ENGINEER);
         BaseMod.addRelicToCustomPool(new SmolderingLog(), AbstractCardEnum.ENGINEER);
+        BaseMod.addRelicToCustomPool(new BurnerMiningDrill(), AbstractCardEnum.ENGINEER);
+        BaseMod.addRelicToCustomPool(new SpeedModule(), AbstractCardEnum.ENGINEER);
 
         BaseMod.addRelic(new MandiBlade(), RelicType.SHARED);
     }
@@ -495,11 +509,17 @@ public class BasicMod implements
         materialConsumedThisTurn = 0;
     }
 
+    // ---- cache ----
     private int lastTurretAmmo = -1;
     private int lastOrbCount = -1;
     private boolean lastBeltFed = false;
     private boolean lastFreeFire = false;
     private boolean lastInCombat = false;
+
+    // forgiving kicks
+    private int lastTurn = -1;
+    private long lastRefreshMs = 0L;
+    private static final long MIN_REFRESH_INTERVAL_MS = 150L;
 
     @Override
     public void receivePostUpdate() {
@@ -527,7 +547,9 @@ public class BasicMod implements
             return;
         }
 
-        boolean inCombat = !AbstractDungeon.getMonsters().areMonstersBasicallyDead();
+        boolean inCombat =
+                AbstractDungeon.getCurrRoom().phase == com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase.COMBAT
+                        && !AbstractDungeon.getMonsters().areMonstersBasicallyDead();
 
         if (!inCombat) {
             if (lastInCombat) resetTurretIntentCache();
@@ -552,16 +574,27 @@ public class BasicMod implements
 
         int orbCount = p.orbs.size();
 
-        if (ammo != lastTurretAmmo ||
-                orbCount != lastOrbCount ||
-                beltFed != lastBeltFed ||
-                freeFire != lastFreeFire) {
+        // ---- forgiving refresh conditions ----
+        int turn = (AbstractDungeon.actionManager != null) ? AbstractDungeon.actionManager.turn : -1;
+        boolean newTurn = (turn != lastTurn);
+        if (newTurn) lastTurn = turn;
 
+        long now = System.currentTimeMillis();
+        boolean timeKick = (now - lastRefreshMs) >= MIN_REFRESH_INTERVAL_MS;
+
+        boolean changed =
+                ammo != lastTurretAmmo ||
+                        orbCount != lastOrbCount ||
+                        beltFed != lastBeltFed ||
+                        freeFire != lastFreeFire;
+
+        if (changed || newTurn || timeKick) {
             lastTurretAmmo = ammo;
             lastOrbCount = orbCount;
             lastBeltFed = beltFed;
             lastFreeFire = freeFire;
 
+            lastRefreshMs = now;
             TurretIntentHelper.updateTurretIntents();
         }
     }
@@ -571,5 +604,7 @@ public class BasicMod implements
         lastOrbCount = -1;
         lastBeltFed = false;
         lastFreeFire = false;
+        lastTurn = -1;
+        lastRefreshMs = 0L;
     }
 }

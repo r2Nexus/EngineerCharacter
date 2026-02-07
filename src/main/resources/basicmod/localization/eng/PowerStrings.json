@@ -109,5 +109,24 @@
     "DESCRIPTIONS": [
       "At the start of your turn, channel !M! Miner."
     ]
+  },
+
+  "${modID}:ExpandedPocketsPower": {
+    "NAME": "Expanded Pockets",
+    "DESCRIPTIONS": [
+      "Increase your maximum hand size by #b",
+      " this combat. NL (Total hand size is capped at #b",
+      " ,this will not increase it further)"
+    ]
+  },
+
+  "${modID}:BeaconPower": {
+    "NAME": "Beacon",
+    "DESCRIPTIONS": [
+      "At the start of your turn, #yConsume #b",
+      " from #yStock: Gain #b",
+      " #yFocus. Otherwise, lose #b",
+      " #yFocus."
+    ]
   }
 }

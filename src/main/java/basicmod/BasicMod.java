@@ -509,11 +509,17 @@ public class BasicMod implements
         materialConsumedThisTurn = 0;
     }
 
+    // ---- cache ----
     private int lastTurretAmmo = -1;
     private int lastOrbCount = -1;
     private boolean lastBeltFed = false;
     private boolean lastFreeFire = false;
     private boolean lastInCombat = false;
+
+    // forgiving kicks
+    private int lastTurn = -1;
+    private long lastRefreshMs = 0L;
+    private static final long MIN_REFRESH_INTERVAL_MS = 150L;
 
     @Override
     public void receivePostUpdate() {
@@ -541,7 +547,9 @@ public class BasicMod implements
             return;
         }
 
-        boolean inCombat = !AbstractDungeon.getMonsters().areMonstersBasicallyDead();
+        boolean inCombat =
+                AbstractDungeon.getCurrRoom().phase == com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase.COMBAT
+                        && !AbstractDungeon.getMonsters().areMonstersBasicallyDead();
 
         if (!inCombat) {
             if (lastInCombat) resetTurretIntentCache();
@@ -566,16 +574,27 @@ public class BasicMod implements
 
         int orbCount = p.orbs.size();
 
-        if (ammo != lastTurretAmmo ||
-                orbCount != lastOrbCount ||
-                beltFed != lastBeltFed ||
-                freeFire != lastFreeFire) {
+        // ---- forgiving refresh conditions ----
+        int turn = (AbstractDungeon.actionManager != null) ? AbstractDungeon.actionManager.turn : -1;
+        boolean newTurn = (turn != lastTurn);
+        if (newTurn) lastTurn = turn;
 
+        long now = System.currentTimeMillis();
+        boolean timeKick = (now - lastRefreshMs) >= MIN_REFRESH_INTERVAL_MS;
+
+        boolean changed =
+                ammo != lastTurretAmmo ||
+                        orbCount != lastOrbCount ||
+                        beltFed != lastBeltFed ||
+                        freeFire != lastFreeFire;
+
+        if (changed || newTurn || timeKick) {
             lastTurretAmmo = ammo;
             lastOrbCount = orbCount;
             lastBeltFed = beltFed;
             lastFreeFire = freeFire;
 
+            lastRefreshMs = now;
             TurretIntentHelper.updateTurretIntents();
         }
     }
@@ -585,5 +604,7 @@ public class BasicMod implements
         lastOrbCount = -1;
         lastBeltFed = false;
         lastFreeFire = false;
+        lastTurn = -1;
+        lastRefreshMs = 0L;
     }
 }

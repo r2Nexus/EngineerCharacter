@@ -193,7 +193,7 @@
   "${modID}:RedScience": {
     "NAME": "Automation Science",
     "DESCRIPTION": "At the start of your turn, NL add 1 ${modID}:Material to your hand.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, NL add 2 ${modID}:Material to your hand."
+    "UPGRADE_DESCRIPTION": "At the start of your turn, NL add 1 ${modID}:Material to your hand. NL Innate."
   },
 
   "${modID}:PerimeterWall": {

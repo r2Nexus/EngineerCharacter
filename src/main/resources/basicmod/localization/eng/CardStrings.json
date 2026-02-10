@@ -264,8 +264,8 @@
 
   "${modID}:FluidWagon": {
     "NAME": "Fluid Wagon",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block for each ${modID}:Material in ${modID}:Stock.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !B! Block for each ${modID}:Material in ${modID}:Stock."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Block for each ${modID}:Material in ${modID}:Stock.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! Block for each ${modID}:Material in ${modID}:Stock."
   },
 
   "${modID}:LightArmour": {

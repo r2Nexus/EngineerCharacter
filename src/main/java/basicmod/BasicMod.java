@@ -114,7 +114,7 @@ public class BasicMod implements
         //You can find information about this on the BaseMod wiki page "Mod Config and Panel".
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
 
-
+        new basicmod.ui.MaterialCounterHud();
 
         if (DEV_MODE) {
             logger.info("[DEV] Revealing all " + modID + " cards in compendium.");

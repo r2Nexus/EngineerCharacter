@@ -18,5 +18,15 @@
     "TEXT": [
       "Choose up to !M! card(s) to keep."
     ]
+  },
+
+  "${modID}:MaterialCounterUI": {
+    "TEXT": [
+      "Material",
+      "Shows the number of Material you have.",
+      "In Draw Pile: ",
+      "In Hand: ",
+      "In Discard Pile: "
+    ]
   }
 }

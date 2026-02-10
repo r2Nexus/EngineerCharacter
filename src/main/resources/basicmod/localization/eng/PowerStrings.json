@@ -128,5 +128,22 @@
       " #yFocus. Otherwise, lose #b",
       " #yFocus."
     ]
+  },
+
+  "${modID}:DebuffMines": {
+    "NAME": "Debuff Mines",
+    "DESCRIPTIONS": [
+      "This turn, your Mines apply #b",
+      " #yVulnerable and #b",
+      " #yWeak to ALL enemies."
+    ]
+  },
+
+  "${modID}:PoisonMines": {
+    "NAME": "Poison Mines",
+    "DESCRIPTIONS": [
+      "This turn, your Mines apply #b",
+      " #yPoison to ALL enemies."
+    ]
   }
 }

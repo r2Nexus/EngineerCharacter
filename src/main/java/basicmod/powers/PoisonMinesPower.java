@@ -43,8 +43,6 @@ public class PoisonMinesPower extends BasePower {
 
     @Override
     public void updateDescription() {
-        // Prefer localization if you want; but this is fine and clear.
-        // If you want full localization, tell me your PowerStrings format and I'll adapt.
-        this.description = "This turn, your Mines apply " + amount + " Poison to ALL enemies.";
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 }

@@ -49,6 +49,6 @@ public class DebuffMinesPower extends BasePower {
 
     @Override
     public void updateDescription() {
-        this.description = "This turn, your Mines apply " + amount + " Vulnerable and " + amount2 + " Weak to ALL enemies.";
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount2 + DESCRIPTIONS[2];
     }
 }
